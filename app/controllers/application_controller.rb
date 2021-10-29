@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
         unless logged_in?
             # render "/"
             #redirect_to root is not working either
-            render json: { base: ['invalid credentials'] }, status: 401
+            render json: ['need to login!'], status: 401
         end
     end
 

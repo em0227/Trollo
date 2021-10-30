@@ -16,7 +16,8 @@ class Api::SessionsController < ApplicationController
     end
 
     def destroy
+        @user = current_user
         logout!
-        render "/"
+        render "api/users/show"
     end
 end

@@ -2,20 +2,25 @@ import React from 'react';
 
 
 class BoardIndex extends React.Component{
+    constructor(props) {
+        super(props);
+        this.props = props;
+    }
+
     componentDidMount() {
-        // this.props.fetchUser(this.props.match.params.userId)
+        this.props.fetchUser(this.props.match.params.userId);
+        // if no this, will only have id in the user state as that's what I bootstraped
     }
 
     render() {
-        if (!this.props.user) return null
+        const { user, logout } = this.props
         return(
-
             <div>
-                {console.log('in boardindex')}
-                <button onClick={this.props.logout}>Log Out</button>
+                <h3>Hi, {user.name}</h3>
+                <button onClick={logout}>Log Out</button>
             </div>
         )
     }
 }
 
-export default BoardIndex
+export default BoardIndex;

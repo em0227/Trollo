@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     this.props.action(this.state);
     //how do I ensure only successful submit will redirect to show page?
-    // this.props.history.push('/users/user:id/boards')
+    // this.props.history.push('/users/userId/boards')
   }
 
   renderErros() {

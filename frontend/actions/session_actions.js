@@ -19,22 +19,26 @@ const receiveSessionErrors = (errors) => ({
   errors,
 });
 
-export const signup = (user) => (dispatch) =>
+export const signup = (user) => (dispatch) => (
   APIUtil.signupUser(user).then((user) => dispatch(receiveCurrentUser(user))),
-  (err) => dispatch(receiveSessionErrors(err.responseJSON));
+  (err) => dispatch(receiveSessionErrors(err.responseJSON)));
 
-export const login = (user) => (dispatch) =>
+export const login = (user) => (dispatch) => (
   APIUtil.loginUser(user)
-  .then(user => dispatch(receiveCurrentUser(user)))
-  .catch(err => dispatch(receiveSessionErrors(err.responseJSON)));
+    .then((user) => dispatch(receiveCurrentUser(user))),
+    (err) => dispatch(receiveSessionErrors(err.responseJSON)));
 
-export const logout = () => (dispatch) => 
-  APIUtil.logoutUser()
-  .then((user) => dispatch(logoutCurrentUser(user)))
+//why can't I use .catch?
 
- //logout don't need userId? that's why we render show in the destroy method!
+export const logout = () => (dispatch) =>
+  APIUtil.logoutUser().then((user) => dispatch(logoutCurrentUser(user)));
 
- export const updateUser = (user) => (dispatch) =>
-  APIUtil.updateUserInfo(user)
-  .then(user => dispatch(receiveCurrentUser(user)))
-  .catch(err => dispatch(receiveSessionErrors(err.responseJSON)));
+//logout don't need userId? that's why we render show in the destroy method!
+
+export const fetchUser = (userId) => (dispatch) => (
+  APIUtil.fetchUser(userId)
+    .then((user) => dispatch(receiveCurrentUser(user))));
+
+export const updateUser = (user) => (dispatch) => (
+  APIUtil.updateUserInfo(user).then((user) => dispatch(receiveCurrentUser(user))),
+  (err) => dispatch(receiveSessionErrors(err.responseJSON)));

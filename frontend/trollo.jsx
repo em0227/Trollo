@@ -4,6 +4,7 @@ import Root from "./components/root";
 import configureStore from "./store/store";
 
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("trollo.jsx");
   let store;
   if (window.currentUser) {
     const { currentUser } = window;

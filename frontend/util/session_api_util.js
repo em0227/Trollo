@@ -2,14 +2,14 @@ export const signupUser = (user) =>
   $.ajax({
     method: "POST",
     url: "/api/users",
-    user,
+    data: {user},
   });
 
 export const loginUser = (user) =>
   $.ajax({
     method: "POST",
     url: "/api/session",
-    user,
+    data: {user},
   });
 
 export const logoutUser = () =>
@@ -18,16 +18,16 @@ export const logoutUser = () =>
     url: "/api/session",
   });
 
-// export const fetchUser = (userId) =>
-//   $.ajax({
-//     method: "GET",
-//     url: `/api/users/${userId}`,
-//   });
-// no need for this
+export const fetchUser = (userId) =>
+  $.ajax({
+    method: "GET",
+    url: `/api/users/${userId}`,
+  });
+// maybe no need for this?
 
 export const updateUserInfo = (user) =>
   $.ajax({
     method: "PATCH",
     url: `/api/users/${user.id}`,
-    user,
+    data: {user},
   });

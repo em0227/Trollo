@@ -12,8 +12,14 @@
           window.currentUser = {
           "id": <%= current_user.id %>
           }
-      </script>
+      </script >
     <% end %>
+    <script type="text/javascript">
+      window.images = {
+        logo: "<%= image_url("black_logo.png") %>",
+        mainBoard: "<%= image_url("main_board.png") %>"
+      }
+    </script>
   </head>
 
   <body>

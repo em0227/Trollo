@@ -13,3 +13,101 @@
  *= require_tree .
  *= require_self
  */
+
+ 
+
+#root {
+    padding: 20px;
+    font-family: 'Zen Kurenaido', sans-serif;
+ }
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 20px;
+ }
+
+ /* splashcontent starts here */
+
+ .splash {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-image: linear-gradient(rgb(236, 182, 253), white);
+    border-radius: 10%;
+ }
+
+ .top-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 50px;
+ }
+
+ .top-container img {
+    width: 60%;
+    height: 500px;
+    border-radius: 25%;
+ }
+
+  .top-container-text {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding-left: 40px;
+    padding-right: 20px;
+  }
+
+ .splash nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+ }
+
+ .splash nav img {
+     width: 200px;
+     height: 100px;
+     padding: 20px;
+ }
+
+ .splash .links {
+    display: flex;
+    width: 100px;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-right: 30px;
+ }
+
+
+
+ /* loginform starts here */
+
+ .login-background {
+     background-color: rgb(247, 243, 243);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     padding: 25px;
+     line-height: 50px;
+ }
+
+ .login-background img {
+     width: 120px;
+     height: 60px;
+ }
+
+ .login-form {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+     border: 1px black solid;
+     padding: 15px;
+     line-height: 21px;
+ }
+
+ .login-form input {
+     border: 1px black solid;
+ }

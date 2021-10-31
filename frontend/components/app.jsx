@@ -9,7 +9,6 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 const App = (props) => {
   return (
     <div>
-      <img src={window.images.logo} alt="trollo-logo" />
       <Switch>
         <AuthRoute path="/signup" component={SignupContainer} />
         <AuthRoute path="/login" component={LoginContainer} />

@@ -11,7 +11,7 @@ const App = (props) => {
   return (
     <div>
       <Switch>
-        <ProtectedRoute path="/users/:userId/boards" component={BoardContainer}/>
+         <ProtectedRoute path="/users/:userId/boards" component={BoardContainer}/>
         <AuthRoute path="/signup" component={SignupContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
         <AuthRoute path="/" component={SplashContent} />

@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { NavLink } from 'react-router-dom'
+import BoardIndexItems from './board_index_items';
 
 class BoardIndex extends React.Component{
     constructor(props) {
@@ -15,9 +16,18 @@ class BoardIndex extends React.Component{
     render() {
         const { user, logout } = this.props
         return(
-            <div>
+            <div className="board">
+                <nav className="board-nav">
+                    <img src={window.images.logo} alt="trollo-logo" />
+                    <div className="links">
+                        <p>Notifications</p>
+                        <p>User Settings</p>
+                        <button onClick={logout}>Log Out</button>
+                    </div>
+                </nav>
                 <h3>Hi, {user.name}</h3>
-                <button onClick={logout}>Log Out</button>
+                
+                <BoardIndexItems />
             </div>
         )
     }

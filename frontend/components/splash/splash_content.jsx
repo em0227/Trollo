@@ -6,7 +6,7 @@ export default () => {
   return (
     <div className="splash">
       
-        <nav>
+        <nav className="splash-nav">
           <img src={window.images.logo} alt="trollo-logo" />
           <div className="links">
             <Link to="/login">Login</Link>

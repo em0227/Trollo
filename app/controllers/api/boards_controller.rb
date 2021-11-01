@@ -2,7 +2,8 @@ class Api::BoardsController < ApplicationController
     before_action :ensure_logged_in
 
     def index
-        @user = User.find_by(id: params[:id])
+        @user = User.find_by(id: params[:user_id])
+        # debugger
         @boards = @user.boards
     end
 

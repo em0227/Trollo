@@ -2,17 +2,26 @@ import React from "react";
 import BoardForm from "./board_form";
 
 class BoardShow extends React.Component {
+  componentDidMount() {
+    // this.props.fetchAllBoards(this.props.match.params.userId);
+  }
+
   render() {
-    if (this.props.board === null) {
+    if (!Array.isArray(this.props.boards)) return null;
+    if (!this.props.board) {
       return (
         <div className="show-all-boards">
           <h3>All Boards</h3>
+          {console.log(this.props.boards)}
           {this.props.boards.map((board) => (
-            <div key={board.id} style={`background-color:${board.bg_color}`}>
+            <div
+              key={board.id}
+              style={{ backgroundColor: board.bg_color }}
+              className="single-board"
+            >
               {board.title}
             </div>
           ))}
-
           <BoardForm />
         </div>
       );

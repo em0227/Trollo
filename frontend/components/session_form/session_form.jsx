@@ -9,13 +9,13 @@ class SessionForm extends React.Component {
       password: "",
       name: "",
     };
-    
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemo = this.loginDemo.bind(this);
   }
 
   componentWillUnmount() {
-    this.props.removeErrors()
+    this.props.removeErrors();
   }
 
   handleInput(type) {
@@ -29,8 +29,7 @@ class SessionForm extends React.Component {
     // this.props.history.push('/users/userId/boards')
   }
 
-<<<<<<< HEAD
-  renderErros() {
+  renderErrors() {
     return (
       <ul>
         {this.props.errors.map((error, i) => (
@@ -38,16 +37,6 @@ class SessionForm extends React.Component {
         ))}
       </ul>
     );
-=======
-  renderErrors() {
-      return (
-        <ul>
-          {this.props.errors.map((error, i) => (
-            <li key={i}>{error}</li>
-          ))}
-        </ul>
-      )
->>>>>>> main
   }
 
   renderNameField() {
@@ -67,7 +56,7 @@ class SessionForm extends React.Component {
   }
 
   loginDemo() {
-    this.props.demoUserLogin()
+    this.props.demoUserLogin();
   }
 
   render() {
@@ -98,7 +87,8 @@ class SessionForm extends React.Component {
             <br />
             Or <Link to={link}>{linkName}</Link>
             <br />
-            Or log in as <input type="submit" onClick={this.loginDemo} value="Demo User"/>
+            Or log in as{" "}
+            <input type="submit" onClick={this.loginDemo} value="Demo User" />
           </form>
         </div>
       </div>

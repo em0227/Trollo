@@ -10,6 +10,7 @@ class BoardIndex extends React.Component {
   }
 
   componentDidMount() {
+    console.log("in index compodidmout");
     this.props.fetchUser(this.props.match.params.userId);
     this.props.fetchAllBoards(this.props.match.params.userId);
     // if no this, will only have id in the user state as that's what I bootstraped
@@ -17,6 +18,9 @@ class BoardIndex extends React.Component {
 
   render() {
     const { user, logout, boards, board } = this.props;
+    // debugger;
+    if (!Array.isArray(boards)) return null;
+    console.log(boards);
     return (
       <div className="board">
         <nav className="board-nav">

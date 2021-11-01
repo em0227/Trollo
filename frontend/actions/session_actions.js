@@ -20,7 +20,10 @@ const receiveSessionErrors = (errors) => ({
   errors,
 });
 
-<<<<<<< HEAD
+export const removeSessionErrors = () => ({
+  type: REMOVE_SESSION_ERRORS,
+});
+
 export const signup = (user) => (dispatch) =>
   APIUtil.signupUser(user).then(
     (user) => dispatch(receiveCurrentUser(user)),
@@ -32,24 +35,6 @@ export const login = (user) => (dispatch) =>
     (user) => dispatch(receiveCurrentUser(user)),
     (err) => dispatch(receiveSessionErrors(err.responseJSON))
   );
-=======
-export const removeSessionErrors = () => ({
-  type: REMOVE_SESSION_ERRORS
-})
-
-export const signup = (user) => (dispatch) => (
-  APIUtil.signupUser(user).then((user) => dispatch(receiveCurrentUser(user)
-  ),
-  (err) => dispatch(receiveSessionErrors(err.responseJSON))
-  ));
-
-export const login = (user) => (dispatch) => (
-  APIUtil.loginUser(user)
-    .then(user => dispatch(receiveCurrentUser(user)
-    ),
-    err => dispatch(receiveSessionErrors(err.responseJSON))
-    ));
->>>>>>> main
 
 //why can't I use .catch?
 
@@ -61,20 +46,11 @@ export const logout = () => (dispatch) =>
 export const fetchUser = (userId) => (dispatch) =>
   APIUtil.fetchUser(userId).then((user) => dispatch(receiveCurrentUser(user)));
 
-<<<<<<< HEAD
 export const updateUser = (user) => (dispatch) =>
   APIUtil.updateUserInfo(user).then(
     (user) => dispatch(receiveCurrentUser(user)),
     (err) => dispatch(receiveSessionErrors(err.responseJSON))
   );
-=======
-export const updateUser = (user) => (dispatch) => (
-  APIUtil.updateUserInfo(user).then((user) => dispatch(receiveCurrentUser(user)
-  ),
-  (err) => dispatch(receiveSessionErrors(err.responseJSON))
-  ));
 
-export const demoUserLogin = () => (dispatch) => (
-  APIUtil.demoUserLogin().then(user => dispatch(receiveCurrentUser(user)))
-)
->>>>>>> main
+export const demoUserLogin = () => (dispatch) =>
+  APIUtil.demoUserLogin().then((user) => dispatch(receiveCurrentUser(user)));

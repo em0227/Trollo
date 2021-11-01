@@ -1,6 +1,2 @@
 
-json.array! @boards do |board|
-    json.set! board.id do 
-        json.extract! board, :id, :title
-    end
-end
+json.array! @boards, :id, :title, :bg_color

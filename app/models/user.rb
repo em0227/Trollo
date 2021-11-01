@@ -5,7 +5,10 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
     #FIGVAPER
 
-    has_many :boards
+    has_many :boards,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Board
 
 
     attr_reader :password

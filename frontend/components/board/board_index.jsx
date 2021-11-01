@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 import BoardIndexItems from './board_index_items';
+import BoardSideBar from './board_side_bar'
 
 class BoardIndex extends React.Component{
     constructor(props) {
@@ -10,11 +11,12 @@ class BoardIndex extends React.Component{
 
     componentDidMount() {
         this.props.fetchUser(this.props.match.params.userId);
+        this.props.fetchAllBoards(this.props.match.params.userId)
         // if no this, will only have id in the user state as that's what I bootstraped
     }
 
     render() {
-        const { user, logout } = this.props
+        const { user, logout, boards } = this.props
         return(
             <div className="board">
                 <nav className="board-nav">
@@ -25,9 +27,11 @@ class BoardIndex extends React.Component{
                         <button onClick={logout}>Log Out</button>
                     </div>
                 </nav>
-                <h3>Hi, {user.name}</h3>
-                
-                <BoardIndexItems />
+                <h3>{user.name}'s Workapace</h3>
+                <div className="board-main">
+                    <BoardSideBar boards={boards}/>
+                    <BoardIndexItems boards={boards}/>
+                </div>    
             </div>
         )
     }

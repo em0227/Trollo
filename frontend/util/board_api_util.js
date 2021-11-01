@@ -1,31 +1,31 @@
 
-fetchAllBoards = (userId) => 
+export const fetchAllBoards = (userId) => 
 $.ajax({
     method: 'GET',
     url: `api/user/${userId}/boards`
 })
 
-fetchBoard = (boardId) =>
+export const fetchBoard = (boardId) =>
 $.ajax({
     method: 'GET',
     url: `api/boards/${boardId}`
 })
 
-createBoard = (board) =>
+export const createBoard = (board) =>
 $.ajax({
     method: 'POST',
     url: `api/boards/`,
     data: { board }
 })
 
-updateBoard = (board) =>
+export const updateBoard = (board) =>
 $.ajax({
     method: 'PATCH',
     url: `api/boards/${board.id}`,
     data: { board }
 })
 
-deleteBoard = (boardId) => 
+export const deleteBoard = (boardId) => 
 $.ajax({
     method: 'DELETE',
     url: `api/boards/${boardId}`

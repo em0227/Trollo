@@ -31,3 +31,15 @@ export const updateUserInfo = (user) =>
     url: `/api/users/${user.id}`,
     data: {user},
   });
+
+export const demoUserLogin = () => 
+  $.ajax({
+    method: "POST",
+    url: "/api/session",
+    data: {
+      user: {
+        email: 'em0227new@aa.io',
+        password: '123123'
+      }
+    }
+  })

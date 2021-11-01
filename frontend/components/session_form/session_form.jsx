@@ -9,7 +9,13 @@ class SessionForm extends React.Component {
       password: "",
       name: "",
     };
+    
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginDemo = this.loginDemo.bind(this);
+  }
+
+  componentWillUnmount() {
+    this.props.removeErrors()
   }
 
   handleInput(type) {
@@ -23,16 +29,14 @@ class SessionForm extends React.Component {
     // this.props.history.push('/users/userId/boards')
   }
 
-  renderErros() {
-    // console.log('in the render errors')
-    // console.log(this.props.errors)
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={i}>{error}</li>
-        ))}
-      </ul>
-    );
+  renderErrors() {
+      return (
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={i}>{error}</li>
+          ))}
+        </ul>
+      )
   }
 
   renderNameField() {
@@ -51,6 +55,10 @@ class SessionForm extends React.Component {
     }
   }
 
+  loginDemo() {
+    this.props.demoUserLogin()
+  }
+
   render() {
     const { formType, link } = this.props;
     const linkName = formType === 'Sign Up' ? "Log In" : "Sign Up";
@@ -59,7 +67,7 @@ class SessionForm extends React.Component {
         <img src={window.images.logo} alt="trollo-logo" />
         <div> 
           <h2>{formType}</h2>
-          {this.renderErros()}
+          {this.renderErrors()}
           <form onSubmit={this.handleSubmit} className="login-form">
             <label>Email</label>
             <input
@@ -78,6 +86,8 @@ class SessionForm extends React.Component {
             <button>{formType}</button>
             <br />
             Or <Link to={link}>{linkName}</Link>
+            <br />
+            Or log in as <input type="submit" onClick={this.loginDemo} value="Demo User"/>
           </form>
         </div>
       </div>

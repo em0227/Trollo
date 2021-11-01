@@ -19,18 +19,17 @@ const receiveSessionErrors = (errors) => ({
   errors,
 });
 
-export const signup = (user) => (dispatch) => (
-  APIUtil.signupUser(user).then((user) => dispatch(receiveCurrentUser(user)
-  ),
-  (err) => dispatch(receiveSessionErrors(err.responseJSON))
-  ));
+export const signup = (user) => (dispatch) =>
+  APIUtil.signupUser(user).then(
+    (user) => dispatch(receiveCurrentUser(user)),
+    (err) => dispatch(receiveSessionErrors(err.responseJSON))
+  );
 
-export const login = (user) => (dispatch) => (
-  APIUtil.loginUser(user)
-    .then(user => dispatch(receiveCurrentUser(user)
-    ),
-    err => dispatch(receiveSessionErrors(err.responseJSON))
-    ));
+export const login = (user) => (dispatch) =>
+  APIUtil.loginUser(user).then(
+    (user) => dispatch(receiveCurrentUser(user)),
+    (err) => dispatch(receiveSessionErrors(err.responseJSON))
+  );
 
 //why can't I use .catch?
 
@@ -39,12 +38,11 @@ export const logout = () => (dispatch) =>
 
 //logout don't need userId? that's why we render show in the destroy method!
 
-export const fetchUser = (userId) => (dispatch) => (
-  APIUtil.fetchUser(userId)
-    .then((user) => dispatch(receiveCurrentUser(user))));
+export const fetchUser = (userId) => (dispatch) =>
+  APIUtil.fetchUser(userId).then((user) => dispatch(receiveCurrentUser(user)));
 
-export const updateUser = (user) => (dispatch) => (
-  APIUtil.updateUserInfo(user).then((user) => dispatch(receiveCurrentUser(user)
-  ),
-  (err) => dispatch(receiveSessionErrors(err.responseJSON))
-  ));
+export const updateUser = (user) => (dispatch) =>
+  APIUtil.updateUserInfo(user).then(
+    (user) => dispatch(receiveCurrentUser(user)),
+    (err) => dispatch(receiveSessionErrors(err.responseJSON))
+  );

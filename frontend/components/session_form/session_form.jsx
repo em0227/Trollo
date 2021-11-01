@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -24,8 +24,6 @@ class SessionForm extends React.Component {
   }
 
   renderErros() {
-    // console.log('in the render errors')
-    // console.log(this.props.errors)
     return (
       <ul>
         {this.props.errors.map((error, i) => (
@@ -36,28 +34,28 @@ class SessionForm extends React.Component {
   }
 
   renderNameField() {
-    if (this.props.formType === 'Sign Up') {
+    if (this.props.formType === "Sign Up") {
       return (
-        
-          <label>Name
-            <br />
+        <label>
+          Name
+          <br />
           <input
             type="text"
             onChange={this.handleInput("name")}
             value={this.state.name}
-          /></label>
-       
-      )
+          />
+        </label>
+      );
     }
   }
 
   render() {
     const { formType, link } = this.props;
-    const linkName = formType === 'Sign Up' ? "Log In" : "Sign Up";
+    const linkName = formType === "Sign Up" ? "Log In" : "Sign Up";
     return (
       <div className="login-background">
         <img src={window.images.logo} alt="trollo-logo" />
-        <div> 
+        <div>
           <h2>{formType}</h2>
           {this.renderErros()}
           <form onSubmit={this.handleSubmit} className="login-form">

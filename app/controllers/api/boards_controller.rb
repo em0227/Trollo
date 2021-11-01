@@ -1,5 +1,10 @@
 class Api::BoardsController < ApplicationController
-    # before_action :ensure_logged_in
+    before_action :ensure_logged_in
+
+    def index
+        @user = User.find_by(id: params[:id])
+        @boards = @user.boards
+    end
 
     def show
         @board = current_user.boards.find_by(id: params[:id])
@@ -36,6 +41,6 @@ class Api::BoardsController < ApplicationController
     private
 
     def board_params
-        params.require(:board).permit(:title)
+        params.require(:board).permit(:title, :bg_color)
     end
 end

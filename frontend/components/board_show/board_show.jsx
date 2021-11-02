@@ -2,10 +2,6 @@ import React from "react";
 import BoardForm from "./board_form";
 
 class BoardShow extends React.Component {
-  componentDidMount() {
-    // this.props.fetchAllBoards(this.props.match.params.userId);
-  }
-
   render() {
     if (!Array.isArray(this.props.boards)) return null;
     if (!this.props.board) {

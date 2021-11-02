@@ -5,8 +5,7 @@ import { connect } from "react-redux";
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.entities.users[ownProps.match.params.userId],
-  boards: state.entities.boards,
-  board: null,
+  boards: Object.values(state.entities.boards),
 });
 
 const mapDispatchToProps = (dispatch) => ({

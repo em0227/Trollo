@@ -13,7 +13,8 @@ class Api::BoardsController < ApplicationController
 
     def create
         @board = Board.new(board_params)
-        @board.author = current_user.id
+        # debugger
+        @board.author = current_user
         # @board.author = User.first
         if @board.save
             render :show

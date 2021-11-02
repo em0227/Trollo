@@ -10,8 +10,7 @@ class BoardForm extends React.Component {
     };
 
     this.toggleForm = this.toggleForm.bind(this);
-    this.handleInput = this.handleInput.bind(this);
-    // this.handleCreate = this.handleCreate.bind(this);
+    this.handleCreate = this.handleCreate.bind(this);
   }
 
   toggleForm() {
@@ -23,8 +22,17 @@ class BoardForm extends React.Component {
   }
 
   handleCreate(e) {
-    // e.preventDefault;
-    // this.props.createBoard(this.state);
+    e.preventDefault();
+    let board = {
+      title: this.state.title,
+      bg_color: this.state.bg_color,
+    };
+    this.props.createBoard(board);
+    this.setState({
+      title: "",
+      bg_color: "",
+      display: false,
+    });
   }
 
   showForm() {
@@ -69,7 +77,7 @@ class BoardForm extends React.Component {
           <input
             type="submit"
             value="Create!"
-            onSubmit={this.handleCreate}
+            onClick={this.handleCreate}
             style={{ border: "1px black solid" }}
           />
         </form>

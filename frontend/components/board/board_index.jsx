@@ -15,6 +15,13 @@ class BoardIndex extends React.Component {
     // if no this, will only have id in the user state as that's what I bootstraped
   }
 
+  componentDidUpdate(prevProps) {
+    // this.props.fetchUser(this.props.match.params.userId);
+    // console.log(prevProps);
+    // if (prevProps.boards !== this.props.boards)
+    //   this.props.fetchAllBoards(this.props.match.params.userId);
+  }
+
   render() {
     const { user, logout, boards, board, createBoard } = this.props;
     // debugger;
@@ -35,7 +42,7 @@ class BoardIndex extends React.Component {
           <BoardIndexItems
             boards={boards}
             board={board}
-            // createBoard={createBoard}
+            createBoard={createBoard}
           />
         </div>
       </div>

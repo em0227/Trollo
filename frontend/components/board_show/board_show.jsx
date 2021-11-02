@@ -18,7 +18,7 @@ class BoardShow extends React.Component {
               {board.title}
             </div>
           ))}
-          <BoardForm />
+          <BoardForm createBoard={this.props.createBoard} />
         </div>
       );
     } else {

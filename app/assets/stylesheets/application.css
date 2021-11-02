@@ -161,3 +161,22 @@ h2 {
   width: 100px;
   height: 50px;
 }
+
+/* board form starts here */
+.board-form input {
+  border: 1px black solid;
+}
+
+.color-button {
+  display: flex;
+  width: 30px;
+  height: 30px;
+}
+
+.color-buttons {
+  display: flex;
+}
+
+.color-button:focus {
+  border: rgb(242, 66, 66) 2px solid;
+}

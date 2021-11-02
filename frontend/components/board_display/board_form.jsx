@@ -38,7 +38,7 @@ class BoardForm extends React.Component {
   showForm() {
     if (this.state.display)
       return (
-        <form>
+        <form className="board-form">
           <label>Title:</label>
           <input
             type="text"
@@ -46,34 +46,39 @@ class BoardForm extends React.Component {
             value={this.state.title}
           />
           <br />
-          <label>Choose Board Color:</label>
-          <button
-            style={{ backgroundColor: "orange" }}
-            value="orange"
-            onClick={this.handleInput("bg_color")}
-          ></button>
-          <button
-            style={{ backgroundColor: "yellow" }}
-            value="yellow"
-            onClick={this.handleInput("bg_color")}
-          ></button>
-          <button
-            style={{ backgroundColor: "green" }}
-            value="green"
-            onClick={this.handleInput("bg_color")}
-          ></button>
-          <button
-            style={{ backgroundColor: "blue" }}
-            value="blue"
-            onClick={this.handleInput("bg_color")}
-          ></button>
-
-          <button
-            style={{ backgroundColor: "velvet" }}
-            value="velvet"
-            onClick={this.handleInput("bg_color")}
-          ></button>
-          <br />
+          <label className="color-buttons">
+            Choose Board Color:
+            <button
+              style={{ backgroundColor: "orange" }}
+              value="orange"
+              onClick={this.handleInput("bg_color")}
+              className="color-button"
+            ></button>
+            <button
+              style={{ backgroundColor: "yellow" }}
+              value="yellow"
+              onClick={this.handleInput("bg_color")}
+              className="color-button"
+            ></button>
+            <button
+              style={{ backgroundColor: "green" }}
+              value="green"
+              onClick={this.handleInput("bg_color")}
+              className="color-button"
+            ></button>
+            <button
+              style={{ backgroundColor: "blue" }}
+              value="blue"
+              onClick={this.handleInput("bg_color")}
+              className="color-button"
+            ></button>
+            <button
+              style={{ backgroundColor: "velvet" }}
+              value="velvet"
+              onClick={this.handleInput("bg_color")}
+              className="color-button"
+            ></button>
+          </label>
           <input
             type="submit"
             value="Create!"
@@ -89,6 +94,7 @@ class BoardForm extends React.Component {
       this.state.display === false ? "Create a New Board" : "Maybe Next Time";
     return (
       <div>
+        <br />
         {this.showForm()}
         <button onClick={this.toggleForm}>{createButton}</button>
       </div>

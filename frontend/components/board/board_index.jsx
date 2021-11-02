@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import BoardIndexItems from "./board_index_items";
+import BoardDisplayContainer from "../board_display/board_display_container";
 import BoardSideBar from "./board_side_bar";
 
 class BoardIndex extends React.Component {
@@ -23,7 +23,7 @@ class BoardIndex extends React.Component {
   }
 
   render() {
-    const { user, logout, boards, board, createBoard } = this.props;
+    const { user, logout, boards } = this.props;
     // debugger;
     if (!Array.isArray(boards)) return null;
     return (
@@ -39,11 +39,7 @@ class BoardIndex extends React.Component {
         <h3>{user.name}'s Workapace</h3>
         <div className="board-main">
           <BoardSideBar boards={boards} />
-          <BoardIndexItems
-            boards={boards}
-            board={board}
-            createBoard={createBoard}
-          />
+          <BoardDisplayContainer />
         </div>
       </div>
     );

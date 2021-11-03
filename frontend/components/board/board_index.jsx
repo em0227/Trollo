@@ -1,7 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import BoardDisplayContainer from "../board_display/board_display_container";
+import { NavLink, Switch } from "react-router-dom";
+import BoardDisplayAllContainer from "../board_display/board_display_all_container";
+import BoardDisplayCurrentContainer from "../board_display/board_display_current_container";
 import BoardSideBar from "./board_side_bar";
+import { ProtectedRoute } from "../../util/route_util";
 
 class BoardIndex extends React.Component {
   constructor(props) {
@@ -10,9 +12,13 @@ class BoardIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.match.params.userId);
-    this.props.fetchAllBoards(this.props.match.params.userId);
+    this.props.fetchUser(this.props.user.id);
+    this.props.fetchAllBoards(this.props.user.id);
+    if (this.props.location.pathname === "/") {
+      this.props.history.push(`/users/${this.props.user.id}/boards`);
+    }
     // if no this, will only have id in the user state as that's what I bootstraped
+    // refactor it to not attach to params, which is safer and make my board frontend routes possible
   }
 
   componentDidUpdate(prevProps) {
@@ -20,6 +26,10 @@ class BoardIndex extends React.Component {
     // console.log(prevProps);
     // if (prevProps.boards !== this.props.boards)
     //   this.props.fetchAllBoards(this.props.match.params.userId);
+    if (this.props.location.pathname === "/") {
+      this.props.history.push(`/users/${this.props.user.id}/boards`);
+    }
+    //switch somehow can't match loosely thus above code
   }
 
   render() {
@@ -39,7 +49,16 @@ class BoardIndex extends React.Component {
         <h3>{user.name}'s Workapace</h3>
         <div className="board-main">
           <BoardSideBar boards={boards} />
-          <BoardDisplayContainer />
+          <Switch>
+            <ProtectedRoute
+              path="/boards/:boardTitle"
+              component={BoardDisplayCurrentContainer}
+            />
+            <ProtectedRoute
+              path="/users/:userId/boards"
+              component={BoardDisplayAllContainer}
+            />
+          </Switch>
         </div>
       </div>
     );

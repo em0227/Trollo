@@ -2,7 +2,6 @@ import * as APIUtil from "../util/board_api_util";
 
 export const RECEIVE_BOARDS = "RECEIVE_BOARDS";
 export const RECEIVE_BOARD = "RECEIVE_BOARD";
-export const DISPLAY_BOARD = "FETCH_BOARD";
 export const REMOVE_BOARD = "REMOVE_BOARD";
 export const RECEIVE_BOARD_ERRORS = "RECEIVE_BOARD_ERRORS";
 
@@ -13,11 +12,6 @@ const receiveBoards = (boards) => ({
 
 const receiveBoard = (board) => ({
   type: RECEIVE_BOARD,
-  board,
-});
-
-const displayBoard = (board) => ({
-  type: FETCH_BOARD,
   board,
 });
 

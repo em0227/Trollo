@@ -3,8 +3,8 @@ import { logout, fetchUser } from "../../actions/session_actions";
 import { fetchAllBoards } from "../../actions/board_actions";
 import { connect } from "react-redux";
 
-const mapStateToProps = (state, ownProps) => ({
-  user: state.entities.users[ownProps.match.params.userId],
+const mapStateToProps = (state) => ({
+  user: state.entities.users[state.session.id],
   boards: Object.values(state.entities.boards),
 });
 

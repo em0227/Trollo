@@ -1,23 +1,10 @@
 import React from "react";
 import BoardForm from "./board_form";
+import { Link } from "react-router-dom";
 
 class BoardDisplay extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleDelete = this.handleDelete.bind(this);
-    this.handleUpdate = this.handleUpdate.bind(this);
-  }
-  handleDelete(boardId) {
-    return (e) => {
-      e.preventDefault();
-      console.log(e);
-      console.log(boardId);
-      this.props.deleteBoard(boardId);
-    };
-  }
-
-  handleUpdate(e) {
-    e.preventDefault();
   }
 
   render() {
@@ -35,18 +22,9 @@ class BoardDisplay extends React.Component {
               style={{ backgroundColor: board.bg_color }}
               className="single-board"
             >
-              {board.title}
+              <Link to={`/users/boards/${board.title}`}>{board.title}</Link>
+
               <br />
-              <input
-                type="submit"
-                value="Update"
-                onSubmit={this.handleUpdate}
-              />
-              <input
-                type="submit"
-                value="Delete"
-                onClick={this.handleDelete(board.id)}
-              />
             </div>
           ))}
           <BoardForm createBoard={this.props.createBoard} />

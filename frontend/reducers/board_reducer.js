@@ -1,6 +1,7 @@
 import {
   RECEIVE_BOARDS,
   RECEIVE_BOARD,
+  DISPLAY_BOARD,
   REMOVE_BOARD,
 } from "../actions/board_actions";
 

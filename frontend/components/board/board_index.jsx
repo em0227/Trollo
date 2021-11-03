@@ -49,7 +49,7 @@ class BoardIndex extends React.Component {
 
         <div className="board-main">
           <BoardSideBar boards={boards} user={user} />
-          <div className="board-display">
+          {/* <div className="board-display"> */}
             <Switch>
               <ProtectedRoute
                 path="/boards/:boardTitle"
@@ -60,7 +60,7 @@ class BoardIndex extends React.Component {
                 component={BoardDisplayAllContainer}
               />
             </Switch>
-          </div>
+          {/* </div> */}
         </div>
       </div>
     );

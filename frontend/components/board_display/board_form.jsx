@@ -55,26 +55,26 @@ class BoardForm extends React.Component {
               className="color-button"
             ></button>
             <button
-              style={{ backgroundColor: "yellow" }}
-              value="yellow"
+              style={{ backgroundColor: "lemonchiffon" }}
+              value="lemonchiffon"
               onClick={this.handleInput("bg_color")}
               className="color-button"
             ></button>
             <button
-              style={{ backgroundColor: "green" }}
-              value="green"
+              style={{ backgroundColor: "limegreen" }}
+              value="limegreen"
               onClick={this.handleInput("bg_color")}
               className="color-button"
             ></button>
             <button
-              style={{ backgroundColor: "blue" }}
-              value="blue"
+              style={{ backgroundColor: "lightskyblue" }}
+              value="lightskyblue"
               onClick={this.handleInput("bg_color")}
               className="color-button"
             ></button>
             <button
-              style={{ backgroundColor: "velvet" }}
-              value="velvet"
+              style={{ backgroundColor: "mediumorchid" }}
+              value="mediumorchid"
               onClick={this.handleInput("bg_color")}
               className="color-button"
             ></button>

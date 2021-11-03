@@ -8,7 +8,12 @@ class BoardDisplayCurrent extends React.Component {
 
   render() {
     if (!this.props.board) return null;
-    return <div className="show-single-board">On {this.props.board.title}</div>;
+    const { bg_color, title } = this.props.board;
+    return (
+      <div className="show-single-board" style={{ backgroundColor: bg_color }}>
+        On {title}
+      </div>
+    );
   }
 }
 

@@ -6,7 +6,7 @@ class BoardSideBar extends React.Component {
     const { user, boards } = this.props;
     return (
       <div className="board-left-nav">
-        <h3>{user.name}'s Workapace</h3>
+        <h3>{user.name}'s Workspace</h3>
         <br />
 
         <div id={`/users/${user.id}/boards`} className="all-boards">

@@ -1,5 +1,5 @@
 class Board < ApplicationRecord
-    BG_COLORS = ['white', 'blue', 'velvet', 'yellow', 'orange', 'green']
+    BG_COLORS = ['white', 'lightskyblue', 'mediumorchid', 'lemonchiffon', 'orange', 'limegreen']
 
     validates :title, :author_id, :bg_color, presence: true
     validates :bg_color, inclusion: BG_COLORS

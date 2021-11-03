@@ -41,6 +41,7 @@
   align-items: flex-start;
   padding: 30px;
   height: 100%;
+  width: 100%;
 }
 
 .board-left-nav {
@@ -87,7 +88,8 @@
   }
 }
 
-.board-display {
+.display-all,
+.show-single-board {
   border: 1px black solid;
   height: 100%;
   width: 100%;

@@ -11,19 +11,22 @@ class BoardDisplayAll extends React.Component {
     const { boards } = this.props;
     // weirdly, only onClick works for input submit and not onSubmit
     return (
-      <div className="show-all-boards">
+      <div className="display-all">
         <h3>Your Boards</h3>
-        {boards.map((board) => (
-          <div
-            key={board.id}
-            style={{ backgroundColor: board.bg_color }}
-            className="single-board"
-          >
-            <Link to={`/boards/${board.title}`}>{board.title}</Link>
+        <br />
+        <div className="board-list">
+          {boards.map((board) => (
+            <div
+              key={board.id}
+              style={{ backgroundColor: board.bg_color }}
+              className="single-board"
+            >
+              <Link to={`/boards/${board.title}`}>{board.title}</Link>
 
-            <br />
-          </div>
-        ))}
+              <br />
+            </div>
+          ))}
+        </div>
         <BoardForm createBoard={this.props.createBoard} />
       </div>
     );

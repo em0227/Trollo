@@ -39,26 +39,28 @@ class BoardIndex extends React.Component {
     return (
       <div className="board">
         <nav className="board-nav">
-          <img src={window.images.purpleLogo} alt="trollo-logo" />
+          <img src={window.images.whiteLogo} alt="trollo-logo" />
           <div className="links">
             <p>Notifications</p>
             <p>User Settings</p>
             <button onClick={logout}>Log Out</button>
           </div>
         </nav>
-        <h3>{user.name}'s Workapace</h3>
+
         <div className="board-main">
-          <BoardSideBar boards={boards} />
-          <Switch>
-            <ProtectedRoute
-              path="/boards/:boardTitle"
-              component={BoardDisplayCurrentContainer}
-            />
-            <ProtectedRoute
-              path="/users/:userId/boards"
-              component={BoardDisplayAllContainer}
-            />
-          </Switch>
+          <BoardSideBar boards={boards} user={user} />
+          <div className="board-display">
+            <Switch>
+              <ProtectedRoute
+                path="/boards/:boardTitle"
+                component={BoardDisplayCurrentContainer}
+              />
+              <ProtectedRoute
+                path="/users/:userId/boards"
+                component={BoardDisplayAllContainer}
+              />
+            </Switch>
+          </div>
         </div>
       </div>
     );

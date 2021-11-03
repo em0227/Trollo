@@ -9,7 +9,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 const App = (props) => {
   return (
-    <div>
+    <div className="app">
       <Switch>
         <ProtectedRoute path="/" component={BoardContainer} />
         <AuthRoute path="/signup" component={SignupContainer} />

@@ -93,7 +93,7 @@ class BoardForm extends React.Component {
     const createButton =
       this.state.display === false ? "Create a New Board" : "Maybe Next Time";
     return (
-      <div>
+      <div className="board-create-new">
         <br />
         {this.showForm()}
         <button onClick={this.toggleForm}>{createButton}</button>

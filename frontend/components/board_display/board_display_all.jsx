@@ -12,7 +12,7 @@ class BoardDisplayAll extends React.Component {
     // weirdly, only onClick works for input submit and not onSubmit
     return (
       <div className="show-all-boards">
-        <h3>All Boards</h3>
+        <h3>Your Boards</h3>
         {boards.map((board) => (
           <div
             key={board.id}

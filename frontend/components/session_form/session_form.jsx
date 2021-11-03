@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props.email);
     this.state = {
-      email: "",
+      email: this.props.email,
       password: "",
       name: "",
     };
@@ -42,15 +43,16 @@ class SessionForm extends React.Component {
   renderNameField() {
     if (this.props.formType === "Sign Up") {
       return (
-        <label>
-          Name
+        <div className="name">
           <br />
           <input
             type="text"
             onChange={this.handleInput("name")}
             value={this.state.name}
+            placeholder="  Name"
+            className="name"
           />
-        </label>
+        </div>
       );
     }
   }
@@ -66,21 +68,23 @@ class SessionForm extends React.Component {
     return (
       <div className="login-background">
         <img src={window.images.purpleLogo} alt="trollo-logo" />
-        <div>
+        <div className="login-form-container">
           <h2>{formType}</h2>
           {this.renderErrors()}
+          <br />
           <form onSubmit={this.handleSubmit} className="login-form">
-            <label>Email</label>
             <input
               type="email"
               onChange={this.handleInput("email")}
               value={this.state.email}
+              placeholder="  Email"
             />
-            <label>Password</label>
+            <br />
             <input
               type="password"
               onChange={this.handleInput("password")}
               value={this.state.password}
+              placeholder="  Password"
             />
             {this.renderNameField()}
             <br />
@@ -89,7 +93,7 @@ class SessionForm extends React.Component {
             Or <Link to={link}>{linkName}</Link>
             <br />
           </form>
-          or log in as{" "}
+          Or log in as
           <input type="submit" onClick={this.loginDemo} value="Demo User" />
         </div>
       </div>

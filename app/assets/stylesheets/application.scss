@@ -35,6 +35,7 @@
 }
 
 @import "./splash.scss";
+@import "./session_form.scss";
 
 #root {
   // font-family: "Zen Kurenaido", sans-serif;
@@ -53,36 +54,6 @@ h2 {
 
 p {
   line-height: 1.5;
-}
-
-/* loginform starts here */
-
-.login-background {
-  background-color: rgb(247, 243, 243);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  line-height: 50px;
-}
-
-.login-background img {
-  width: 120px;
-  height: 50px;
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  border: 1px black solid;
-  padding: 15px;
-  line-height: 21px;
-}
-
-.login-form input {
-  border: 1px black solid;
 }
 
 /* board starts here */

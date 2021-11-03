@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -9,13 +9,13 @@ class SessionForm extends React.Component {
       password: "",
       name: "",
     };
-    
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginDemo = this.loginDemo.bind(this);
   }
 
   componentWillUnmount() {
-    this.props.removeErrors()
+    this.props.removeErrors();
   }
 
   handleInput(type) {
@@ -30,42 +30,43 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-      return (
-        <ul>
-          {this.props.errors.map((error, i) => (
-            <li key={i}>{error}</li>
-          ))}
-        </ul>
-      )
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={i}>{error}</li>
+        ))}
+      </ul>
+    );
   }
 
   renderNameField() {
-    if (this.props.formType === 'Sign Up') {
+    if (this.props.formType === "Sign Up") {
       return (
-        
-          <label>Name
-            <br />
+        <label>
+          Name
+          <br />
           <input
             type="text"
             onChange={this.handleInput("name")}
             value={this.state.name}
-          /></label>
-       
-      )
+          />
+        </label>
+      );
     }
   }
 
-  loginDemo() {
-    this.props.demoUserLogin()
+  loginDemo(e) {
+    e.preventDefault();
+    this.props.demoUserLogin();
   }
 
   render() {
     const { formType, link } = this.props;
-    const linkName = formType === 'Sign Up' ? "Log In" : "Sign Up";
+    const linkName = formType === "Sign Up" ? "Log In" : "Sign Up";
     return (
       <div className="login-background">
-        <img src={window.images.logo} alt="trollo-logo" />
-        <div> 
+        <img src={window.images.purpleLogo} alt="trollo-logo" />
+        <div>
           <h2>{formType}</h2>
           {this.renderErrors()}
           <form onSubmit={this.handleSubmit} className="login-form">
@@ -87,8 +88,9 @@ class SessionForm extends React.Component {
             <br />
             Or <Link to={link}>{linkName}</Link>
             <br />
-            Or log in as <input type="submit" onClick={this.loginDemo} value="Demo User"/>
           </form>
+          or log in as{" "}
+          <input type="submit" onClick={this.loginDemo} value="Demo User" />
         </div>
       </div>
     );

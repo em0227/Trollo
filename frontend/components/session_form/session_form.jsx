@@ -55,7 +55,8 @@ class SessionForm extends React.Component {
     }
   }
 
-  loginDemo() {
+  loginDemo(e) {
+    e.preventDefault();
     this.props.demoUserLogin();
   }
 
@@ -64,7 +65,7 @@ class SessionForm extends React.Component {
     const linkName = formType === "Sign Up" ? "Log In" : "Sign Up";
     return (
       <div className="login-background">
-        <img src={window.images.logo} alt="trollo-logo" />
+        <img src={window.images.purpleLogo} alt="trollo-logo" />
         <div>
           <h2>{formType}</h2>
           {this.renderErrors()}
@@ -87,9 +88,9 @@ class SessionForm extends React.Component {
             <br />
             Or <Link to={link}>{linkName}</Link>
             <br />
-            Or log in as{" "}
-            <input type="submit" onClick={this.loginDemo} value="Demo User" />
           </form>
+          or log in as{" "}
+          <input type="submit" onClick={this.loginDemo} value="Demo User" />
         </div>
       </div>
     );

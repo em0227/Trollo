@@ -1,0 +1,95 @@
+/* splashcontent starts here */
+
+.splash {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  //   margin: 0 40px 0 55px;
+
+  .splash-nav {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s ease-in;
+
+    &.scroll {
+      background-color: white;
+      height: 60px;
+      box-shadow: 2px 2px 2px lightgray;
+    }
+
+    img {
+      width: 110px;
+      height: 45px;
+      padding: 20px;
+    }
+    .links {
+      display: flex;
+      width: 120px;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-right: 20px;
+      margin-top: 10px;
+      font-size: 14px;
+      .login {
+        color: rgb(0, 101, 255);
+        padding: 6px;
+        text-decoration: underline;
+      }
+      .signup {
+        background-color: rgb(0, 101, 255);
+        color: white;
+        height: 15px;
+        width: 55px;
+        padding: 7px;
+        padding-right: 3px;
+        border-radius: 0.3rem;
+      }
+    }
+  }
+  .top {
+    background-image: linear-gradient(rgb(233, 203, 241), white);
+  }
+
+  .container {
+    display: flex;
+    align-items: flex-start;
+    padding: 130px 55px 0 80px;
+
+    img {
+      width: 40%;
+      height: 40%;
+    }
+    .container-text {
+      display: flex;
+      flex-direction: column;
+      padding-right: 20px;
+    }
+    .email {
+      background-color: white;
+      border: 1px lightgray solid;
+      border-radius: 0.3rem;
+      height: 35px;
+    }
+    .splash-sign-up2 {
+      background-color: rgb(0, 101, 255);
+      color: white;
+      height: 15px;
+      width: 135px;
+      padding: 10px;
+      padding-right: 3px;
+      border-radius: 0.3rem;
+    }
+    &.second {
+      flex-direction: column;
+      align-items: center;
+      img {
+        width: 100%;
+      }
+    }
+    &.tools-showcase {
+    }
+  }
+}

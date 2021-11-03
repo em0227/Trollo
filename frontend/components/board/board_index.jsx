@@ -29,7 +29,7 @@ class BoardIndex extends React.Component {
     return (
       <div className="board">
         <nav className="board-nav">
-          <img src={window.images.logo} alt="trollo-logo" />
+          <img src={window.images.purpleLogo} alt="trollo-logo" />
           <div className="links">
             <p>Notifications</p>
             <p>User Settings</p>

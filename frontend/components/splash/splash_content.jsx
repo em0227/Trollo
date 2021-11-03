@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 class SplashContent extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       email: "",
     };
@@ -23,7 +24,7 @@ class SplashContent extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
+    this.props.addEmail(this.state.email);
     this.props.history.push("/signup");
   }
 
@@ -62,20 +63,22 @@ class SplashContent extends React.Component {
               unique—accomplish it all with Trollo.
             </p>
             <br />
-            <input
-              type="email"
-              placeholder="  Email"
-              className="email"
-              onChange={this.handleInput}
-              value={this.state.email}
-            />
-            <br />
-            <input
-              type="submit"
-              value="Sign up - it's free"
-              className="splash-sign-up2"
-              onClick={this.handleSubmit}
-            />
+            
+              <input
+                type="email"
+                placeholder="  Email"
+                className="email"
+                onChange={this.handleInput}
+                value={this.state.email}
+              />
+              <br />
+              <input
+                type="submit"
+                value="Sign up - it's free"
+                className="splash-sign-up2"
+                onClick={this.handleSubmit}
+              />
+            
           </div>
           <img src={window.images.openingImg} alt="teamwork" />
         </div>

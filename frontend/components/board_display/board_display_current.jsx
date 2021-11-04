@@ -1,5 +1,5 @@
 import React from "react";
-import { findBoardByTitle } from "../../reducers/selector";
+import BoardRightSideBar from "./board_right_side_bar";
 
 class BoardDisplayCurrent extends React.Component {
   constructor(props) {
@@ -17,6 +17,8 @@ class BoardDisplayCurrent extends React.Component {
           style={{ backgroundImage: `url(${photo})` }}
         >
           On {title}
+          <br />
+          <BoardRightSideBar closeNav={closeNav} />
         </div>
       );
     } else {

@@ -1,0 +1,50 @@
+/* board form starts here */
+.board-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  input[type="text"] {
+    border: lightgray 1px solid;
+  }
+  input[type="submit"] {
+    background-color: rgb(0, 101, 255);
+    border-radius: 0.3rem;
+    padding: 4px;
+    width: 70px;
+    color: white;
+  }
+}
+
+.color-button {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  &:focus {
+    border: rgb(242, 66, 66) 2px solid;
+  }
+}
+
+.color-buttons {
+  display: flex;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 40px;
+  border-radius: 0.3rem;
+}

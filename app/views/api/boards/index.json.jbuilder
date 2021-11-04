@@ -9,3 +9,4 @@
         end
     end
 end
+# not sure why need begin rescue here see it from the pokemon

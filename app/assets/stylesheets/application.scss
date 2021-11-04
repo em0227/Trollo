@@ -38,6 +38,7 @@
 @import "./splash.scss";
 @import "./session_form.scss";
 @import "./board_index.scss";
+@import "./board_form.scss";
 
 #root {
   // font-family: "Zen Kurenaido", sans-serif;
@@ -62,22 +63,4 @@ h2 {
 
 p {
   line-height: 1.5;
-}
-
-/* board form starts here */
-.board-form input {
-  border: 1px black solid;
-}
-
-.color-button {
-  display: flex;
-  width: 30px;
-  height: 30px;
-  &:focus {
-    border: rgb(242, 66, 66) 2px solid;
-  }
-}
-
-.color-buttons {
-  display: flex;
 }

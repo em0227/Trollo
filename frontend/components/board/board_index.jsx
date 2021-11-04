@@ -2,13 +2,18 @@ import React from "react";
 import { NavLink, Switch } from "react-router-dom";
 import BoardDisplayAllContainer from "../board_display/board_display_all_container";
 import BoardDisplayCurrentContainer from "../board_display/board_display_current_container";
-import BoardSideBar from "./board_side_bar";
+import BoardLeftSideBar from "./board_left_side_bar";
 import { ProtectedRoute } from "../../util/route_util";
+import CreateModalContainer from "../modals/create_modal_container";
+import { openCreateBoard } from "../../actions/modal_actions";
 
 class BoardIndex extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
+    this.state = {
+      showLeftNav: true,
+    };
   }
 
   componentDidMount() {
@@ -34,15 +39,14 @@ class BoardIndex extends React.Component {
   }
 
   openNav() {
+    //refactor to use css classess that are toggled by react state
     document.querySelector(".board-left-nav").style.width = "250px";
     document.querySelector(".board-main").style.marginLeft = "250px";
-    // document.querySelector(".board-nav").style.marginLeft = "250px";
     document.querySelector(".side-bar-collapsed").style.width = "0";
   }
 
   render() {
-    const { user, logout, boards } = this.props;
-    // debugger;
+    const { user, logout, boards, createBoard, openCreateBoard } = this.props;
     if (!boards) return null;
     return (
       <div className="board">
@@ -56,7 +60,12 @@ class BoardIndex extends React.Component {
         </nav>
 
         <div className="board-main">
-          <BoardSideBar boards={boards} user={user} />
+          <CreateModalContainer createBoard={createBoard} />
+          <BoardLeftSideBar
+            boards={boards}
+            user={user}
+            openCreateBoard={openCreateBoard}
+          />
           <div onClick={this.openNav} className="side-bar-collapsed">
             <p>Emily</p>
             <i className="fas fa-chevron-circle-right"></i>

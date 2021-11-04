@@ -116,11 +116,10 @@
   }
 }
 
-.display-all,
-#show-single-board {
-  border: 1px black solid;
+.display-all {
+  // border: 1px black solid;
 
-  padding: 300px;
+  // padding: 300px;
   // margin-left: 60px;
   line-height: 2;
   display: flex;
@@ -141,8 +140,9 @@
 }
 
 #show-single-board {
+  padding: 100px 0 0 300px;
   display: block;
-  height: 60%;
+  height: 100%;
   width: 90%;
   position: fixed;
   top: 50px;

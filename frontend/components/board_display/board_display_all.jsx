@@ -10,16 +10,20 @@ class BoardDisplayAll extends React.Component {
   openNav() {
     document.querySelector(".board-left-nav").style.width = "250px";
     document.querySelector(".board-main").style.marginLeft = "250px";
-    // document.querySelector(".board-nav").style.marginLeft = "250px";
     document.querySelector(".side-bar-collapsed").style.width = "0";
   }
 
-  showImage(board) {
-    if (board.photo) {
-      return `{{backgroundImage: 'url(${board.photo})'}}`;
-    } else {
-      return `{{backgroundColor: ${board.bg_color}}}`;
-    }
+  // showImage(board) {
+  //   if (board.photo) {
+  //     return `{{backgroundImage: 'url(${board.photo})'}}`;
+  //   } else {
+  //     return `{{backgroundColor: ${board.bg_color}}}`;
+  //   }
+  // }
+
+  showModal(e) {
+    e.preventDefault();
+    this.props.openCreateBoard();
   }
 
   render() {
@@ -65,7 +69,9 @@ class BoardDisplayAll extends React.Component {
             }
           })}
         </div>
-        <BoardForm createBoard={this.props.createBoard} />
+        {/* <BoardForm createBoard={this.props.createBoard} /> */}
+        <br />
+        <button onClick={this.showModal.bind(this)}>Create New Board</button>
       </div>
     );
   }

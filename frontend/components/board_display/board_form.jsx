@@ -18,7 +18,10 @@ class BoardForm extends React.Component {
   }
 
   handleInput(type) {
-    return (e) => this.setState({ [type]: e.target.value });
+    return (e) => {
+      e.preventDefault();
+      this.setState({ [type]: e.target.value });
+    };
   }
 
   handleCreate(e) {
@@ -35,69 +38,69 @@ class BoardForm extends React.Component {
     });
   }
 
-  showForm() {
-    if (this.state.display)
-      return (
-        <form className="board-form">
-          <label>Title:</label>
-          <input
-            type="text"
-            onChange={this.handleInput("title")}
-            value={this.state.title}
-          />
-          <br />
-          <label className="color-buttons">
-            Choose Board Color:
-            <button
-              style={{ backgroundColor: "orange" }}
-              value="orange"
-              onClick={this.handleInput("bg_color")}
-              className="color-button"
-            ></button>
-            <button
-              style={{ backgroundColor: "lemonchiffon" }}
-              value="lemonchiffon"
-              onClick={this.handleInput("bg_color")}
-              className="color-button"
-            ></button>
-            <button
-              style={{ backgroundColor: "limegreen" }}
-              value="limegreen"
-              onClick={this.handleInput("bg_color")}
-              className="color-button"
-            ></button>
-            <button
-              style={{ backgroundColor: "lightskyblue" }}
-              value="lightskyblue"
-              onClick={this.handleInput("bg_color")}
-              className="color-button"
-            ></button>
-            <button
-              style={{ backgroundColor: "mediumorchid" }}
-              value="mediumorchid"
-              onClick={this.handleInput("bg_color")}
-              className="color-button"
-            ></button>
-          </label>
-          <input
-            type="submit"
-            value="Create!"
-            onClick={this.handleCreate}
-            style={{ border: "1px black solid" }}
-          />
-        </form>
-      );
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={i} style={{ color: "red" }}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
-    const createButton =
-      this.state.display === false ? "Create a New Board" : "Maybe Next Time";
+    // const createButton =
+    //   this.state.display === false ? "Create a New Board" : "Maybe Next Time";
     return (
-      <div className="board-create-new">
+      <form className="board-form">
+        {this.renderErrors()}
+        <label>Board Name:</label>
         <br />
-        {this.showForm()}
-        <button onClick={this.toggleForm}>{createButton}</button>
-      </div>
+        <input
+          type="text"
+          onChange={this.handleInput("title")}
+          value={this.state.title}
+        />
+        <br />
+        <label>Choose Board Color:</label>
+        <br />
+        <div className="color-buttons">
+          <button
+            style={{ backgroundColor: "orange" }}
+            value="orange"
+            onClick={this.handleInput("bg_color")}
+            className="color-button"
+          ></button>
+          <button
+            style={{ backgroundColor: "lemonchiffon" }}
+            value="lemonchiffon"
+            onClick={this.handleInput("bg_color")}
+            className="color-button"
+          ></button>
+          <button
+            style={{ backgroundColor: "limegreen" }}
+            value="limegreen"
+            onClick={this.handleInput("bg_color")}
+            className="color-button"
+          ></button>
+          <button
+            style={{ backgroundColor: "lightskyblue" }}
+            value="lightskyblue"
+            onClick={this.handleInput("bg_color")}
+            className="color-button"
+          ></button>
+          <button
+            style={{ backgroundColor: "mediumorchid" }}
+            value="mediumorchid"
+            onClick={this.handleInput("bg_color")}
+            className="color-button"
+          ></button>
+        </div>
+        <br />
+        <input type="submit" value="Create!" onClick={this.handleCreate} />
+      </form>
     );
   }
 }

@@ -5,13 +5,9 @@ import {
   deleteBoard,
   fetchBoard,
 } from "../../actions/board_actions";
-import { findBoardByTitle } from "../../reducers/selector";
 
 const mapStateToProps = (state, ownProps) => ({
-  board: findBoardByTitle(
-    state.entities.boards,
-    ownProps.match.params.boardTitle
-  ),
+  board: state.entities.boards[ownProps.match.params.boardId],
 });
 
 const mapDispatchToProps = (dispatch) => ({

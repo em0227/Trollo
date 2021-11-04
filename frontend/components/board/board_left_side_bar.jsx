@@ -33,7 +33,7 @@ class BoardLeftSideBar extends React.Component {
         {boards.map((board) => (
           <div
             key={board.id}
-            id={`/boards/${board.title}`}
+            id={`/boards/${board.id}`}
             className="single-board-in-nav"
           >
             <div
@@ -43,7 +43,7 @@ class BoardLeftSideBar extends React.Component {
                 height: "20px",
               }}
             ></div>
-            <NavLink to={`/boards/${board.title}`}>{board.title}</NavLink>
+            <NavLink to={`/boards/${board.id}`}>{board.title}</NavLink>
           </div>
         ))}
       </div>

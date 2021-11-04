@@ -73,7 +73,7 @@ class BoardIndex extends React.Component {
           <div className="board-display">
             <Switch>
               <ProtectedRoute
-                path="/boards/:boardTitle"
+                path="/boards/:boardId"
                 component={BoardDisplayCurrentContainer}
               />
               <ProtectedRoute

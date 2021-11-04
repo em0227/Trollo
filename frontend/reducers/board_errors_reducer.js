@@ -8,7 +8,7 @@ export default (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_BOARD_ERRORS:
-      return action.errors.responseJSON;
+      if (action.errors.responseJSON) return action.errors.responseJSON;
     case RECEIVE_BOARD:
       return [];
     case RECEIVE_BOARDS:

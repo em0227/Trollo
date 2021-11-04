@@ -45,7 +45,7 @@ class BoardDisplayAll extends React.Component {
                   }}
                   className="single-board"
                 >
-                  <Link to={`/boards/${board.title}`} onClick={this.openNav}>
+                  <Link to={`/boards/${board.id}`} onClick={this.openNav}>
                     {board.title}
                   </Link>
 
@@ -59,7 +59,7 @@ class BoardDisplayAll extends React.Component {
                   style={{ backgroundColor: `${board.bg_color}` }}
                   className="single-board"
                 >
-                  <Link to={`/boards/${board.title}`} onClick={this.openNav}>
+                  <Link to={`/boards/${board.id}`} onClick={this.openNav}>
                     {board.title}
                   </Link>
 

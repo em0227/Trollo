@@ -36,7 +36,7 @@ class BoardIndex extends React.Component {
   openNav() {
     document.querySelector(".board-left-nav").style.width = "250px";
     document.querySelector(".board-main").style.marginLeft = "250px";
-    document.querySelector(".board-nav").style.marginLeft = "250px";
+    // document.querySelector(".board-nav").style.marginLeft = "250px";
     document.querySelector(".side-bar-collapsed").style.width = "0";
   }
 
@@ -59,7 +59,7 @@ class BoardIndex extends React.Component {
           <BoardSideBar boards={boards} user={user} />
           <div onClick={this.openNav} className="side-bar-collapsed">
             <p>Emily</p>
-            <i class="fas fa-chevron-circle-right"></i>
+            <i className="fas fa-chevron-circle-right"></i>
           </div>
           <div className="board-display">
             <Switch>

@@ -73,12 +73,11 @@ p {
   display: flex;
   width: 30px;
   height: 30px;
+  &:focus {
+    border: rgb(242, 66, 66) 2px solid;
+  }
 }
 
 .color-buttons {
   display: flex;
-}
-
-.color-button:focus {
-  border: rgb(242, 66, 66) 2px solid;
 }

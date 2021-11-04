@@ -8,12 +8,24 @@ class BoardDisplayCurrent extends React.Component {
 
   render() {
     if (!this.props.board) return null;
-    const { bg_color, title } = this.props.board;
-    return (
-      <div className="show-single-board" style={{ backgroundColor: bg_color }}>
-        On {title}
-      </div>
-    );
+    const { bg_color, title, photo } = this.props.board;
+    console.log(photo);
+    if (photo) {
+      return (
+        <div
+          id="show-single-board"
+          style={{ backgroundImage: `url(${photo})` }}
+        >
+          On {title}
+        </div>
+      );
+    } else {
+      return (
+        <div id="show-single-board" style={{ backgroundColor: bg_color }}>
+          On {title}
+        </div>
+      );
+    }
   }
 }
 

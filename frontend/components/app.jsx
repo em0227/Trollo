@@ -4,7 +4,6 @@ import SignupContainer from "./session_form/signup_container";
 import LoginContainer from "./session_form/login_container";
 import SplashContentContainer from "./splash/splash_content_container";
 import BoardContainer from "./board/board_container";
-import BoardDisplayCurrentContainer from "./board_display/board_display_current_container";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 const App = (props) => {

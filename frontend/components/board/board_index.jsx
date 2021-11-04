@@ -50,16 +50,16 @@ class BoardIndex extends React.Component {
         <div className="board-main">
           <BoardSideBar boards={boards} user={user} />
           {/* <div className="board-display"> */}
-            <Switch>
-              <ProtectedRoute
-                path="/boards/:boardTitle"
-                component={BoardDisplayCurrentContainer}
-              />
-              <ProtectedRoute
-                path="/users/:userId/boards"
-                component={BoardDisplayAllContainer}
-              />
-            </Switch>
+          <Switch>
+            <ProtectedRoute
+              path="/boards/:boardTitle"
+              component={BoardDisplayCurrentContainer}
+            />
+            <ProtectedRoute
+              path="/users/:userId/boards"
+              component={BoardDisplayAllContainer}
+            />
+          </Switch>
           {/* </div> */}
         </div>
       </div>

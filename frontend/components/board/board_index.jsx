@@ -26,16 +26,24 @@ class BoardIndex extends React.Component {
     // console.log(prevProps);
     // if (prevProps.boards !== this.props.boards)
     //   this.props.fetchAllBoards(this.props.match.params.userId);
+    // this.props.fetchAllBoards(this.props.user.id);
     if (this.props.location.pathname === "/") {
       this.props.history.push(`/users/${this.props.user.id}/boards`);
     }
     //switch somehow can't match loosely thus above code
   }
 
+  openNav() {
+    document.querySelector(".board-left-nav").style.width = "250px";
+    document.querySelector(".board-main").style.marginLeft = "250px";
+    document.querySelector(".board-nav").style.marginLeft = "250px";
+    document.querySelector(".side-bar-collapsed").style.width = "0";
+  }
+
   render() {
     const { user, logout, boards } = this.props;
     // debugger;
-    if (!Array.isArray(boards)) return null;
+    if (!boards) return null;
     return (
       <div className="board">
         <nav className="board-nav">
@@ -49,18 +57,22 @@ class BoardIndex extends React.Component {
 
         <div className="board-main">
           <BoardSideBar boards={boards} user={user} />
-          {/* <div className="board-display"> */}
-          <Switch>
-            <ProtectedRoute
-              path="/boards/:boardTitle"
-              component={BoardDisplayCurrentContainer}
-            />
-            <ProtectedRoute
-              path="/users/:userId/boards"
-              component={BoardDisplayAllContainer}
-            />
-          </Switch>
-          {/* </div> */}
+          <div onClick={this.openNav} className="side-bar-collapsed">
+            <p>Emily</p>
+            <i class="fas fa-chevron-circle-right"></i>
+          </div>
+          <div className="board-display">
+            <Switch>
+              <ProtectedRoute
+                path="/boards/:boardTitle"
+                component={BoardDisplayCurrentContainer}
+              />
+              <ProtectedRoute
+                path="/users/:userId/boards"
+                component={BoardDisplayAllContainer}
+              />
+            </Switch>
+          </div>
         </div>
       </div>
     );

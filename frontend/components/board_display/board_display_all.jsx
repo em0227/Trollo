@@ -7,6 +7,13 @@ class BoardDisplayAll extends React.Component {
     super(props);
   }
 
+  openNav() {
+    document.querySelector(".board-left-nav").style.width = "250px";
+    document.querySelector(".board-main").style.marginLeft = "250px";
+    document.querySelector(".board-nav").style.marginLeft = "250px";
+    document.querySelector(".side-bar-collapsed").style.width = "0";
+  }
+
   render() {
     const { boards } = this.props;
     // weirdly, only onClick works for input submit and not onSubmit
@@ -21,7 +28,9 @@ class BoardDisplayAll extends React.Component {
               style={{ backgroundColor: board.bg_color }}
               className="single-board"
             >
-              <Link to={`/boards/${board.title}`}>{board.title}</Link>
+              <Link to={`/boards/${board.title}`} onClick={this.openNav}>
+                {board.title}
+              </Link>
 
               <br />
             </div>

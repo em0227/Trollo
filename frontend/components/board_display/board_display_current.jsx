@@ -10,18 +10,6 @@ class BoardDisplayCurrent extends React.Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    // console.log(prevProps.board);
-    // console.log(this.props.board);
-    if (this.props.board && prevProps.board !== this.props.board) {
-      this.setState({
-        id: this.props.board.id,
-        title: this.props.board.title,
-      });
-    }
-    // console.log(this.state);
-  }
-
   submitUpdate(e) {
     e.preventDefault();
     if (this.props.board && this.props.board.title !== this.state.title) {
@@ -39,7 +27,6 @@ class BoardDisplayCurrent extends React.Component {
     const background = photo
       ? { backgroundImage: `url(${photo})` }
       : { backgroundColor: bg_color };
-    // console.log(photo);
 
     return (
       <div id="show-single-board" style={background}>
@@ -48,7 +35,7 @@ class BoardDisplayCurrent extends React.Component {
           <input
             type="text"
             value={this.state.title}
-            placeholder={this.state.title}
+            placeholder={this.props.board.title}
             onChange={this.updateBoardTitle.bind(this)}
             onBlur={this.submitUpdate.bind(this)}
           />

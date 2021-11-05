@@ -14,9 +14,29 @@ class BoardRightSideBar extends React.Component {
 
   rightNavWidth() {
     if (this.state.rightNavShow) {
-      return "250px";
+      return {
+        width: "250px",
+        padding: "20px 0 0 20px",
+      };
     } else {
-      return "0";
+      return {
+        width: "0",
+        opacity: "0",
+      };
+    }
+  }
+
+  collapsedNav() {
+    if (this.state.rightNavShow) {
+      return {
+        width: "0",
+        opacity: "0",
+      };
+    } else {
+      return {
+        width: "140px",
+        padding: "10px",
+      };
     }
   }
 
@@ -31,7 +51,6 @@ class BoardRightSideBar extends React.Component {
   }
 
   changeColor(e) {
-    console.log(this.state);
     this.setState({
       board: {
         id: this.props.board.id,
@@ -42,8 +61,6 @@ class BoardRightSideBar extends React.Component {
 
   submitChange(e) {
     e.preventDefault();
-    console.log(this.state.board);
-    console.log(this.state);
     this.props.updateBoard(this.state.board);
   }
 
@@ -54,12 +71,14 @@ class BoardRightSideBar extends React.Component {
 
   render() {
     const rightNavWidth = this.rightNavWidth();
+    const collapsedNav = this.collapsedNav();
     return (
       <div className="show-right-menu">
-        <div className="board-right-nav" style={{ width: rightNavWidth }}>
+        <div className="board-right-nav" style={rightNavWidth}>
           <a className="closebtn" onClick={this.closeNav.bind(this)}>
             &times;
           </a>
+          <br />
           <div className="color-buttons">
             <button
               style={{ backgroundColor: "orange" }}
@@ -91,14 +110,24 @@ class BoardRightSideBar extends React.Component {
               onClick={this.changeColor.bind(this)}
               className="color-button"
             ></button>
-            <button onClick={this.submitChange.bind(this)}>
-              Change Background Color
-            </button>
           </div>
+          <br />
+          <button onClick={this.submitChange.bind(this)}>
+            Change Background
+          </button>
+          <br />
+          <br />
           <button onClick={this.submitDelete.bind(this)}>Delete Board</button>
         </div>
         <br />
-        <div onClick={this.openNav.bind(this)}>Show Menu</div>
+        <div
+          onClick={this.openNav.bind(this)}
+          className="side-bar-collapsed-right"
+          style={collapsedNav}
+        >
+          <i className="fas fa-ellipsis-h"></i>
+          <span>Show Menu</span>
+        </div>
       </div>
     );
   }

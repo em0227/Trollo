@@ -23,44 +23,15 @@ class BoardIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // this.props.fetchUser(this.props.match.params.userId);
-    // console.log(prevProps);
-    // if (prevProps.boards !== this.props.boards)
-    //   this.props.fetchAllBoards(this.props.match.params.userId);
-    // this.props.fetchAllBoards(this.props.user.id);
     if (this.props.location.pathname === "/") {
       this.props.history.push(`/users/${this.props.user.id}/boards`);
     }
     //switch somehow can't match loosely thus above code
   }
 
-  openNav(e) {
-    e.preventDefault();
-    this.props.changeLeftNavDisplay(true);
-  }
-
-  collapsedNavWidth() {
-    if (this.props.showLeftNav) {
-      return "0";
-    } else {
-      return "40px";
-    }
-  }
-
-  marginLeft() {
-    if (this.props.showLeftNav) {
-      return "250px";
-    } else {
-      return "40px";
-    }
-  }
-
   render() {
     const { user, logout, boards, createBoard, openCreateBoard } = this.props;
-    const collapsedNavWidth = this.collapsedNavWidth();
-    const marginLeft = this.marginLeft();
-    const fullWidth = 100 % -marginLeft;
-    if (!boards) return null;
+    if (boards.length === 0) return null;
     return (
       <div className="board">
         <nav className="board-nav">
@@ -74,24 +45,16 @@ class BoardIndex extends React.Component {
 
         <div
           className="board-main"
-          style={{ marginLeft: marginLeft, width: fullWidth }}
+
         >
           <CreateModalContainer createBoard={createBoard} />
+
           <BoardLeftSideBar
             boards={boards}
             user={user}
             openCreateBoard={openCreateBoard}
-            showLeftNav={this.props.showLeftNav}
-            changeLeftNavDisplay={this.props.changeLeftNavDisplay}
           />
-          <div
-            onClick={this.openNav.bind(this)}
-            className="side-bar-collapsed"
-            style={{ width: collapsedNavWidth }}
-          >
-            <p>Emily</p>
-            <i className="fas fa-chevron-circle-right"></i>
-          </div>
+
           <div className="board-display">
             <Switch>
               <ProtectedRoute

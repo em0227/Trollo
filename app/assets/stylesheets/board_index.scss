@@ -5,8 +5,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100%;
-  width: 100%;
+  // height: 100%;
+  // width: 100%;
   font-family: "Helvetica";
 }
 
@@ -17,14 +17,13 @@
   justify-content: space-between;
   background-color: rgb(189, 10, 189);
   color: white;
-  padding-left: 20px;
   height: 50px;
   font-size: 17px;
 
   img {
     width: 130px;
     height: 40px;
-    padding: 20px 20px 20px 0;
+    padding: 20px 20px 20px 20px;
   }
 
   .links {
@@ -39,30 +38,48 @@
 .board-main {
   display: flex;
   align-items: flex-start;
-  padding: 30px;
   height: 100%;
   width: 100%;
-  // margin-left: 250px;
-  transition: 0.5s ease-in-out;
+}
+
+.board-main-2 {
+  display: flex;
+  height: 100vh;
+
+  // padding: 0 10px 0 20px;
 }
 
 .side-bar-collapsed {
-  height: 100%;
+  height: 100vh;
   background-color: rgb(209, 171, 245);
-  position: fixed;
-  top: 50px;
+  top: 0px;
   left: 0;
-  padding: 40px 15px 0 10px;
+  padding: 15px 15px 0 10px;
   cursor: pointer;
   color: white;
   transition: 0.5s ease-in-out;
   z-index: 1;
+  opacity: 60%;
+}
+
+.side-bar-collapsed-right {
+  background-color: lightgray;
+  opacity: 70%;
+  border-radius: 0.3rem;
+  display: flex;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  transition: 0.5s;
+}
+.show-right-menu {
+  display: flex;
 }
 
 .board-right-nav {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   height: 100%;
   position: fixed;
   z-index: 2;
@@ -70,9 +87,9 @@
   right: 0px;
   background-color: rgb(209, 171, 245);
   overflow-x: hidden;
-  padding-top: 60px;
   transition: 0.5s ease-in-out;
   color: white;
+  font-size: 18px;
 }
 
 .board-left-nav {
@@ -80,18 +97,17 @@
   flex-direction: column;
   align-items: flex-start;
   //   border: 1px black solid;
-  height: 100%;
+  height: 100vh;
   line-height: 2;
   // padding: 0px;
   // width: 300px;
   // width: 250px;
-  position: fixed;
+  position: relative;
   z-index: 2;
-  top: 50px;
+  top: 0;
   left: 0;
   background-color: rgb(209, 171, 245);
   overflow-x: hidden;
-  padding-top: 60px;
   transition: 0.5s ease-in-out;
   color: white;
   h3 {
@@ -122,6 +138,10 @@
     transition: 0.1s;
   }
 
+  .leftnavlinks {
+    transition: 0.1s;
+  }
+
   .single-board-in-nav {
     display: flex;
     align-items: center;
@@ -132,13 +152,21 @@
   }
 }
 
+.board-display {
+  display: flex;
+  width: 100vw;
+}
+
 .display-all {
   line-height: 2;
   display: flex;
   flex-direction: column;
+  padding: 50px 50px 0 50px;
+  width: 100%;
 
   .board-list {
     display: flex;
+    width: 100%;
     // flex-direction: column;
     justify-content: space-between;
     .single-board {
@@ -157,15 +185,20 @@
 }
 
 #show-single-board {
-  padding: 100px 30px 0 300px;
   display: flex;
   align-items: flex-start;
-  justify-content: stretch;
-  height: 100%;
+  justify-content: space-between;
+  height: 100vh;
   width: 100%;
-  position: fixed;
-  top: 50px;
-  left: 0;
+  padding: 50px 50px 0 50px;
+
+  input {
+    background-color: lightgray;
+    opacity: 70%;
+    border-radius: 0.3rem;
+    padding: 6px 0 6px 10px;
+  }
+
   ::placeholder {
     color: black;
     opacity: 1; /* Firefox */

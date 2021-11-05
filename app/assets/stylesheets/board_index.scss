@@ -42,7 +42,7 @@
   padding: 30px;
   height: 100%;
   width: 100%;
-  margin-left: 250px;
+  // margin-left: 250px;
   transition: 0.5s ease-in-out;
 }
 
@@ -68,7 +68,7 @@
   line-height: 2;
   // padding: 0px;
   // width: 300px;
-  width: 250px;
+  // width: 250px;
   position: fixed;
   z-index: 2;
   top: 50px;
@@ -117,10 +117,6 @@
 }
 
 .display-all {
-  // border: 1px black solid;
-
-  // padding: 300px;
-  // margin-left: 60px;
   line-height: 2;
   display: flex;
   flex-direction: column;
@@ -136,6 +132,11 @@
       padding: 10px;
       border-radius: 0.3rem;
     }
+  }
+
+  button {
+    width: 200px;
+    align-self: center;
   }
 }
 

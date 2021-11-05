@@ -5,15 +5,11 @@ import BoardDisplayCurrentContainer from "../board_display/board_display_current
 import BoardLeftSideBar from "./board_left_side_bar";
 import { ProtectedRoute } from "../../util/route_util";
 import CreateModalContainer from "../modals/create_modal_container";
-import { openCreateBoard } from "../../actions/modal_actions";
 
 class BoardIndex extends React.Component {
   constructor(props) {
     super(props);
     this.props = props;
-    this.state = {
-      showLeftNav: true,
-    };
   }
 
   componentDidMount() {
@@ -38,15 +34,31 @@ class BoardIndex extends React.Component {
     //switch somehow can't match loosely thus above code
   }
 
-  openNav() {
-    //refactor to use css classess that are toggled by react state
-    document.querySelector(".board-left-nav").style.width = "250px";
-    document.querySelector(".board-main").style.marginLeft = "250px";
-    document.querySelector(".side-bar-collapsed").style.width = "0";
+  openNav(e) {
+    e.preventDefault();
+    this.props.changeLeftNavDisplay(true);
+  }
+
+  collapsedNavWidth() {
+    if (this.props.showLeftNav) {
+      return "0";
+    } else {
+      return "40px";
+    }
+  }
+
+  marginLeft() {
+    if (this.props.showLeftNav) {
+      return "250px";
+    } else {
+      return "40px";
+    }
   }
 
   render() {
     const { user, logout, boards, createBoard, openCreateBoard } = this.props;
+    const collapsedNavWidth = this.collapsedNavWidth();
+    const marginLeft = this.marginLeft();
     if (!boards) return null;
     return (
       <div className="board">
@@ -59,14 +71,20 @@ class BoardIndex extends React.Component {
           </div>
         </nav>
 
-        <div className="board-main">
+        <div className="board-main" style={{ marginLeft: marginLeft }}>
           <CreateModalContainer createBoard={createBoard} />
           <BoardLeftSideBar
             boards={boards}
             user={user}
             openCreateBoard={openCreateBoard}
+            showLeftNav={this.props.showLeftNav}
+            changeLeftNavDisplay={this.props.changeLeftNavDisplay}
           />
-          <div onClick={this.openNav} className="side-bar-collapsed">
+          <div
+            onClick={this.openNav.bind(this)}
+            className="side-bar-collapsed"
+            style={{ width: collapsedNavWidth }}
+          >
             <p>Emily</p>
             <i className="fas fa-chevron-circle-right"></i>
           </div>

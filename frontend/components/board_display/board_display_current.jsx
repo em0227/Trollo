@@ -11,15 +11,15 @@ class BoardDisplayCurrent extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps.board);
-    console.log(this.props.board);
+    // console.log(prevProps.board);
+    // console.log(this.props.board);
     if (this.props.board && prevProps.board !== this.props.board) {
       this.setState({
         id: this.props.board.id,
         title: this.props.board.title,
       });
     }
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   submitUpdate(e) {
@@ -36,39 +36,25 @@ class BoardDisplayCurrent extends React.Component {
   render() {
     if (!this.props.board) return null;
     const { bg_color, photo } = this.props.board;
+    const background = photo
+      ? { backgroundImage: `url(${photo})` }
+      : { backgroundColor: bg_color };
     // console.log(photo);
-    if (photo) {
-      return (
-        <div
-          id="show-single-board"
-          style={{ backgroundImage: `url(${photo})` }}
-        >
-          On
-          <input
-            type="text"
-            value={this.state.title}
-            placeholder={this.state.title}
-            onChange={this.updateBoardTitle.bind(this)}
-            onBlur={this.submitUpdate.bind(this)}
-          />
-          <br />
-          {/* <BoardRightSideBar closeNav={closeNav} /> */}
-        </div>
-      );
-    } else {
-      return (
-        <div id="show-single-board" style={{ backgroundColor: bg_color }}>
-          On
-          <input
-            type="text"
-            placeholder={this.state.title}
-            value={this.state.title}
-            onChange={this.updateBoardTitle.bind(this)}
-            onBlur={this.submitUpdate.bind(this)}
-          />
-        </div>
-      );
-    }
+
+    return (
+      <div id="show-single-board" style={background}>
+        On
+        <input
+          type="text"
+          value={this.state.title}
+          placeholder={this.state.title}
+          onChange={this.updateBoardTitle.bind(this)}
+          onBlur={this.submitUpdate.bind(this)}
+        />
+        <br />
+        <BoardRightSideBar />
+      </div>
+    );
   }
 }
 

@@ -3,8 +3,8 @@ import {
   OPEN_CREATE_BOARD,
   OPEN_CARD,
 } from "../actions/modal_actions";
-import { ADD_EMAIL_FROM_SPLASH } from "../actions/ui_actions";
-const _deafult_state = { email: "", modal: null };
+import { ADD_EMAIL_FROM_SPLASH, SHOW_LEFT_NAV } from "../actions/ui_actions";
+const _deafult_state = { email: "", modal: null, leftNav: true };
 
 export default (state = _deafult_state, action) => {
   Object.freeze(state);
@@ -21,6 +21,9 @@ export default (state = _deafult_state, action) => {
       return newState;
     case CLOSE_MODAL:
       newState.modal = null;
+      return newState;
+    case SHOW_LEFT_NAV:
+      newState.leftNav = action.status;
       return newState;
     default:
       return state;

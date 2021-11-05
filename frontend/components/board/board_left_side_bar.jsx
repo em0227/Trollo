@@ -2,11 +2,21 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 class BoardLeftSideBar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   closeNav(e) {
     e.preventDefault();
-    document.querySelector(".board-left-nav").style.width = "0";
-    document.querySelector(".board-main").style.marginLeft = "0";
-    document.querySelector(".side-bar-collapsed").style.width = "40px";
+    this.props.changeLeftNavDisplay(false);
+  }
+
+  leftNavWidth() {
+    if (this.props.showLeftNav) {
+      return "250px";
+    } else {
+      return "0";
+    }
   }
 
   showModal(e) {
@@ -16,9 +26,10 @@ class BoardLeftSideBar extends React.Component {
 
   render() {
     const { user, boards } = this.props;
+    const leftNavWidth = this.leftNavWidth();
     return (
-      <div className="board-left-nav">
-        <a className="closebtn" onClick={this.closeNav}>
+      <div className="board-left-nav" style={{ width: leftNavWidth }}>
+        <a className="closebtn" onClick={this.closeNav.bind(this)}>
           &times;
         </a>
         <h3>{user.name}'s Workspace</h3>

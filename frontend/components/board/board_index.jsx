@@ -59,6 +59,7 @@ class BoardIndex extends React.Component {
     const { user, logout, boards, createBoard, openCreateBoard } = this.props;
     const collapsedNavWidth = this.collapsedNavWidth();
     const marginLeft = this.marginLeft();
+    const fullWidth = 100 % -marginLeft;
     if (!boards) return null;
     return (
       <div className="board">
@@ -71,7 +72,10 @@ class BoardIndex extends React.Component {
           </div>
         </nav>
 
-        <div className="board-main" style={{ marginLeft: marginLeft }}>
+        <div
+          className="board-main"
+          style={{ marginLeft: marginLeft, width: fullWidth }}
+        >
           <CreateModalContainer createBoard={createBoard} />
           <BoardLeftSideBar
             boards={boards}

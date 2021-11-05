@@ -43,16 +43,22 @@ class BoardDisplayCurrent extends React.Component {
 
     return (
       <div id="show-single-board" style={background}>
-        On
-        <input
-          type="text"
-          value={this.state.title}
-          placeholder={this.state.title}
-          onChange={this.updateBoardTitle.bind(this)}
-          onBlur={this.submitUpdate.bind(this)}
+        <p>
+          On{" "}
+          <input
+            type="text"
+            value={this.state.title}
+            placeholder={this.state.title}
+            onChange={this.updateBoardTitle.bind(this)}
+            onBlur={this.submitUpdate.bind(this)}
+          />
+        </p>
+
+        <BoardRightSideBar
+          board={this.props.board}
+          updateBoard={this.props.updateBoard}
+          deleteBoard={this.props.deleteBoard}
         />
-        <br />
-        <BoardRightSideBar />
       </div>
     );
   }

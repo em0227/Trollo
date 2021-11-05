@@ -4,10 +4,21 @@ import BoardRightSideBar from "./board_right_side_bar";
 class BoardDisplayCurrent extends React.Component {
   constructor(props) {
     super(props);
+    const { id, title } = this.props.board;
     this.state = {
-      id: "",
-      title: "",
+      id,
+      title,
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.board !== this.props.board) {
+      const { id, title } = this.props.board;
+      this.setState({
+        id,
+        title,
+      });
+    }
   }
 
   submitUpdate(e) {
@@ -35,7 +46,7 @@ class BoardDisplayCurrent extends React.Component {
           <input
             type="text"
             value={this.state.title}
-            placeholder={this.props.board.title}
+            placeholder={this.state.title}
             onChange={this.updateBoardTitle.bind(this)}
             onBlur={this.submitUpdate.bind(this)}
           />

@@ -30,7 +30,7 @@ class SplashContent extends React.Component {
 
   changeBackground(e) {
     const nav = document.getElementById("nav");
-    if (document.documentElement.scrollTop > 50) {
+    if (nav && document.documentElement.scrollTop > 50) {
       nav.className = "splash-nav scroll";
     } else {
       nav.className = "splash-nav";

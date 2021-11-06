@@ -39,7 +39,6 @@ class ListIndexItem extends React.Component {
           onChange={this.updateListTitle.bind(this)}
           onBlur={this.submitUpdate.bind(this)}
         />
-        <br />
         <p onClick={this.handleDelete(id)}>delete</p>
       </div>
     );

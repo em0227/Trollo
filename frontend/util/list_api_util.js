@@ -11,14 +11,14 @@ export const createList = (list) =>
     data: { list },
   });
 
-export const updatelist = (list) =>
+export const updateList = (list) =>
   $.ajax({
     method: "PATCH",
-    url: `api/Lists/${list.id}`,
+    url: `api/lists/${list.id}`,
     data: { list },
   });
 
-export const deletelist = (listId) =>
+export const deleteList = (listId) =>
   $.ajax({
     method: "DELETE",
     url: `api/lists/${listId}`,

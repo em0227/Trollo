@@ -1,5 +1,6 @@
 import React from "react";
 import BoardRightSideBar from "./board_right_side_bar";
+import ListIndex from "../lists/lists_index";
 
 class BoardDisplayCurrent extends React.Component {
   constructor(props) {
@@ -11,7 +12,13 @@ class BoardDisplayCurrent extends React.Component {
     };
   }
 
+  componentDidMount() {
+    console.log("in display did mount");
+    this.props.fetchAllLists(this.props.board.id);
+  }
+
   componentDidUpdate(prevProps) {
+    console.log("in display did update");
     if (prevProps.board !== this.props.board) {
       const { id, title } = this.props.board;
       this.setState({
@@ -33,7 +40,7 @@ class BoardDisplayCurrent extends React.Component {
   }
 
   render() {
-    if (!this.props.board) return null;
+    if (!this.props.board || !this.props.lists) return null;
     const { bg_color, photo } = this.props.board;
     const background = photo
       ? { backgroundImage: `url(${photo})` }
@@ -41,23 +48,27 @@ class BoardDisplayCurrent extends React.Component {
 
     return (
       <div id="show-single-board" style={background}>
-        <p>
-          On{" "}
-          <input
-            type="text"
-            value={this.state.title}
-            placeholder={this.state.title}
-            onChange={this.updateBoardTitle.bind(this)}
-            onBlur={this.submitUpdate.bind(this)}
-          />
-        </p>
+        <div className="display-menu">
+          <p>
+            On{" "}
+            <input
+              type="text"
+              value={this.state.title}
+              placeholder={this.state.title}
+              onChange={this.updateBoardTitle.bind(this)}
+              onBlur={this.submitUpdate.bind(this)}
+            />
+          </p>
 
-        <BoardRightSideBar
-          board={this.props.board}
-          updateBoard={this.props.updateBoard}
-          deleteBoard={this.props.deleteBoard}
-          history= {this.props.history}
-        />
+          <BoardRightSideBar
+            board={this.props.board}
+            updateBoard={this.props.updateBoard}
+            deleteBoard={this.props.deleteBoard}
+            history={this.props.history}
+          />
+        </div>
+
+        <ListIndex lists={this.props.lists} />
       </div>
     );
   }

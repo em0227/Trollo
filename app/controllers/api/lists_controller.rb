@@ -1,9 +1,9 @@
 class Api::ListsController < ApplicationController
-    # before_action :ensure_logged_in
+    before_action :ensure_logged_in
 
     def index
         @board = Board.find_by(id: params[:board_id])
-        debugger
+        # debugger
         @lists = @board.lists
     end
 

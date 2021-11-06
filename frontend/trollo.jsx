@@ -6,6 +6,7 @@ import { logout } from "./actions/session_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   // console.log("in trollo");
+  // console.log("test");
   let store;
   if (window.currentUser) {
     const { currentUser } = window;

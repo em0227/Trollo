@@ -13,9 +13,73 @@
   display: flex;
   border: black 1px solid;
   border-radius: 0.3rem;
-  width: 100px;
+  width: 250px;
   height: 300px;
-  background-color: white;
+  background-color: #ece7e7;
   margin: 15px;
   padding: 10px;
+  ::placeholder {
+    color: black;
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: black;
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: black;
+  }
+}
+
+.add-list-nav-collapsed {
+  display: flex;
+  width: 250px;
+  height: 30px;
+  background-color: #ece7e7;
+  border: black 1px solid;
+  border-radius: 0.3rem;
+  margin: 15px;
+  padding: 10px;
+  align-items: center;
+  transition: 0.1s ease-in-out;
+  i {
+    padding: 0 10px 0 5px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.add-list-nav {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 100px;
+  background-color: #ece7e7;
+  border: black 1px solid;
+  border-radius: 0.3rem;
+  margin: 15px;
+  padding: 20px 0 0 15px;
+  align-items: flex-start;
+  justify-content: center;
+  transition: 0.1s ease-in-out;
+
+  .controls {
+    display: flex;
+    padding-top: 15px;
+  }
+  a,
+  button {
+    border: black 1px solid;
+    border-radius: 0.3rem;
+    padding: 7px 10px 7px 10px;
+    margin: 0 10px 20px 0;
+  }
+}
+
+.closebtn {
+  cursor: pointer;
 }

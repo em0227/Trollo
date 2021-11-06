@@ -7,10 +7,10 @@ class BoardDisplayAll extends React.Component {
     super(props);
   }
 
-  openNav(e) {
-    // e.preventDefault();
-    this.props.changeLeftNavDisplay(true);
-  }
+  // openNav(e) {
+  //   // e.preventDefault();
+  //   this.props.changeLeftNavDisplay(true);
+  // }
 
   showModal(e) {
     e.preventDefault();
@@ -37,7 +37,7 @@ class BoardDisplayAll extends React.Component {
               <div key={board.id} style={background} className="single-board">
                 <Link
                   to={`/boards/${board.id}`}
-                  onClick={this.openNav.bind(this)}
+                  // onClick={this.openNav.bind(this)}
                 >
                   {board.title}
                 </Link>

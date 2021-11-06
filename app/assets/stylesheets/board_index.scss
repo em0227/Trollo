@@ -19,6 +19,7 @@
   color: white;
   height: 50px;
   font-size: 17px;
+  position: fixed;
 
   img {
     width: 130px;
@@ -29,9 +30,9 @@
   .links {
     display: flex;
     align-items: center;
-    padding-right: 60px;
     justify-content: space-between;
     width: 300px;
+    padding-right: 60px;
   }
 }
 
@@ -45,7 +46,8 @@
 .board-main-2 {
   display: flex;
   height: 100%;
-
+  position: fixed;
+  top: 50px;
   // padding: 0 10px 0 20px;
 }
 
@@ -71,6 +73,9 @@
   display: flex;
   justify-content: space-between;
   transition: 0.5s;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .show-right-menu {
   display: flex;
@@ -90,6 +95,9 @@
   transition: 0.5s ease-in-out;
   color: white;
   font-size: 18px;
+  a :hover {
+    cursor: pointer;
+  }
 }
 
 .board-left-nav {
@@ -155,6 +163,7 @@
 .board-display {
   display: flex;
   width: 100vw;
+  transition: 0.5s ease-in-out;
 }
 
 .display-all {
@@ -191,6 +200,8 @@
   height: 100vh;
   width: 100%;
   padding: 50px 50px 0 50px;
+  // position: relative;
+  // top: 50px;
 
   input {
     background-color: lightgray;
@@ -221,4 +232,8 @@
   justify-content: space-between;
   width: 100%;
   padding: 20px;
+}
+
+.closebtn {
+  cursor: pointer;
 }

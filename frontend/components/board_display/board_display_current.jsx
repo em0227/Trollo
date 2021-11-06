@@ -1,6 +1,6 @@
 import React from "react";
 import BoardRightSideBar from "./board_right_side_bar";
-import ListIndex from "../lists/lists_index";
+import ListIndexContainer from "../lists/lists_index_container";
 
 class BoardDisplayCurrent extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class BoardDisplayCurrent extends React.Component {
 
   componentDidMount() {
     console.log("in display did mount");
-    this.props.fetchAllLists(this.props.board.id);
+    // this.props.fetchAllLists(this.props.board.id);
   }
 
   componentDidUpdate(prevProps) {
@@ -68,7 +68,7 @@ class BoardDisplayCurrent extends React.Component {
           />
         </div>
 
-        <ListIndex lists={this.props.lists} />
+        <ListIndexContainer board={this.props.board} />
       </div>
     );
   }

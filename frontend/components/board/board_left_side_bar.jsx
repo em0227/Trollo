@@ -7,11 +7,13 @@ class BoardLeftSideBar extends React.Component {
     this.state = {
       showLeftNav: true,
     };
+    this.props.showLeftNav(true);
   }
 
   openNav(e) {
     e.preventDefault();
     this.setState({ showLeftNav: true });
+    this.props.showLeftNav(true);
   }
 
   collapsedNav() {
@@ -31,6 +33,7 @@ class BoardLeftSideBar extends React.Component {
   closeNav(e) {
     e.preventDefault();
     this.setState({ showLeftNav: false });
+    this.props.showLeftNav(false);
   }
 
   leftNavWidth() {

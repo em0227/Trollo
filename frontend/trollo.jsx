@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import Root from "./components/root";
 import configureStore from "./store/store";
 import { logout } from "./actions/session_actions";
-import { fetchUserAndAllBoards } from "./actions/board_actions";
+import { fetchAllLists } from "./actions/list_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   // console.log("in trollo");
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //test
   window.store = store;
   window.logout = logout;
-  window.fetchUserAndAllBoards = fetchUserAndAllBoards;
+  window.fetchAllLists = fetchAllLists;
 
   //test end
 

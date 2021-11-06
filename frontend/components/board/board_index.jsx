@@ -13,11 +13,14 @@ class BoardIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.user.id);
+    if (!this.props.user.name) {
+      this.props.fetchUser(this.props.user.id);
+    }
     this.props.fetchAllBoards(this.props.user.id);
     if (this.props.location.pathname === "/") {
       this.props.history.push(`/users/${this.props.user.id}/boards`);
     }
+    console.log("in index did mount");
     // if no this, will only have id in the user state as that's what I bootstraped
     // refactor it to not attach to params, which is safer and make my board frontend routes possible
   }
@@ -26,6 +29,10 @@ class BoardIndex extends React.Component {
     if (this.props.location.pathname === "/") {
       this.props.history.push(`/users/${this.props.user.id}/boards`);
     }
+    console.log("in index did update");
+    // if (prevProps.boards !== this.props.boards) {
+    //   this.props.fetchAllBoards(this.props.user.id);
+    // }
     //switch somehow can't match loosely thus above code
   }
 
@@ -43,10 +50,7 @@ class BoardIndex extends React.Component {
           </div>
         </nav>
 
-        <div
-          className="board-main"
-
-        >
+        <div className="board-main">
           <CreateModalContainer createBoard={createBoard} />
 
           <BoardLeftSideBar

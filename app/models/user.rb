@@ -10,6 +10,15 @@ class User < ApplicationRecord
         foreign_key: :author_id,
         class_name: :Board
 
+    has_many :lists,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :List
+    
+    has_many :cards,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Card
 
     attr_reader :password
 

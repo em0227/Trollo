@@ -8,6 +8,7 @@ import {
 
 const mapStateToProps = (state, ownProps) => ({
   board: state.entities.boards[ownProps.match.params.boardId],
+  history: ownProps.history,
 });
 
 const mapDispatchToProps = (dispatch) => ({

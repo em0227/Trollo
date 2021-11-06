@@ -67,6 +67,8 @@ class BoardRightSideBar extends React.Component {
   submitDelete(e) {
     e.preventDefault();
     this.props.deleteBoard(this.props.board.id);
+    console.log(this.props);
+    this.props.history.push("/");
   }
 
   render() {

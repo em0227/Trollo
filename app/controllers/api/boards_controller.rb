@@ -8,7 +8,9 @@ class Api::BoardsController < ApplicationController
     end
 
     def show
+        @lists = @board.lists
         @board = current_user.boards.find_by(id: params[:id])
+        
     end
 
     def create
@@ -37,7 +39,7 @@ class Api::BoardsController < ApplicationController
         # @board = Board.find(params[:id])
         @board = current_user.boards.find_by(id: params[:id])
         @board.destroy
-        render :show
+        render json: [@board.id]
     end
 
     private

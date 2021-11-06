@@ -56,6 +56,7 @@ class BoardDisplayCurrent extends React.Component {
           board={this.props.board}
           updateBoard={this.props.updateBoard}
           deleteBoard={this.props.deleteBoard}
+          history= {this.props.history}
         />
       </div>
     );

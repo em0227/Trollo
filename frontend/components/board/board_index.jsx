@@ -13,10 +13,7 @@ class BoardIndex extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.user.name) {
-      this.props.fetchUser(this.props.user.id);
-    }
-    this.props.fetchAllBoards(this.props.user.id);
+    this.props.fetchUserAndAllBoards(this.props.user.id);
     if (this.props.location.pathname === "/") {
       this.props.history.push(`/users/${this.props.user.id}/boards`);
     }

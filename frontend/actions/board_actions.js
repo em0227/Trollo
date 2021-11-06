@@ -1,4 +1,6 @@
 import * as APIUtil from "../util/board_api_util";
+import { fetchUser } from "../util/session_api_util";
+import { receiveCurrentUser } from "./session_actions";
 
 export const RECEIVE_BOARDS = "RECEIVE_BOARDS";
 export const RECEIVE_BOARD = "RECEIVE_BOARD";
@@ -30,6 +32,15 @@ export const fetchAllBoards = (userId) => (dispatch) =>
     (boards) => dispatch(receiveBoards(boards)),
     (err) => dispatch(receiveBoardErrors(err))
   );
+
+export const fetchUserAndAllBoards = (userId) => (dispatch) =>
+  fetchUser(userId).then((user) => {
+    dispatch(receiveCurrentUser(user));
+    APIUtil.fetchAllBoards(userId).then(
+      (boards) => dispatch(receiveBoards(boards)),
+      (err) => dispatch(receiveBoardErrors(err))
+    );
+  });
 
 export const fetchBoard = (boardId) => (dispatch) =>
   APIUtil.fetchBoard(boardId).then(

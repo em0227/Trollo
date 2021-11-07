@@ -92,7 +92,7 @@ class SplashContent extends React.Component {
           <br />
           <img src={window.images.mainBoard} alt="mainboard-showcase" />
         </div>
-        <div className="container">
+        <div className="container third">
           <img src={window.images.board} alt="board-showcase" />
           <div>
             <h1>The board is just the beginning</h1>
@@ -105,7 +105,7 @@ class SplashContent extends React.Component {
           </div>
           <br />
         </div>
-        <div className="container">
+        <div className="container fourth">
           <div>
             <h1>Cards contain everything you need</h1>
             <br />

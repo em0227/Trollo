@@ -10,6 +10,7 @@ class CardsIndex extends React.Component {
       },
       showCardForm: false,
     };
+    // this.cardRef = React.createRef();
   }
   componentDidMount() {
     this.props.fetchAllCards(this.props.boardId);
@@ -42,6 +43,22 @@ class CardsIndex extends React.Component {
     this.setState({ showCardForm: !this.state.showCardForm });
   }
 
+  dragOver(e) {
+    // debugger;
+    e.preventDefault();
+  }
+
+  drop(e) {
+    // debugger;
+    let dragged = document.querySelector(".dragging");
+    if (e.currentTarget.classList.value.includes("draggable-container")) {
+      let movedCardId = parseInt(dragged.id);
+      this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
+      dragged.classList.remove("dragging");
+    }
+    //was using appendChild and removeChild and was causing DOM Exception issue.
+  }
+
   render() {
     console.log("in card index render");
     let cardNav = this.state.showCardForm ? (
@@ -71,10 +88,16 @@ class CardsIndex extends React.Component {
     );
 
     return (
-      <div className="cards">
-        {this.props.cards.map((card) => (
-          <CardIndexItem card={card} />
-        ))}
+      <div>
+        <div
+          className="cards draggable-container"
+          onDragOver={this.dragOver}
+          onDrop={this.drop.bind(this)}
+        >
+          {this.props.cards.map((card) => (
+            <CardIndexItem key={card.id} card={card} />
+          ))}
+        </div>
         {cardNav}
       </div>
     );

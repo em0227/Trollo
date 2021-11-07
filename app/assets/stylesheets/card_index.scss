@@ -12,6 +12,7 @@
   justify-content: space-between;
   background-color: white;
   margin-bottom: 10px;
+  cursor: move;
   i {
     color: gray;
     position: relative;
@@ -102,3 +103,7 @@
 // .closebtn {
 //   cursor: pointer;
 // }
+
+.dragging {
+  transform: rotate(5deg);
+}

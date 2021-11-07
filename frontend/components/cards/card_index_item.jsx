@@ -6,6 +6,7 @@ class CardIndexItem extends React.Component {
     this.state = {
       showCardDetail: false,
     };
+    // this.cardRef = React.createRef();
   }
   toggleDetail() {
     this.setState({
@@ -25,10 +26,28 @@ class CardIndexItem extends React.Component {
       );
     }
   }
+
+  dragStart(e) {
+    // debugger;
+    e.target.classList.add("dragging");
+    // e.target.dataTransfer.setData("text/html");
+  }
+
+  dragEnd(e) {
+    e.target.classList.remove("dragging");
+  }
+
   render() {
     const card = this.props.card;
     return (
-      <div className="card" key={card.id}>
+      <div
+        className="card draggables"
+        draggable="true"
+        onDragStart={this.dragStart}
+        onDragEnd={this.dragEnd}
+        id={card.id}
+        ref={this.cardRef}
+      >
         <p>{card.title}</p>
         <i className="fas fa-ellipsis-h" onClick={this.toggleDetail.bind(this)}>
           {this.cardDetail()}

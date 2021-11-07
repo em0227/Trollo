@@ -18,6 +18,8 @@ export default (state = _deafult_state, action) => {
       return newState;
     case OPEN_CARD:
       newState.modal = "open_card";
+      newState.cardOpened = action.cardId;
+      // debugger;
       return newState;
     case CLOSE_MODAL:
       newState.modal = null;

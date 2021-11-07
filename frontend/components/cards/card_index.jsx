@@ -95,7 +95,7 @@ class CardsIndex extends React.Component {
           onDrop={this.drop.bind(this)}
         >
           {this.props.cards.map((card) => (
-            <CardIndexItem key={card.id} card={card} />
+            <CardIndexItem key={card.id} card={card} openCard={this.props.openCard}/>
           ))}
         </div>
         {cardNav}

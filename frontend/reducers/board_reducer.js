@@ -11,7 +11,7 @@ export default (state = {}, action) => {
     case RECEIVE_BOARDS:
       return action.boards;
     case RECEIVE_BOARD:
-      debugger;
+      // debugger;
       newState[action.board.id] = action.board;
       return newState;
     case REMOVE_BOARD:

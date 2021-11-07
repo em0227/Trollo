@@ -13,11 +13,17 @@ class CardIndexItem extends React.Component {
       showCardDetail: !this.state.showCardDetail,
     });
   }
+
+  openCardDetail() {
+    // debugger;
+    let cardId = this.props.card.id;
+    this.props.openCard(cardId);
+  }
   cardDetail() {
     if (this.state.showCardDetail) {
       return (
         <div className="card-detail-menu">
-          <button>Edit Card</button>
+          <button onClick={this.openCardDetail.bind(this)}>Edit Card</button>
           <button>Delete Card</button>
           <a className="closebtn" onClick={this.toggleDetail.bind(this)}>
             &times;

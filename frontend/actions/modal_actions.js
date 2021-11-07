@@ -10,6 +10,7 @@ export const closeModal = () => ({
   type: CLOSE_MODAL,
 });
 
-export const openCard = () => ({
+export const openCard = (cardId) => ({
   type: OPEN_CARD,
+  cardId,
 });

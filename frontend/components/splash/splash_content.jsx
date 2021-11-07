@@ -63,22 +63,21 @@ class SplashContent extends React.Component {
               unique—accomplish it all with Trollo.
             </p>
             <br />
-            
-              <input
-                type="email"
-                placeholder="  Email"
-                className="email"
-                onChange={this.handleInput}
-                value={this.state.email}
-              />
-              <br />
-              <input
-                type="submit"
-                value="Sign up - it's free"
-                className="splash-sign-up2"
-                onClick={this.handleSubmit}
-              />
-            
+
+            <input
+              type="email"
+              placeholder="  Email"
+              className="email"
+              onChange={this.handleInput}
+              value={this.state.email}
+            />
+            <br />
+            <input
+              type="submit"
+              value="Sign up - it's free"
+              className="splash-sign-up2"
+              onClick={this.handleSubmit}
+            />
           </div>
           <img src={window.images.openingImg} alt="teamwork" />
         </div>
@@ -93,7 +92,7 @@ class SplashContent extends React.Component {
           <br />
           <img src={window.images.mainBoard} alt="mainboard-showcase" />
         </div>
-        <div className="container">
+        <div className="container third">
           <img src={window.images.board} alt="board-showcase" />
           <div>
             <h1>The board is just the beginning</h1>
@@ -106,7 +105,7 @@ class SplashContent extends React.Component {
           </div>
           <br />
         </div>
-        <div className="container">
+        <div className="container fourth">
           <div>
             <h1>Cards contain everything you need</h1>
             <br />

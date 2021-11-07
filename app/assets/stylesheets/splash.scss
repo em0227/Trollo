@@ -60,15 +60,18 @@
     display: flex;
     align-items: flex-start;
     padding: 130px 55px 0 80px;
+    justify-content: center;
+    align-self: center;
 
     img {
-      width: 40%;
-      height: 40%;
+      width: 25%;
     }
+
     .container-text {
       display: flex;
       flex-direction: column;
       padding-right: 20px;
+      width: 30%;
     }
     .email {
       background-color: white;
@@ -97,8 +100,21 @@
     &.second {
       flex-direction: column;
       align-items: center;
+      align-self: center;
+      width: 55%;
       img {
         width: 100%;
+      }
+    }
+
+    &.third,
+    &.fourth {
+      width: 50%;
+      padding: 50px 0 50px 0;
+
+      h1,
+      p {
+        padding: 0 20px 0 20px;
       }
     }
   }

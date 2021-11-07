@@ -20,7 +20,7 @@ class Api::ListsController < ApplicationController
     end
 
     def update
-        @list = current_user.lists.find_by(id: params[:id])
+        @list = List.find_by(id: params[:id])
         # @list = User.find(1).lists.find_by(id: params[:id])
         if @list && @list.update!(list_params)
             render :show

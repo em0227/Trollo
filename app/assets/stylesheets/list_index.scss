@@ -1,5 +1,6 @@
 .lists {
   display: flex;
+
   border: black 1px solid;
   border-radius: 0.3rem;
   padding: 10px;
@@ -11,33 +12,13 @@
 
 .list {
   display: flex;
-  justify-content: space-between;
-  // border: black 1px solid;
+  flex-direction: column;
   border-radius: 0.3rem;
   width: 250px;
-  height: 300px;
+  height: min-content;
   // background-color: pink;
   background-color: #ece7e7;
-  margin: 0 30px 0 30px;
-  padding: 10px;
-  ::placeholder {
-    color: black;
-    opacity: 1; /* Firefox */
-  }
-
-  :-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    color: black;
-  }
-
-  ::-ms-input-placeholder {
-    /* Microsoft Edge */
-    color: black;
-  }
-  input {
-    width: 150px;
-    height: 30px;
-  }
+  padding: 10px 20px 10px 20px;
 }
 
 .add-list-nav-collapsed {
@@ -88,4 +69,31 @@
 
 .closebtn {
   cursor: pointer;
+}
+
+.list-control {
+  display: flex;
+  justify-content: space-between;
+  // border: black 1px solid;
+  padding: 10px 0 10px 0;
+  align-items: center;
+
+  ::placeholder {
+    color: black;
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: black;
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: black;
+  }
+  input {
+    width: 150px;
+    height: 30px;
+  }
 }

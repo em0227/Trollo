@@ -10,11 +10,10 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :boards, only: [:show, :create, :update, :destroy] do 
       resources :lists, only: [:index]
-    end
-
-    resources :lists, only: [:create, :update, :destroy] do 
       resources :cards, only: [:index]
     end
+
+    resources :lists, only: [:create, :update, :destroy]
     resources :cards, only: [:show, :create, :update, :destroy]
   end
 

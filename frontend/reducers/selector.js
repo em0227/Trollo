@@ -10,3 +10,14 @@ export const findBoardByTitle = (boards, title) => {
 };
 
 //boardArray [{board1},{board2}]
+
+export const findCardsByList = (cards, listId) => {
+  const cardsArray = Object.values(cards);
+  let cardsInList = [];
+  cardsArray.forEach((card) => {
+    if (card.list_id === listId) {
+      cardsInList.push(card);
+    }
+  });
+  return cardsInList;
+};

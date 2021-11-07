@@ -12,6 +12,12 @@ class Board < ApplicationRecord
     has_one_attached :photo
 
     has_many :lists,
-        class_name: :List
+        class_name: :List,
+        dependent: :destroy
+    
+    has_many :cards,
+        through: :lists,
+        source: :cards
+
 
 end

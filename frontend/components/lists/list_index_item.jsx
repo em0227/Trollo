@@ -1,4 +1,5 @@
 import React from "react";
+import CardsIndexContainer from "../cards/card_index_container";
 
 class ListIndexItem extends React.Component {
   constructor(props) {
@@ -32,14 +33,20 @@ class ListIndexItem extends React.Component {
     const { id } = this.props.list;
     return (
       <div key={id} className="list">
-        <input
-          type="text"
-          value={this.state.title}
-          //   placeholder={this.state.title}
-          onChange={this.updateListTitle.bind(this)}
-          onBlur={this.submitUpdate.bind(this)}
+        <div className="list-control">
+          <input
+            type="text"
+            value={this.state.title}
+            //   placeholder={this.state.title}
+            onChange={this.updateListTitle.bind(this)}
+            onBlur={this.submitUpdate.bind(this)}
+          />
+          <p onClick={this.handleDelete(id)}>delete</p>
+        </div>
+        <CardsIndexContainer
+          list={this.props.list}
+          boardId={this.props.list.board_id}
         />
-        <p onClick={this.handleDelete(id)}>delete</p>
       </div>
     );
   }

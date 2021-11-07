@@ -9,5 +9,5 @@ class List < ApplicationRecord
         foreign_key: :author_id,
         class_name: :User
 
-    has_many :cards
+    has_many :cards, dependent: :destroy
 end

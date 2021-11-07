@@ -15,7 +15,7 @@ class BoardRightSideBar extends React.Component {
   rightNavWidth() {
     if (this.state.rightNavShow) {
       return {
-        width: "250px",
+        width: "200px",
         padding: "20px 0 0 20px",
       };
     } else {
@@ -34,8 +34,8 @@ class BoardRightSideBar extends React.Component {
       };
     } else {
       return {
-        width: "140px",
-        padding: "10px",
+        width: "110px",
+        padding: "10px 10px 7px 10px",
       };
     }
   }

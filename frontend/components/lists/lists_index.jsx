@@ -56,6 +56,7 @@ class ListIndex extends React.Component {
           type="text"
           onChange={this.handleInput()}
           value={this.state.list.title}
+          placeholder="list title"
         />
         <div className="controls">
           <button onClick={this.createList.bind(this)}>Add List</button>
@@ -81,24 +82,12 @@ class ListIndex extends React.Component {
       <div className="lists">
         {listNav}
         {this.props.lists.map((list) => (
-          <div>
-            <img
-              src={window.images.trollHair}
-              alt="troll-hair"
-              style={{ width: "340px" }}
-            />
-            <ListIndexItem
-              key={list.id}
-              list={list}
-              updateList={updateList}
-              deleteList={deleteList}
-            />
-            <img
-              src={window.images.troll}
-              alt="troll"
-              style={{ width: "300px" }}
-            />
-          </div>
+          <ListIndexItem
+            key={list.id}
+            list={list}
+            updateList={updateList}
+            deleteList={deleteList}
+          />
         ))}
       </div>
     );
@@ -106,3 +95,20 @@ class ListIndex extends React.Component {
 }
 
 export default ListIndex;
+
+// <div>
+{
+  /* <img
+              src={window.images.trollHair}
+              alt="troll-hair"
+              style={{ width: "340px" }}
+            /> */
+}
+{
+  /* <img
+              src={window.images.troll}
+              alt="troll"
+              style={{ width: "300px" }}
+            /> */
+}
+// </div>

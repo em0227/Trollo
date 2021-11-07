@@ -1,5 +1,6 @@
 /* board starts here */
-@import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500&family=Zen+Kurenaido&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500&family=Zen+Kurenaido&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
 
 .board {
   display: flex;
@@ -7,7 +8,8 @@
   align-items: flex-start;
   height: 100%;
   width: 100vw;
-  font-family: "Helvetica";
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
 }
 
 .board-nav {
@@ -20,6 +22,7 @@
   height: 50px;
   font-size: 17px;
   position: fixed;
+  z-index: 2;
 
   img {
     width: 130px;
@@ -48,6 +51,7 @@
   height: 100%;
   position: fixed;
   top: 50px;
+  z-index: 4;
   // padding: 0 10px 0 20px;
 }
 
@@ -60,7 +64,7 @@
   cursor: pointer;
   color: white;
   transition: 0.5s ease-in-out;
-  z-index: 0;
+  z-index: 2;
   opacity: 60%;
 }
 
@@ -94,7 +98,6 @@
   overflow-x: hidden;
   transition: 0.5s ease-in-out;
   color: white;
-  font-size: 18px;
   a :hover {
     cursor: pointer;
   }
@@ -139,11 +142,14 @@
 
   .all-boards {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     width: 105%;
     border-radius: 0.3rem;
     transition: 0.1s;
+    button {
+      margin: 12px;
+    }
   }
 
   .leftnavlinks {
@@ -205,7 +211,7 @@
 
   input {
     background-color: lightgray;
-    opacity: 70%;
+    // opacity: 70%;
     border-radius: 0.3rem;
     padding: 6px 0 6px 10px;
   }
@@ -229,9 +235,14 @@
 .display-menu {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
   padding: 20px;
+
+  #board-title-input {
+    font-weight: 500;
+    font-size: 18px;
+  }
 }
 
 .closebtn {

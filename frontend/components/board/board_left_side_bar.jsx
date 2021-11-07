@@ -24,7 +24,7 @@ class BoardLeftSideBar extends React.Component {
       };
     } else {
       return {
-        width: "60px",
+        width: "40px",
         padding: "15px 15px 0 10px",
       };
     }
@@ -38,7 +38,7 @@ class BoardLeftSideBar extends React.Component {
 
   leftNavWidth() {
     if (this.state.showLeftNav) {
-      return "250px";
+      return "200px";
     } else {
       return "0";
     }
@@ -67,11 +67,11 @@ class BoardLeftSideBar extends React.Component {
           <a className="closebtn" onClick={this.closeNav.bind(this)}>
             &times;
           </a>
-          <h3 className=".leftnavlinks">{user.name}'s Workspace</h3>
+          <h3 className="leftnavlinks">{user.name}'s Workspace</h3>
           <br />
 
           <div id={`/users/${user.id}/boards`} className="all-boards">
-            <NavLink to={`/users/${user.id}/boards`} className=".leftnavlinks">
+            <NavLink to={`/users/${user.id}/boards`} className="leftnavlinks">
               All Boards
             </NavLink>
             <button onClick={this.showModal.bind(this)}>

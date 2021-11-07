@@ -37,31 +37,29 @@ class BoardIndex extends React.Component {
     // debugger;
     const { user, logout, boards, createBoard, openCreateBoard } = this.props;
     if (boards.length === 0) return null;
-    let marginLeft = this.props.leftNav ? "250px" : "85px";
+    let marginLeft = this.props.leftNav ? "200px" : "65px";
     return (
       <div className="board">
-        <div className="board-main">
-          <CreateModalContainer createBoard={createBoard} />
+        <CreateModalContainer createBoard={createBoard} />
 
-          <BoardLeftSideBar
-            boards={boards}
-            user={user}
-            openCreateBoard={openCreateBoard}
-            showLeftNav={this.props.showLeftNav}
-          />
+        <BoardLeftSideBar
+          boards={boards}
+          user={user}
+          openCreateBoard={openCreateBoard}
+          showLeftNav={this.props.showLeftNav}
+        />
 
-          <div className="board-display" style={{ marginLeft: marginLeft }}>
-            <Switch>
-              <ProtectedRoute
-                path="/boards/:boardId"
-                component={BoardDisplayCurrentContainer}
-              />
-              <ProtectedRoute
-                path="/users/:userId/boards"
-                component={BoardDisplayAllContainer}
-              />
-            </Switch>
-          </div>
+        <div className="board-display" style={{ marginLeft: marginLeft }}>
+          <Switch>
+            <ProtectedRoute
+              path="/boards/:boardId"
+              component={BoardDisplayCurrentContainer}
+            />
+            <ProtectedRoute
+              path="/users/:userId/boards"
+              component={BoardDisplayAllContainer}
+            />
+          </Switch>
         </div>
       </div>
     );

@@ -7,7 +7,7 @@ import { fetchAllCards } from "./actions/card_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   // console.log("in trollo");
-  // console.log("test");
+  console.log("test");
   let store;
   if (window.currentUser) {
     const { currentUser } = window;

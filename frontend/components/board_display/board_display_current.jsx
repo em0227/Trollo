@@ -53,6 +53,7 @@ class BoardDisplayCurrent extends React.Component {
             On{" "}
             <input
               type="text"
+              id="board-title-input"
               value={this.state.title}
               placeholder={this.state.title}
               onChange={this.updateBoardTitle.bind(this)}

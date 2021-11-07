@@ -1,6 +1,10 @@
 import CardsIndex from "./card_index";
 import { connect } from "react-redux";
-import { fetchAllCards } from "../../actions/card_actions";
+import {
+  fetchAllCards,
+  createCard,
+  updateCard,
+} from "../../actions/card_actions";
 import { findCardsByList } from "../../reducers/selector";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -11,6 +15,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchAllCards: (boardId) => dispatch(fetchAllCards(boardId)),
+  createCard: (card) => dispatch(createCard(card)),
+  updateCard: (card) => dispatch(updateCard(card)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardsIndex);

@@ -36,12 +36,13 @@ class ListIndexItem extends React.Component {
         <div className="list-control">
           <input
             type="text"
+            id="list-title-input"
             value={this.state.title}
             //   placeholder={this.state.title}
             onChange={this.updateListTitle.bind(this)}
             onBlur={this.submitUpdate.bind(this)}
           />
-          <p onClick={this.handleDelete(id)}>delete</p>
+          <button onClick={this.handleDelete(id)}>delete</button>
         </div>
         <CardsIndexContainer
           list={this.props.list}

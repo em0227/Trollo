@@ -38,7 +38,7 @@ class BoardIndex extends React.Component {
 
   render() {
     const { user, logout, boards, createBoard, openCreateBoard } = this.props;
-    if (boards.length === 0) return null;
+    // if (boards.length === 0) return null;
     return (
       <div className="board">
         <nav className="board-nav">

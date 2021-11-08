@@ -12,6 +12,7 @@
  *
  *= require_self
  */
+
 @import "./reset.scss";
 @import url("https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500&family=Zen+Kurenaido&display=swap");
 @font-face {
@@ -36,13 +37,18 @@
 
 @import "./splash.scss";
 @import "./session_form.scss";
-
- 
+@import "./board_index.scss";
+@import "./board_form.scss";
 
 #root {
   // font-family: "Zen Kurenaido", sans-serif;
   font-family: "Charlie Text";
   font-size: 20px;
+  height: 100%;
+}
+
+.app {
+  height: 100%;
 }
 
 h1 {
@@ -57,77 +63,4 @@ h2 {
 
 p {
   line-height: 1.5;
-}
-
-/* board starts here */
-
-.board {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.board-nav {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.board-nav img {
-  width: 200px;
-  height: 100px;
-  padding: 20px;
-}
-
-.board-nav .link {
-  display: flex;
-  align-items: flex-start;
-  padding-right: 30px;
-}
-
-.board-main {
-  display: flex;
-  align-items: flex-start;
-  padding: 30px;
-}
-
-.board-items-nav {
-  border: 1px black solid;
-  height: 400px;
-  margin-right: 30px;
-  padding: 30px;
-}
-
-.show-all-boards,
-.show-single-board {
-  border: 1px black solid;
-  height: 400px;
-  width: 600px;
-  padding: 30px;
-}
-
-.single-board {
-  width: 100px;
-  height: 50px;
-}
-
-/* board form starts here */
-.board-form input {
-  border: 1px black solid;
-}
-
-.color-button {
-  display: flex;
-  width: 30px;
-  height: 30px;
-}
-
-.color-buttons {
-  display: flex;
-}
-
-.color-button:focus {
-  border: rgb(242, 66, 66) 2px solid;
 }

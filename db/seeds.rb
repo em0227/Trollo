@@ -8,3 +8,4 @@
 
 
 User.create(email: 'em0227new@aa.io', password: '123123', name: 'Emily');
+Board.create(title: 'First Board', bg_color: 'orange', author_id: 1);

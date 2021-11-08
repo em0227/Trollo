@@ -5,6 +5,7 @@ import configureStore from "./store/store";
 import { logout } from "./actions/session_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // console.log("in trollo");
   let store;
   if (window.currentUser) {
     const { currentUser } = window;

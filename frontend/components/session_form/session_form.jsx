@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.email);
     this.state = {
       email: this.props.email,
       password: "",
@@ -34,7 +33,7 @@ class SessionForm extends React.Component {
     return (
       <ul>
         {this.props.errors.map((error, i) => (
-          <li key={i}>{error}</li>
+          <li key={i} style={{color: 'red'}}>{error}</li>
         ))}
       </ul>
     );

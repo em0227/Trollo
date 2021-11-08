@@ -25,6 +25,11 @@
     width: 300px;
     align-items: center;
 
+    ul {
+      padding: 40px;
+      list-style: circle;
+    }
+
     .login-form {
       display: flex;
       flex-direction: column;

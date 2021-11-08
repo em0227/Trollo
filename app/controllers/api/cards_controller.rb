@@ -1,5 +1,5 @@
 class Api::CardsController < ApplicationController
-    before_action :ensure_logged_in
+    # before_action :ensure_logged_in
 
     def index
         @board = Board.find_by(id: params[:board_id])
@@ -22,7 +22,12 @@ class Api::CardsController < ApplicationController
     def update
         @card = Card.find_by(id: params[:id])
         # @card = User.find(1).cards.find_by(id: params[:id])
+        # debugger
         if @card && @card.update!(card_params)
+            if params[:images] 
+                @card.images.attach(params[:images])
+                @card.update!
+            end
             render :show
         else
            render json: @card.errors.full_messages, status: 404
@@ -39,6 +44,6 @@ class Api::CardsController < ApplicationController
     private
 
     def card_params
-        params.require(:card).permit(:title, :description, :list_id)
+        params.require(:card).permit(:title, :description, :list_id, images: [])
     end
 end

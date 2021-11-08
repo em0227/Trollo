@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   closeModal: () => dispatch(closeModal),
-  updateCard: (card) => dispatch(updateCard(card)),
+  updateCard: (formData, cardId) => dispatch(updateCard(formData, cardId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardDetail);

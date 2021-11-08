@@ -11,11 +11,13 @@ export const createCard = (card) =>
     data: { card },
   });
 
-export const updateCard = (card) =>
+export const updateCard = (formData, cardId) =>
   $.ajax({
     method: "PATCH",
-    url: `api/cards/${card.id}`,
-    data: { card },
+    url: `api/cards/${cardId}`,
+    data: formData,
+    contentType: false,
+    processData: false,
   });
 
 export const deleteCard = (cardId) =>

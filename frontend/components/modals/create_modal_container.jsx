@@ -28,6 +28,9 @@ const CreateModal = ({ modal, closeModal, createBoard, errors }) => {
         className={`modal-child ${special}`}
         onClick={(e) => e.stopPropagation()}
       >
+        <a className="closebtn" onClick={closeModal}>
+          &times;
+        </a>
         {component}
       </div>
     </div>

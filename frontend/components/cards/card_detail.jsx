@@ -3,7 +3,7 @@ import React from "react";
 class CardDetail extends React.Component {
   constructor(props) {
     super(props);
-    let { list_id, id, title, description, imageUrls } = this.props.card;
+    let { list_id, id, title, description } = this.props.card;
     if (description === null) {
       description = "";
     }
@@ -53,10 +53,27 @@ class CardDetail extends React.Component {
     this.props.updateCardWithForm(formData, id);
     this.props.openCard(id);
   }
+
+  deleteAttachment(imageUrl) {
+    e.preventDefault();
+    // const { imagesUrl } = this.props.card;
+    // const formData = new FormData();
+    // for (let i = 0; i < images.length; i++) {
+    //   formData.append("card[images][]", images[i]);
+    // }
+    // use purge
+    // may need to set up a attachment delete route
+  }
+
   render() {
     const attachments = this.props.card.imageUrls
       ? this.props.card.imageUrls.map((imageUrl, i) => (
-          <img key={i} src={imageUrl} alt="image" />
+          <div>
+            <a className="closebtn" onClick={this.deleteAttachment(imageUrl)}>
+              &times;
+            </a>
+            <img key={i} src={imageUrl} alt="image" />
+          </div>
         ))
       : null;
     return (

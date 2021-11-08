@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import BoardDisplayAllContainer from "../board_display/board_display_all_container";
 import BoardDisplayCurrentContainer from "../board_display/board_display_current_container";
 import BoardLeftSideBar from "./board_left_side_bar";
@@ -35,7 +35,7 @@ class BoardIndex extends React.Component {
   render() {
     console.log("in index render");
     // debugger;
-    const { user, logout, boards, createBoard, openCreateBoard } = this.props;
+    const { user, boards, createBoard, openCreateBoard } = this.props;
     if (boards.length === 0) return null;
     let marginLeft = this.props.leftNav ? "200px" : "65px";
     return (

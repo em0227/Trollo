@@ -4,20 +4,16 @@ import { NavLink } from "react-router-dom";
 class BoardLeftSideBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showLeftNav: true,
-    };
     this.props.showLeftNav(true);
   }
 
   openNav(e) {
     e.preventDefault();
-    this.setState({ showLeftNav: true });
     this.props.showLeftNav(true);
   }
 
   collapsedNav() {
-    if (this.state.showLeftNav) {
+    if (this.props.showLeftNav) {
       return {
         width: "0",
         padding: "0",
@@ -32,12 +28,11 @@ class BoardLeftSideBar extends React.Component {
 
   closeNav(e) {
     e.preventDefault();
-    this.setState({ showLeftNav: false });
     this.props.showLeftNav(false);
   }
 
   leftNavWidth() {
-    if (this.state.showLeftNav) {
+    if (this.props.showLeftNav) {
       return "200px";
     } else {
       return "0";

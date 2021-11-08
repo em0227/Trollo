@@ -13,7 +13,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  closeModal: () => dispatch(closeModal),
   updateCardWithForm: (formData, cardId) =>
     dispatch(updateCardWithForm(formData, cardId)),
   openCard: (cardId) => dispatch(openCard(cardId)),

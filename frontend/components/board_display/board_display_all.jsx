@@ -7,11 +7,6 @@ class BoardDisplayAll extends React.Component {
     super(props);
   }
 
-  // openNav(e) {
-  //   // e.preventDefault();
-  //   this.props.changeLeftNavDisplay(true);
-  // }
-
   showModal(e) {
     e.preventDefault();
     this.props.openCreateBoard();
@@ -47,7 +42,6 @@ class BoardDisplayAll extends React.Component {
             );
           })}
         </div>
-        {/* <BoardForm createBoard={this.props.createBoard} /> */}
         <br />
         <button onClick={this.showModal.bind(this)}>Create New Board</button>
       </div>

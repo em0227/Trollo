@@ -16,13 +16,19 @@
   background: white;
   padding: 40px;
   border-radius: 0.3rem;
+  display: flex;
+  flex-direction: row-reverse;
 
   &.card-detail {
-    width: 600px;
-    height: max-content;
+    width: 700px;
+    height: 800px;
     display: flex;
     flex-direction: column;
     top: 40%;
     line-height: 2;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
   }
 }

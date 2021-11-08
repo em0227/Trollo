@@ -40,7 +40,7 @@ class BoardDisplayCurrent extends React.Component {
   }
 
   render() {
-    if (!this.props.board || !this.props.lists) return null;
+    if (!this.props.board) return null;
     const { bg_color, photo } = this.props.board;
     const background = photo
       ? { backgroundImage: `url(${photo})` }

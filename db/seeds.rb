@@ -4,8 +4,13 @@
 # Examples:
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
+demo_user = User.create(email: 'em0227new@aa.io', password: '123123', name: 'Emily');
+demo_board = Board.create(title: 'First Board', bg_color: 'orange', author_id: 1);
 
-User.create(email: 'em0227new@aa.io', password: '123123', name: 'Emily');
-Board.create(title: 'First Board', bg_color: 'orange', author_id: 1);
+file = open('https://trollo-aa-seeds.s3.amazonaws.com/fall.jpg')
+
+demo_board.attach(io: file, fileman: 'fall.jpg')

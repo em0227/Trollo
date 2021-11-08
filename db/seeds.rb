@@ -13,4 +13,4 @@ demo_board = Board.create(title: 'First Board', bg_color: 'orange', author_id: 1
 
 file = open('https://trollo-aa-seeds.s3.amazonaws.com/fall.jpg')
 
-demo_board.photo.attach(io: file, fileman: 'fall.jpg')
+demo_board.photo.attach(io: file, filename: 'fall.jpg')

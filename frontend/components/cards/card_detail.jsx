@@ -55,7 +55,7 @@ class CardDetail extends React.Component {
   }
 
   deleteAttachment(imageUrl) {
-    e.preventDefault();
+    // e.preventDefault();
     // const { imagesUrl } = this.props.card;
     // const formData = new FormData();
     // for (let i = 0; i < images.length; i++) {
@@ -65,17 +65,38 @@ class CardDetail extends React.Component {
     // may need to set up a attachment delete route
   }
 
+  expendImg(e) {
+    // debugger;
+    if (e.target.classList.value.includes("large-img")) {
+      e.target.classList.remove("large-img");
+      e.target.parentElement.classList.remove("show");
+      e.target.parentElement.parentElement.classList.remove("show");
+    } else {
+      e.target.classList.add("large-img");
+      e.target.parentElement.classList.add("show");
+      e.target.parentElement.parentElement.classList.add("show");
+    }
+  }
+
   render() {
     const attachments = this.props.card.imageUrls
       ? this.props.card.imageUrls.map((imageUrl, i) => (
-          <div>
-            <a className="closebtn" onClick={this.deleteAttachment(imageUrl)}>
-              &times;
-            </a>
-            <img key={i} src={imageUrl} alt="image" />
+          <div className="modal-image">
+            <div className="modal-iamge-child">
+              <a className="closebtn" onClick={this.deleteAttachment}>
+                &times;
+              </a>
+              <img
+                key={i}
+                src={imageUrl}
+                alt="image"
+                onClick={this.expendImg.bind(this)}
+              />
+            </div>
           </div>
         ))
       : null;
+
     return (
       <div className="card-detail-container">
         <div className="card-detail-text">

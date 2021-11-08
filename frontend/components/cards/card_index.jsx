@@ -45,20 +45,22 @@ class CardsIndex extends React.Component {
 
   dragOver(e) {
     // debugger;
-    e.preventDefault();
+    // e.preventDefault();
   }
 
   drop(e) {
     // debugger;
     let dragged = document.querySelector(".dragging-card");
     if (e.currentTarget.classList.value.includes("cards") && dragged) {
-      debugger;
+      // debugger;
       let movedCardId = parseInt(dragged.id);
       this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
       dragged.classList.remove("dragging-card");
     }
     //was using appendChild and removeChild and was causing DOM Exception issue.
   }
+
+  dropInSameList() {}
 
   render() {
     console.log("in card index render");

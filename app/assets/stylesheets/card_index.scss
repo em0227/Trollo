@@ -130,6 +130,16 @@
   }
 
   .card-detail-text {
+    img {
+      cursor: -moz-zoom-in;
+      cursor: -webkit-zoom-in;
+      cursor: zoom-in;
+    }
+    .large-img {
+      // transform: scale(1);
+      // height: max-content;
+      width: 100%;
+    }
   }
 
   .card-detail-controls {

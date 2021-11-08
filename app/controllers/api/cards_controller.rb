@@ -24,10 +24,11 @@ class Api::CardsController < ApplicationController
         # @card = User.find(1).cards.find_by(id: params[:id])
         # debugger
         if @card && @card.update!(card_params)
-            if params[:images] 
-                @card.images.attach(params[:images])
-                @card.update!
-            end
+            # if params[:images] 
+            #     debugger
+            #     @card.images.attach(params[:images])
+            #     @card.update!
+            # end
             render :show
         else
            render json: @card.errors.full_messages, status: 404

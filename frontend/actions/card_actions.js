@@ -38,7 +38,7 @@ export const createCard = (card) => (dispatch) =>
   );
 
 export const updateCardWithForm = (formData, cardId) => (dispatch) =>
-  APIUtil.updateCard(formData, cardId).then(
+  APIUtil.updateCardWithForm(formData, cardId).then(
     (card) => dispatch(receiveCard(card)),
     (err) => dispatch(receiveCardErrors(err))
   );

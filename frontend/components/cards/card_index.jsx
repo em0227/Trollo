@@ -51,7 +51,7 @@ class CardsIndex extends React.Component {
   drop(e) {
     // debugger;
     let dragged = document.querySelector(".dragging-card");
-    if (e.currentTarget.classList.value.includes("draggable-container")) {
+    if (e.currentTarget.classList.value.includes("cards")) {
       let movedCardId = parseInt(dragged.id);
       this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
       dragged.classList.remove("dragging-card");

@@ -51,6 +51,7 @@ class CardDetail extends React.Component {
     }
     // debugger;
     this.props.updateCardWithForm(formData, id);
+    this.props.openCard(id);
   }
   render() {
     const attachments = this.props.card.imageUrls

@@ -1,7 +1,7 @@
 import { updateCardWithForm } from "../../actions/card_actions";
 import { connect } from "react-redux";
 import CardDetail from "./card_detail";
-import { closeModal } from "../../actions/modal_actions";
+import { closeModal, openCard } from "../../actions/modal_actions";
 
 const mapStateToProps = (state) => {
   let card = state.entities.cards[state.ui.cardOpened];
@@ -15,7 +15,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   closeModal: () => dispatch(closeModal),
   updateCardWithForm: (formData, cardId) =>
-    dispatch(updateCard(formData, cardId)),
+    dispatch(updateCardWithForm(formData, cardId)),
+  openCard: (cardId) => dispatch(openCard(cardId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardDetail);

@@ -27,12 +27,29 @@ class ListIndexItem extends React.Component {
     this.props.updateList(this.state);
   }
 
+  dragStart(e) {
+    // debugger;
+    e.target.classList.add("dragging-list");
+    // e.target.dataTransfer.setData("text/html");
+  }
+
+  dragEnd(e) {
+    e.target.classList.remove("dragging-list");
+  }
+
   render() {
     console.log("in list item render");
     console.log(this.props.list);
     const { id } = this.props.list;
     return (
-      <div key={id} className="list">
+      <div
+        key={id}
+        className="list"
+        draggable="true"
+        onDragStart={this.dragStart}
+        onDragEnd={this.dragEnd}
+        id={id}
+      >
         <div className="list-control">
           <input
             type="text"

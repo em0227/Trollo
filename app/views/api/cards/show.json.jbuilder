@@ -1,5 +1,5 @@
 
-debugger
+# debugger
 if @card.images
     
     json.extract! @card, :id, :title, :description, :author_id, :list_id

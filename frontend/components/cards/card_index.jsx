@@ -50,11 +50,11 @@ class CardsIndex extends React.Component {
 
   drop(e) {
     // debugger;
-    let dragged = document.querySelector(".dragging");
+    let dragged = document.querySelector(".dragging-card");
     if (e.currentTarget.classList.value.includes("draggable-container")) {
       let movedCardId = parseInt(dragged.id);
       this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
-      dragged.classList.remove("dragging");
+      dragged.classList.remove("dragging-card");
     }
     //was using appendChild and removeChild and was causing DOM Exception issue.
   }
@@ -95,7 +95,11 @@ class CardsIndex extends React.Component {
           onDrop={this.drop.bind(this)}
         >
           {this.props.cards.map((card) => (
-            <CardIndexItem key={card.id} card={card} openCard={this.props.openCard}/>
+            <CardIndexItem
+              key={card.id}
+              card={card}
+              openCard={this.props.openCard}
+            />
           ))}
         </div>
         {cardNav}

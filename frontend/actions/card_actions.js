@@ -37,8 +37,14 @@ export const createCard = (card) => (dispatch) =>
     (err) => dispatch(receiveCardErrors(err))
   );
 
-export const updateCard = (formData, cardId) => (dispatch) =>
+export const updateCardWithForm = (formData, cardId) => (dispatch) =>
   APIUtil.updateCard(formData, cardId).then(
+    (card) => dispatch(receiveCard(card)),
+    (err) => dispatch(receiveCardErrors(err))
+  );
+
+export const updateCard = (card) => (dispatch) =>
+  APIUtil.updateCard(card).then(
     (card) => dispatch(receiveCard(card)),
     (err) => dispatch(receiveCardErrors(err))
   );

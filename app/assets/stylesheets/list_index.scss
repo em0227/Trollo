@@ -22,6 +22,10 @@
   margin: 10px;
 }
 
+.dragging-list {
+  transform: rotate(5deg);
+}
+
 .add-list-nav-collapsed {
   display: flex;
   width: 250px;

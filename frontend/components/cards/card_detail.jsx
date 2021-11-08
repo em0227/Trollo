@@ -50,7 +50,7 @@ class CardDetail extends React.Component {
       formData.append("card[images][]", images[i]);
     }
     // debugger;
-    this.props.updateCard(formData, id);
+    this.props.updateCardWithForm(formData, id);
   }
   render() {
     const attachments = this.props.card.imageUrls

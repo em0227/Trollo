@@ -19,7 +19,7 @@
 
   &.card-detail {
     width: 600px;
-    height: 600px;
+    height: max-content;
     display: flex;
     flex-direction: column;
     top: 40%;

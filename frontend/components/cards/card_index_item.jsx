@@ -35,12 +35,12 @@ class CardIndexItem extends React.Component {
 
   dragStart(e) {
     // debugger;
-    e.target.classList.add("dragging");
+    e.target.classList.add("dragging-card");
     // e.target.dataTransfer.setData("text/html");
   }
 
   dragEnd(e) {
-    e.target.classList.remove("dragging");
+    e.target.classList.remove("dragging-card");
   }
 
   render() {

@@ -13,7 +13,7 @@ class BoardLeftSideBar extends React.Component {
   }
 
   collapsedNav() {
-    if (this.props.showLeftNav) {
+    if (this.props.leftNav) {
       return {
         width: "0",
         padding: "0",
@@ -32,7 +32,7 @@ class BoardLeftSideBar extends React.Component {
   }
 
   leftNavWidth() {
-    if (this.props.showLeftNav) {
+    if (this.props.leftNav) {
       return "200px";
     } else {
       return "0";

@@ -35,7 +35,7 @@ class BoardIndex extends React.Component {
   render() {
     console.log("in index render");
     // debugger;
-    const { user, boards, createBoard, openCreateBoard } = this.props;
+    const { user, boards, createBoard, openCreateBoard, leftNav } = this.props;
     if (boards.length === 0) return null;
     let marginLeft = this.props.leftNav ? "200px" : "65px";
     return (
@@ -46,6 +46,7 @@ class BoardIndex extends React.Component {
           boards={boards}
           user={user}
           openCreateBoard={openCreateBoard}
+          leftNav={leftNav}
           showLeftNav={this.props.showLeftNav}
         />
 

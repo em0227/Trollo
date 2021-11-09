@@ -27,12 +27,11 @@ class Api::CardsController < ApplicationController
         @card = Card.find_by(id: params[:id])
         # @card = User.find(1).cards.find_by(id: params[:id])
         # debugger
+        if params[:card][:predecessor_id]
+            @card.change_order(params[:card][:predecessor_id])
+        end
+
         if @card && @card.update!(card_params)
-            # if params[:images] 
-            #     debugger
-            #     @card.images.attach(params[:images])
-            #     @card.update!
-            # end
             render :show
         else
            render json: @card.errors.full_messages, status: 404
@@ -49,6 +48,6 @@ class Api::CardsController < ApplicationController
     private
 
     def card_params
-        params.require(:card).permit(:title, :description, :list_id, images: [])
+        params.require(:card).permit(:title, :description, :list_id, :predecessor_id, images: [])
     end
 end

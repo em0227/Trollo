@@ -55,10 +55,10 @@ class CardDetail extends React.Component {
   }
 
   deleteAttachment(imageId) {
-    const cardId = this.props.card.id
+    const cardId = this.props.card.id;
     return (e) => {
-      this.props.deleteAttachment(cardId, imageId)
-    }
+      this.props.deleteAttachment(cardId, imageId);
+    };
   }
 
   expendImg(e) {
@@ -72,6 +72,28 @@ class CardDetail extends React.Component {
       e.target.parentElement.classList.add("show");
       e.target.parentElement.parentElement.classList.add("show");
     }
+  }
+
+  addCheckBoxText() {
+    //this.setState
+  }
+
+  submitCheckList() {
+    //create checklist
+  }
+
+  addCheckBox() {
+    return (
+      <div>
+        <input type="checkbox" />
+        {/* {need to add value to the checkbox too} */}
+        <input
+          type="text"
+          onChange={this.addCheckBoxText.bind(this)}
+          onBlur={this.submitCheckList}
+        />
+      </div>
+    );
   }
 
   render() {
@@ -114,12 +136,14 @@ class CardDetail extends React.Component {
             onChange={this.handleInput("description")}
             onBlur={this.submitUpdate.bind(this)}
           ></textarea>
+          {/* {this.checkboxs} */}
+
           <p>attachments</p>
           <div>{attachments}</div>
         </div>
 
         <div className="card-detail-controls">
-          <button>add checklist</button>
+          <button onClick={this.addCheckBox}>add checklist</button>
 
           <div>
             <label htmlFor="files">add image attachment</label>

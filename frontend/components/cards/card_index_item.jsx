@@ -42,10 +42,9 @@ class CardIndexItem extends React.Component {
 
   drop(e) {
     console.log("in item drag over");
-    // console.log(this.cardRef.current);
-    // console.log(e.target);
-    // console.log(e.currentTarget);
-
+    console.log(this.cardRef.current);
+    console.log(e.target);
+    console.log(e.currentTarget);
     let dragged = document.querySelector(".dragging-card");
     // let container = this.cardRef.current.parentElement;
     let container = e.currentTarget.parentElement;
@@ -66,7 +65,6 @@ class CardIndexItem extends React.Component {
       dragged.classList.remove("dragging-card");
       dragged.classList.remove("dragging-list");
       afterElement.insertAdjacentElement("beforebegin", dragged);
-
       // debugger;
     }
   }
@@ -98,6 +96,19 @@ class CardIndexItem extends React.Component {
     e.target.classList.remove("dragging-card");
   }
 
+  showCover() {
+    if (!this.props.card) return null;
+    const { image } = this.props.card;
+    // debugger;
+    if (image.length > 0) {
+      return (
+        <div draggable="false">
+          <img src={image[0].imageUrl} alt="card-cover" />
+        </div>
+      );
+    }
+  }
+
   render() {
     const card = this.props.card;
     // console.log(this.cardRef.current);
@@ -110,10 +121,19 @@ class CardIndexItem extends React.Component {
         onDrop={this.drop.bind(this)}
         id={card.id}
       >
-        <p>{card.title}</p>
-        <i className="fas fa-ellipsis-h" onClick={this.toggleDetail.bind(this)}>
-          {this.cardDetail()}
-        </i>
+        <div>
+          <div className="card-title-info">
+            <p>{card.title}</p>
+            <i
+              className="fas fa-ellipsis-h"
+              onClick={this.toggleDetail.bind(this)}
+            >
+              {this.cardDetail()}
+            </i>
+          </div>
+
+          {this.showCover()}
+        </div>
       </div>
     );
   }

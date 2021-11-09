@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_224854) do
+ActiveRecord::Schema.define(version: 2021_11_09_161058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_224854) do
     t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "predecessor_id"
     t.index ["author_id"], name: "index_cards_on_author_id"
     t.index ["list_id"], name: "index_cards_on_list_id"
     t.index ["title"], name: "index_cards_on_title"

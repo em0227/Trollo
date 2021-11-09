@@ -54,3 +54,9 @@ export const deleteCard = (cardId) => (dispatch) =>
     (cardId) => dispatch(removeCard(cardId)),
     (err) => dispatch(receiveCardErrors(err))
   );
+
+export const deleteAttachment = (cardId, imageId) => (dispatch) =>
+  APIUtil.deleteAttachment(cardId, imageId).then(
+    (card) => dispatch(receiveCard(card)),
+    (err) => dispatch(receiveCardErrors)
+  );

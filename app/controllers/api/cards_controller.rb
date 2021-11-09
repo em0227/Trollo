@@ -7,6 +7,10 @@ class Api::CardsController < ApplicationController
         @cards = @board.cards
     end
 
+    def show
+        @card = Card.find(params[:id])
+    end
+
     def create
         @card = Card.new(card_params)
         # @card.author = User.find(1)

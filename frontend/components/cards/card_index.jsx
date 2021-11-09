@@ -44,31 +44,6 @@ class CardsIndex extends React.Component {
 
   dragOver(e) {
     e.preventDefault();
-    // console.log("in drag over");
-    // console.log(this.cardIndexRef.current);
-
-    // debugger;
-    // console.log(e.target);
-    // console.log(e.currentTarget);
-    // let container =
-    //   e.target === e.currentTarget ? e.target : e.target.parentElement;
-    // const dragged = e.target;
-    // if (dragged.parentElement !== container) {
-    //   return null;
-    // }
-    // // debugger;
-    // const afterElement = this.getDragAfterElement(container, e.clientY);
-    // if (afterElement === undefined) {
-    //   debugger;
-    //   let movedCardId = parseInt(dragged.id);
-    //   this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
-    //   dragged.classList.remove("dragging-card");
-    // } else {
-    //   debugger;
-    //   container.removeChild(dragged);
-    //   // container.insertBefore(dragged, afterElement);
-    //   container.insertAdjacentElement("afterend", afterElement);
-    // }
   }
 
   drop(e) {
@@ -76,22 +51,6 @@ class CardsIndex extends React.Component {
     let dragged = document.querySelector(".dragging-card");
     let container = e.currentTarget;
     if (container.classList.value.includes("cards") && dragged) {
-      //   // debugger;
-      //   const afterElement = this.getDragAfterElement(container, e.clientY);
-      //   if (afterElement === undefined) {
-      //     debugger;
-      //     let movedCardId = parseInt(dragged.id);
-      //     this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
-      //     dragged.classList.remove("dragging-card");
-      //   } else {
-      //     debugger;
-      //     // container.removeChild(dragged);
-      //     // // container.insertBefore(dragged, afterElement);
-      //     // container.insertAdjacentElement("afterend", afterElement);
-      //     let movedCardId = parseInt(dragged.id);
-      //     this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
-      //     dragged.classList.remove("dragging-card");
-      //   }
       let movedCardId = parseInt(dragged.id);
       this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
       dragged.classList.remove("dragging-card");

@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     end
 
     resources :lists, only: [:create, :update, :destroy]
-    resources :cards, only: [:show, :create, :update, :destroy]
+    resources :cards, only: [:show, :create, :update, :destroy] do
+      resources :attachments, only: [:destroy]
+    end
+    
   end
 
 end

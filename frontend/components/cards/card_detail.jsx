@@ -54,15 +54,11 @@ class CardDetail extends React.Component {
     this.props.openCard(id);
   }
 
-  deleteAttachment(imageUrl) {
-    // e.preventDefault();
-    // const { imagesUrl } = this.props.card;
-    // const formData = new FormData();
-    // for (let i = 0; i < images.length; i++) {
-    //   formData.append("card[images][]", images[i]);
-    // }
-    // use purge
-    // may need to set up a attachment delete route
+  deleteAttachment(imageId) {
+    const cardId = this.props.card.id
+    return (e) => {
+      this.props.deleteAttachment(cardId, imageId)
+    }
   }
 
   expendImg(e) {
@@ -79,16 +75,17 @@ class CardDetail extends React.Component {
   }
 
   render() {
-    const attachments = this.props.card.imageUrls
-      ? this.props.card.imageUrls.map((imageUrl, i) => (
+    // debugger;
+    const attachments = this.props.card.image
+      ? this.props.card.image.map((image, i) => (
           <div className="modal-image">
             <div className="modal-iamge-child">
-              <a className="closebtn" onClick={this.deleteAttachment}>
-                &times;
-              </a>
+              <button onClick={this.deleteAttachment(image.imageId)}>
+                delete this
+              </button>
               <img
                 key={i}
-                src={imageUrl}
+                src={image.imageUrl}
                 alt="image"
                 onClick={this.expendImg.bind(this)}
               />
@@ -96,7 +93,7 @@ class CardDetail extends React.Component {
           </div>
         ))
       : null;
-
+    // debugger;
     return (
       <div className="card-detail-container">
         <div className="card-detail-text">

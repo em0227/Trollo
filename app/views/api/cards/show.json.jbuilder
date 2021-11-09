@@ -3,7 +3,10 @@
 if @card.images
     
     json.extract! @card, :id, :title, :description, :author_id, :list_id
-    json.imageUrls @card.images.map {|file| url_for(file) }
+    json.image @card.images.map do |file| 
+        json.imageUrl url_for(file)
+        json.imageId file.id
+    end
     
 else
     json.extract! @card, :id, :title, :description, :author_id, :list_id

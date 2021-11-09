@@ -32,3 +32,9 @@ export const deleteCard = (cardId) =>
     method: "DELETE",
     url: `api/cards/${cardId}`,
   });
+
+export const deleteAttachment = (cardId, imageId) =>
+  $.ajax({
+    method: "DELETE",
+    url: `api/cards/${cardId}/attachments/${imageId}`,
+  });

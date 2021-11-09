@@ -10,7 +10,6 @@ class CardsIndex extends React.Component {
       },
       showCardForm: false,
     };
-    // this.cardRef = React.createRef();
   }
   componentDidMount() {
     this.props.fetchAllCards(this.props.boardId);
@@ -44,15 +43,55 @@ class CardsIndex extends React.Component {
   }
 
   dragOver(e) {
+    e.preventDefault();
+    // console.log("in drag over");
+    // console.log(this.cardIndexRef.current);
+
     // debugger;
-    // e.preventDefault();
+    // console.log(e.target);
+    // console.log(e.currentTarget);
+    // let container =
+    //   e.target === e.currentTarget ? e.target : e.target.parentElement;
+    // const dragged = e.target;
+    // if (dragged.parentElement !== container) {
+    //   return null;
+    // }
+    // // debugger;
+    // const afterElement = this.getDragAfterElement(container, e.clientY);
+    // if (afterElement === undefined) {
+    //   debugger;
+    //   let movedCardId = parseInt(dragged.id);
+    //   this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
+    //   dragged.classList.remove("dragging-card");
+    // } else {
+    //   debugger;
+    //   container.removeChild(dragged);
+    //   // container.insertBefore(dragged, afterElement);
+    //   container.insertAdjacentElement("afterend", afterElement);
+    // }
   }
 
   drop(e) {
     // debugger;
     let dragged = document.querySelector(".dragging-card");
-    if (e.currentTarget.classList.value.includes("cards") && dragged) {
-      // debugger;
+    let container = e.currentTarget;
+    if (container.classList.value.includes("cards") && dragged) {
+      //   // debugger;
+      //   const afterElement = this.getDragAfterElement(container, e.clientY);
+      //   if (afterElement === undefined) {
+      //     debugger;
+      //     let movedCardId = parseInt(dragged.id);
+      //     this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
+      //     dragged.classList.remove("dragging-card");
+      //   } else {
+      //     debugger;
+      //     // container.removeChild(dragged);
+      //     // // container.insertBefore(dragged, afterElement);
+      //     // container.insertAdjacentElement("afterend", afterElement);
+      //     let movedCardId = parseInt(dragged.id);
+      //     this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
+      //     dragged.classList.remove("dragging-card");
+      //   }
       let movedCardId = parseInt(dragged.id);
       this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
       dragged.classList.remove("dragging-card");
@@ -60,10 +99,9 @@ class CardsIndex extends React.Component {
     //was using appendChild and removeChild and was causing DOM Exception issue.
   }
 
-  dropInSameList() {}
-
   render() {
     console.log("in card index render");
+    // console.log(this.cardIndexRef.current);
     let cardNav = this.state.showCardForm ? (
       <div className="add-card-nav">
         <input
@@ -94,8 +132,9 @@ class CardsIndex extends React.Component {
       <div>
         <div
           className="cards draggable-container"
-          onDragOver={this.dragOver}
+          onDragOver={this.dragOver.bind(this)}
           onDrop={this.drop.bind(this)}
+          // onDragEnd={this.dragEnd}
         >
           {this.props.cards.map((card) => (
             <CardIndexItem

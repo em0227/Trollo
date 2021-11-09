@@ -138,7 +138,8 @@ class CardDetail extends React.Component {
           </div>
           <button onClick={this.submitUpdate.bind(this)}>update card</button>
 
-          <button>add due date</button>
+          <label htmlFor="due-date">Due Date:</label>
+          <input type="date" id="due-date" />
         </div>
       </div>
     );

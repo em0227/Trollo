@@ -8,6 +8,7 @@ class CardIndexItem extends React.Component {
     };
     // this.cardRef = React.createRef();
   }
+
   toggleDetail() {
     this.setState({
       showCardDetail: !this.state.showCardDetail,
@@ -39,20 +40,75 @@ class CardIndexItem extends React.Component {
     // e.target.dataTransfer.setData("text/html");
   }
 
+  drop(e) {
+    console.log("in item drag over");
+    // console.log(this.cardRef.current);
+    // console.log(e.target);
+    // console.log(e.currentTarget);
+
+    let dragged = document.querySelector(".dragging-card");
+    // let container = this.cardRef.current.parentElement;
+    let container = e.currentTarget.parentElement;
+    // debugger;
+    const afterElement = this.getDragAfterElement(container, e.clientY);
+    // debugger;
+    if (afterElement === undefined) {
+      // debugger;
+      // container.removeChild(dragged);
+      container.append(dragged);
+      dragged.classList.remove("dragging-card");
+      dragged.classList.remove("dragging-list");
+      // debugger;
+    } else {
+      // debugger;
+      // container.removeChild(dragged);
+      // container.insertBefore(dragged, afterElement);
+      dragged.classList.remove("dragging-card");
+      dragged.classList.remove("dragging-list");
+      afterElement.insertAdjacentElement("beforebegin", dragged);
+
+      // debugger;
+    }
+  }
+
+  getDragAfterElement(container, y) {
+    let cardsInList = [];
+    for (let i = 0; i < container.children.length; i++) {
+      if (!container.children[i].classList.value.includes("dragging-card")) {
+        cardsInList.push(container.children[i]);
+      }
+    }
+    // debugger;
+    return cardsInList.reduce(
+      (closet, child) => {
+        // debugger;
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closet.offset) {
+          return { offset: offset, element: child };
+        } else {
+          return closet;
+        }
+      },
+      { offset: Number.NEGATIVE_INFINITY }
+    ).element;
+  }
+
   dragEnd(e) {
     e.target.classList.remove("dragging-card");
   }
 
   render() {
     const card = this.props.card;
+    // console.log(this.cardRef.current);
     return (
       <div
         className="card draggables"
         draggable="true"
         onDragStart={this.dragStart}
         onDragEnd={this.dragEnd}
+        onDrop={this.drop.bind(this)}
         id={card.id}
-        ref={this.cardRef}
       >
         <p>{card.title}</p>
         <i className="fas fa-ellipsis-h" onClick={this.toggleDetail.bind(this)}>

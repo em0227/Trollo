@@ -43,6 +43,10 @@
 @import "./card_index.scss";
 @import "./modal.scss";
 
+body {
+  overflow-y: hidden;
+}
+
 #root {
   // font-family: "Zen Kurenaido", sans-serif;
   font-family: "Charlie Text";

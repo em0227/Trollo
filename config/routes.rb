@@ -9,13 +9,15 @@ Rails.application.routes.draw do
     end
     resource :session, only: [:create, :destroy]
     resources :boards, only: [:show, :create, :update, :destroy] do 
-      resources :lists, only: [:create]
-    end
-
-    resources :lists, only: [:update, :destroy] do 
+      resources :lists, only: [:index]
       resources :cards, only: [:index]
     end
-    resources :cards, only: [:show, :create, :update, :destroy]
+
+    resources :lists, only: [:create, :update, :destroy]
+    resources :cards, only: [:show, :create, :update, :destroy] do
+      resources :attachments, only: [:destroy]
+    end
+    
   end
 
 end

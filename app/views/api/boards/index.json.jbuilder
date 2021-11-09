@@ -9,4 +9,6 @@
         end
     end
 end
+
+# json.name @boards[0].author.name
 # not sure why need begin rescue here see it from the pokemon

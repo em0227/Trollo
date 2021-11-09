@@ -1,10 +1,7 @@
 import BoardDisplayCurrent from "./board_display_current";
 import { connect } from "react-redux";
-import {
-  updateBoard,
-  deleteBoard,
-  fetchBoard,
-} from "../../actions/board_actions";
+import { updateBoard, deleteBoard } from "../../actions/board_actions";
+import { fetchAllLists } from "../../actions/list_actions";
 
 const mapStateToProps = (state, ownProps) => ({
   board: state.entities.boards[ownProps.match.params.boardId],

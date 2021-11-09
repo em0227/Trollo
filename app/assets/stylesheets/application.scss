@@ -39,6 +39,13 @@
 @import "./session_form.scss";
 @import "./board_index.scss";
 @import "./board_form.scss";
+@import "./list_index.scss";
+@import "./card_index.scss";
+@import "./modal.scss";
+
+body {
+  overflow-y: hidden;
+}
 
 #root {
   // font-family: "Zen Kurenaido", sans-serif;

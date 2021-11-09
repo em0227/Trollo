@@ -4,25 +4,23 @@ import { NavLink } from "react-router-dom";
 class BoardLeftSideBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showLeftNav: true,
-    };
+    this.props.showLeftNav(true);
   }
 
   openNav(e) {
     e.preventDefault();
-    this.setState({ showLeftNav: true });
+    this.props.showLeftNav(true);
   }
 
   collapsedNav() {
-    if (this.state.showLeftNav) {
+    if (this.props.leftNav) {
       return {
         width: "0",
         padding: "0",
       };
     } else {
       return {
-        width: "60px",
+        width: "40px",
         padding: "15px 15px 0 10px",
       };
     }
@@ -30,12 +28,12 @@ class BoardLeftSideBar extends React.Component {
 
   closeNav(e) {
     e.preventDefault();
-    this.setState({ showLeftNav: false });
+    this.props.showLeftNav(false);
   }
 
   leftNavWidth() {
-    if (this.state.showLeftNav) {
-      return "250px";
+    if (this.props.leftNav) {
+      return "200px";
     } else {
       return "0";
     }
@@ -64,11 +62,11 @@ class BoardLeftSideBar extends React.Component {
           <a className="closebtn" onClick={this.closeNav.bind(this)}>
             &times;
           </a>
-          <h3 className=".leftnavlinks">{user.name}'s Workspace</h3>
+          <h3 className="leftnavlinks">{user.name}'s Workspace</h3>
           <br />
 
           <div id={`/users/${user.id}/boards`} className="all-boards">
-            <NavLink to={`/users/${user.id}/boards`} className=".leftnavlinks">
+            <NavLink to={`/users/${user.id}/boards`} className="leftnavlinks">
               All Boards
             </NavLink>
             <button onClick={this.showModal.bind(this)}>

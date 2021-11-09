@@ -8,7 +8,7 @@ class Api::BoardsController < ApplicationController
     end
 
     def show
-        @lists = @board.lists
+
         @board = current_user.boards.find_by(id: params[:id])
         
     end

@@ -3,9 +3,11 @@ import ReactDOM from "react-dom";
 import Root from "./components/root";
 import configureStore from "./store/store";
 import { logout } from "./actions/session_actions";
+import { openCard } from "./actions/modal_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   // console.log("in trollo");
+  // console.log("test");
   let store;
   if (window.currentUser) {
     const { currentUser } = window;
@@ -25,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //test
   window.store = store;
   window.logout = logout;
+  window.openCard = openCard;
 
   //test end
 

@@ -44,14 +44,14 @@ class CardsIndex extends React.Component {
   }
 
   dragOver(e) {
-    // debugger;
     e.preventDefault();
   }
 
   drop(e) {
     // debugger;
     let dragged = document.querySelector(".dragging-card");
-    if (e.currentTarget.classList.value.includes("draggable-container")) {
+    let container = e.currentTarget;
+    if (container.classList.value.includes("cards") && dragged) {
       let movedCardId = parseInt(dragged.id);
       this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
       dragged.classList.remove("dragging-card");

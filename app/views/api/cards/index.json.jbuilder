@@ -8,5 +8,6 @@
                 json.imageId file.id
             end
         end
+        json.sharedCoworkerIds card.shares.map {|share| share.user.id}
     end
 end

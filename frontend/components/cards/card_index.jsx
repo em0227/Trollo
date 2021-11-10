@@ -47,7 +47,7 @@ class CardsIndex extends React.Component {
   }
 
   drop(e) {
-    debugger;
+    // debugger;
     let dragged = document.querySelector(".dragging-card");
     let container = e.currentTarget;
     if (container.classList.value.includes("cards") && dragged) {

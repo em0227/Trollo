@@ -2,11 +2,10 @@
 @boards.each do |board|
     json.set! board.id do 
         json.extract! board, :id, :title, :bg_color, :author_id
-        begin
+        if board.photo.attached?
             json.photo url_for(board.photo)
-        rescue
-            json.photo
         end
+        json.sharedCoworkerIds board.shares.map {|share| share.user.id}
     end
 end
 

@@ -25,13 +25,22 @@ class CardIndexItem extends React.Component {
       return (
         <div className="card-detail-menu">
           <button onClick={this.openCardDetail.bind(this)}>Edit Card</button>
-          <button>Delete Card</button>
+          <button onClick={this.handleDelete(this.props.card.id)}>
+            Delete Card
+          </button>
+
           <a className="closebtn" onClick={this.toggleDetail.bind(this)}>
             &times;
           </a>
         </div>
       );
     }
+  }
+
+  handleDelete(cardId) {
+    return (e) => {
+      this.props.deleteCard(cardId);
+    };
   }
 
   dragStart(e) {
@@ -152,7 +161,6 @@ class CardIndexItem extends React.Component {
         onDragEnd={this.dragEnd}
         onDrop={this.drop.bind(this)}
         onDragOver={this.dragOver.bind(this)}
-        onClick={this.openCardDetail.bind(this)}
         id={card.id}
       >
         <div draggable="false">

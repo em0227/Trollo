@@ -60,6 +60,7 @@ class Card < ApplicationRecord
         if after_card
             # byebug
             self.update(predecessor_id: after_card.id)
+            
         elsif original_predecessor_id != 0
             self.update(predecessor_id: 0)
             original_predecessor = Card.find_by(id: original_predecessor_id)
@@ -72,7 +73,7 @@ class Card < ApplicationRecord
             original_follower.update(predecessor_id: original_predecessor_id)
         end
         #card1: as self has chagned place, the original following card (if exists) will follow self's original predecessor
-        
+        debugger
         if after_card_original_follower && after_card_original_follower != self
             after_card_original_follower.update(predecessor_id: self.id)
         end

@@ -102,6 +102,7 @@ class CardsIndex extends React.Component {
               card={card}
               openCard={this.props.openCard}
               updateCard={this.props.updateCard}
+              deleteCard={this.props.deleteCard}
             />
           ))}
         </div>

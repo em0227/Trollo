@@ -1,4 +1,4 @@
-if @board.photo
+if @board.photo.attached?
     json.extract! @board, :id, :title, :author_id, :bg_color 
     json.photo url_for(@board.photo)
 else

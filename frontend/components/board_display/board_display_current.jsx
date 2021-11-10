@@ -5,16 +5,16 @@ import ListIndexContainer from "../lists/lists_index_container";
 class BoardDisplayCurrent extends React.Component {
   constructor(props) {
     super(props);
-    const { id, title } = this.props.board;
     this.state = {
-      id,
-      title,
+      id: "",
+      title: "",
     };
   }
 
   componentDidMount() {
     console.log("in display did mount");
     // this.props.fetchAllLists(this.props.board.id);
+    this.props.fetchBoard(this.props.match.params.boardId);
   }
 
   componentDidUpdate(prevProps) {

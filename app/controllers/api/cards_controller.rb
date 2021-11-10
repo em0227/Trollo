@@ -1,5 +1,5 @@
 class Api::CardsController < ApplicationController
-    # before_action :ensure_logged_in
+    before_action :ensure_logged_in
 
     def index
         @board = Board.find_by(id: params[:board_id])
@@ -43,6 +43,28 @@ class Api::CardsController < ApplicationController
         @card = current_user.cards.find_by(id: params[:id])
         @card.destroy
         render json: [@card.id]
+    end
+
+    def share
+        # debugger
+        # co_worker = User.find_by(id: params[:co_worker_id])
+        # card = Card.find_by(id: params[:id])
+        share = Share.create(user_id: params[:co_worker_id], shareable_id: params[:id], shareable_type: 'Card')
+        if share.save
+            render json: share.user.id
+        else
+            render json: share.errors.full_messages, status: :unprocessable_entity
+        end
+    end
+
+    def unshare
+        card = Card.find_by(id: params[:id])
+        share = card.shares.find_by(user_id: params[:co_worker_id])
+        if share.destroy
+            render json: share.user.id
+        else
+            render json: share.errors.full_messages, status: :unprocessable_entity
+        end
     end
 
     private

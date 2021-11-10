@@ -45,28 +45,28 @@ class CardIndexItem extends React.Component {
     // console.log(this.cardRef.current);
     // console.log(e.target);
     // console.log(e.currentTarget);
-    let dragged = document.querySelector(".dragging-card");
-    // let container = this.cardRef.current.parentElement;
-    let container = e.currentTarget.parentElement;
-    // debugger;
-    const afterElement = this.getDragAfterElement(container, e.clientY);
-    // debugger;
-    if (afterElement === undefined) {
-      // debugger;
-      // container.removeChild(dragged);
-      container.append(dragged);
-      dragged.classList.remove("dragging-card");
-      dragged.classList.remove("dragging-list");
-      // debugger;
-    } else {
-      // debugger;
-      // container.removeChild(dragged);
-      // container.insertBefore(dragged, afterElement);
-      dragged.classList.remove("dragging-card");
-      dragged.classList.remove("dragging-list");
-      afterElement.insertAdjacentElement("beforebegin", dragged);
-      // debugger;
-    }
+    // let dragged = document.querySelector(".dragging-card");
+    // // let container = this.cardRef.current.parentElement;
+    // let container = e.currentTarget.parentElement;
+    // // debugger;
+    // const afterElement = this.getDragAfterElement(container, e.clientY);
+    // // debugger;
+    // if (afterElement === undefined) {
+    //   // debugger;
+    //   // container.removeChild(dragged);
+    //   container.append(dragged);
+    //   dragged.classList.remove("dragging-card");
+    //   dragged.classList.remove("dragging-list");
+    //   // debugger;
+    // } else {
+    //   // debugger;
+    //   // container.removeChild(dragged);
+    //   // container.insertBefore(dragged, afterElement);
+    //   dragged.classList.remove("dragging-card");
+    //   dragged.classList.remove("dragging-list");
+    //   afterElement.insertAdjacentElement("beforebegin", dragged);
+    //   // debugger;
+    // }
   }
 
   getDragAfterElement(container, y) {

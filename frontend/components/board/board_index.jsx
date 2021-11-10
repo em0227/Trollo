@@ -16,7 +16,7 @@ class BoardIndex extends React.Component {
     // if (this.props.location.pathname === "/") {
     //   this.props.history.push(`/users/${this.props.user.id}/boards`);
     // }
-    console.log("in index did mount");
+    // console.log("in index did mount");
     // if no this, will only have id in the user state as that's what I bootstraped
     // refactor it to not attach to params, which is safer and make my board frontend routes possible
   }

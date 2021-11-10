@@ -31,13 +31,16 @@ class Card < ApplicationRecord
     end
 
     def change_order(after_card_id)
+        if after_card_id
+            after_card = Card.find(after_card_id)
 
-        after_card = Card.find(after_card_id)
-        original_list = self.list_id
-        moved_list = after_card.list_id
 
-        if original_list != moved_list
-            self.update(list_id: moved_list.id)
+        end
+        original_list_id = self.list.id
+        moved_list_id = after_card.list.id
+        # byebug
+        if original_list_id != moved_list_id
+            self.update(list_id: moved_list_id)
             self.assign_order
             return
         end
@@ -55,7 +58,7 @@ class Card < ApplicationRecord
         # card3: there will be a third card being affected if moved to another list as the first card
 
         if after_card
-            byebug
+            # byebug
             self.update(predecessor_id: after_card.id)
         elsif original_predecessor_id != 0
             self.update(predecessor_id: 0)

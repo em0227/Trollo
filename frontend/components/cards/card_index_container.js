@@ -5,14 +5,18 @@ import {
   createCard,
   updateCard,
 } from "../../actions/card_actions";
-import { findCardsByList } from "../../reducers/selector";
+import { findCardsByList, orderCardInList } from "../../reducers/selector";
 import { openCard } from "../../actions/modal_actions";
 
-const mapStateToProps = (state, ownProps) => ({
-  boardId: ownProps.boardId,
-  list: ownProps.list,
-  cards: findCardsByList(state.entities.cards, ownProps.list.id),
-});
+const mapStateToProps = (state, ownProps) => {
+  const cards = findCardsByList(state.entities.cards, ownProps.list.id);
+  const orderedCards = orderCardInList(cards);
+  return {
+    boardId: ownProps.boardId,
+    list: ownProps.list,
+    cards: orderedCards,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   fetchAllCards: (boardId) => dispatch(fetchAllCards(boardId)),

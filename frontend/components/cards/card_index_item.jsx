@@ -40,23 +40,51 @@ class CardIndexItem extends React.Component {
     // e.target.dataTransfer.setData("text/html");
   }
 
+  dragOver(e) {
+    e.preventDefault();
+  }
+
   drop(e) {
-    // console.log("in item drag over");
+    console.log("in item drag over");
     // console.log(this.cardRef.current);
-    // console.log(e.target);
-    // console.log(e.currentTarget);
-    // let dragged = document.querySelector(".dragging-card");
-    // // let container = this.cardRef.current.parentElement;
-    // let container = e.currentTarget.parentElement;
-    // // debugger;
-    // const afterElement = this.getDragAfterElement(container, e.clientY);
-    // // debugger;
+    console.log(e.target);
+    console.log(e.currentTarget);
+    let dragged = document.querySelector(".dragging-card");
+    console.log("dragged");
+    console.log(dragged);
+    // let container = this.cardRef.current.parentElement;
+    let container = e.currentTarget.parentElement;
+    // debugger;
+    const afterElement = this.getDragAfterElement(container, e.clientY);
+    console.log("after element");
+    console.log(afterElement);
+    debugger;
+    let afterCardId;
+    if (afterElement) {
+      afterCardId = afterElement.id;
+    } else {
+      afterCardId = null;
+    }
+
+    console.log("after card");
+
+    debugger;
+    if (container.classList.value.includes("cards") && dragged) {
+      let movedCardId = parseInt(dragged.id);
+      this.props.updateCard({
+        id: movedCardId,
+        list_id: this.props.card.list_id,
+        predecessor_id: afterCardId,
+      });
+    }
+    dragged.classList.remove("dragging-card");
     // if (afterElement === undefined) {
     //   // debugger;
     //   // container.removeChild(dragged);
     //   container.append(dragged);
     //   dragged.classList.remove("dragging-card");
     //   dragged.classList.remove("dragging-list");
+
     //   // debugger;
     // } else {
     //   // debugger;
@@ -68,6 +96,10 @@ class CardIndexItem extends React.Component {
     //   // debugger;
     // }
   }
+
+  // drop(e) {
+  //   dragged.classList.remove("dragging-card");
+  // }
 
   getDragAfterElement(container, y) {
     let cardsInList = [];
@@ -119,10 +151,11 @@ class CardIndexItem extends React.Component {
         onDragStart={this.dragStart}
         onDragEnd={this.dragEnd}
         onDrop={this.drop.bind(this)}
+        onDragOver={this.dragOver.bind(this)}
         onClick={this.openCardDetail.bind(this)}
         id={card.id}
       >
-        <div>
+        <div draggable="false">
           <div className="card-title-info">
             <p>{card.title}</p>
             <i

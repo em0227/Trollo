@@ -13,6 +13,8 @@ class Card < ApplicationRecord
 
     has_many_attached :images
 
+    has_many :shares, as: :shareable
+
     def ensure_predecessor_id
         self.predecessor_id ||= self.assign_order
     end
@@ -33,7 +35,7 @@ class Card < ApplicationRecord
         after_card = Card.find(after_card_id)
         original_list = self.list_id
         moved_list = after_card.list_id
-        
+
         if original_list != moved_list
             self.update(list_id: moved_list.id)
             self.assign_order

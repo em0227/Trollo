@@ -20,6 +20,16 @@ class User < ApplicationRecord
         foreign_key: :author_id,
         class_name: :Card
 
+    has_many :shares
+    has_many :shared_boards,
+        through: :shares,
+        source: :shareable,
+        source_type: 'Board'
+    has_many :shared_cards,
+        through: :shares,
+        source: :shareable,
+        source_type: 'Card'
+
     attr_reader :password
 
     def self.find_by_crendentials(email, password)

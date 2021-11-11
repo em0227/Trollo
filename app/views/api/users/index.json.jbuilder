@@ -1,4 +1,4 @@
-require 'byebug'
+# require 'byebug'
 # byebug
 @users.each do |user|
     json.set! user.id do

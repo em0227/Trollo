@@ -1,4 +1,4 @@
-require 'byebug'
+# require 'byebug'
 class Card < ApplicationRecord
     validates :title, :list_id, :author_id, presence: true
     after_initialize :ensure_predecessor_id

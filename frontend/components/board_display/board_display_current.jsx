@@ -6,8 +6,13 @@ class BoardDisplayCurrent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: "",
-      title: "",
+      board: {
+        id: "",
+        title: "",
+      },
+      showInviteForm: false,
+      search: "",
+      selected: null,
     };
   }
 
@@ -22,21 +27,96 @@ class BoardDisplayCurrent extends React.Component {
     if (prevProps.board !== this.props.board) {
       const { id, title } = this.props.board;
       this.setState({
-        id,
-        title,
+        board: {
+          id,
+          title,
+        },
       });
     }
   }
 
   submitUpdate(e) {
     e.preventDefault();
-    if (this.props.board && this.props.board.title !== this.state.title) {
-      this.props.updateBoard(this.state);
+    if (this.props.board && this.props.board.title !== this.state.board.title) {
+      this.props.updateBoard(this.state.board);
     }
   }
 
   updateBoardTitle(e) {
-    this.setState({ title: e.target.value });
+    this.setState({
+      board: {
+        id: this.props.board.id,
+        title: e.target.value,
+      },
+    });
+  }
+
+  invite() {
+    this.setState({ showInviteForm: !this.state.showInviteForm });
+  }
+
+  inviteForm() {
+    if (this.state.showInviteForm) {
+      return (
+        <div className="invite-form">
+          <h3>Invite to board</h3>
+          <input
+            type="search"
+            placeholder="Email address or name"
+            onChange={this.handleSearch.bind(this)}
+            value={this.state.search}
+          />
+
+          {this.props.searchResults.map((result) => {
+            return (
+              <div
+                className="user-result"
+                onClick={this.selectUser.bind(this)}
+                key={result.id}
+                id={result.id}
+              >
+                <p>{result.name}</p>
+                <p>{result.email}</p>
+              </div>
+            );
+          })}
+
+          <button onClick={this.sendInvite.bind(this)}>Send Invitation</button>
+          <a className="closebtn" onClick={(e) => this.invite.bind(this)}>
+            &times;
+          </a>
+        </div>
+      );
+    }
+  }
+
+  handleSearch(e) {
+    this.debounce();
+    this.setState({
+      search: e.target.value,
+    });
+  }
+
+  debounce() {
+    let { timerId, search } = this.state;
+    const { matchedUsers } = this.props;
+
+    clearTimeout(timerId);
+    timerId = setTimeout(() => matchedUsers(search), 200);
+    this.setState({ timerId });
+  }
+
+  selectUser(e) {
+    if (document.querySelector(".selected")) {
+      document.querySelector(".selected").classList.remove("selected");
+    }
+    // debugger;
+    e.currentTarget.classList.add("selected");
+    this.setState({ selected: e.currentTarget.id });
+  }
+
+  sendInvite(e) {
+    this.props.shareBoard(this.props.board.id, this.state.selected);
   }
 
   render() {
@@ -54,12 +134,30 @@ class BoardDisplayCurrent extends React.Component {
             <input
               type="text"
               id="board-title-input"
-              value={this.state.title}
-              placeholder={this.state.title}
+              value={this.state.board.title}
+              placeholder={this.state.board.title}
               onChange={this.updateBoardTitle.bind(this)}
               onBlur={this.submitUpdate.bind(this)}
             />
           </p>
+
+          <div className="co-workers">
+            <div className="whos-on-board">{this.props.owner}</div>
+            {this.props.board.sharedCoworkers.map((coWorker) => (
+              <div key={coWorker.id} className="whos-on-board">
+                {coWorker.name}
+              </div>
+            ))}
+          </div>
+
+          <div className="invite-container">
+            <div className="invite" onClick={this.invite.bind(this)}>
+              <i className="fas fa-user-plus"></i>
+              <button>Invite</button>
+            </div>
+
+            {this.inviteForm()}
+          </div>
 
           <BoardRightSideBar
             board={this.props.board}

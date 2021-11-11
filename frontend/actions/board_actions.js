@@ -12,7 +12,7 @@ const receiveBoards = (boards) => ({
   boards,
 });
 
-const receiveBoard = (board) => ({
+export const receiveBoard = (board) => ({
   type: RECEIVE_BOARD,
   board,
 });
@@ -22,7 +22,7 @@ const removeBoard = (boardId) => ({
   boardId,
 });
 
-const receiveBoardErrors = (errors) => ({
+export const receiveBoardErrors = (errors) => ({
   type: RECEIVE_BOARD_ERRORS,
   errors,
 });

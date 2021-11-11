@@ -1,10 +1,10 @@
 if @board.photo.attached?
     json.extract! @board, :id, :title, :author_id, :bg_color 
     json.photo url_for(@board.photo)
-    json.sharedCoworkerIds @board.shares.map {|share| share.user.id}
+    json.sharedCoworkers @board.co_workers
 else
     json.extract! @board, :id, :title, :author_id, :bg_color 
-    json.sharedCoworkerIds 
+    json.sharedCoworkers @board.co_workers
 end
 
 # json.lists @board.lists do |list|

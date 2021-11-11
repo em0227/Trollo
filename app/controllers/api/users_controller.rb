@@ -2,7 +2,12 @@ class Api::UsersController < ApplicationController
     before_action :ensure_logged_in, only: [:show, :update, :index]
 
     def index
-        @users = User.all
+        if filter
+            # byebug
+            @users = User.matched_users(filter)
+        else
+            @users = User.all
+        end
     end
 
     def show
@@ -33,5 +38,9 @@ class Api::UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:email, :name, :password)
+    end
+
+    def filter
+        params[:filter]
     end
 end

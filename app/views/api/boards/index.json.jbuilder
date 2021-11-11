@@ -5,7 +5,7 @@
         if board.photo.attached?
             json.photo url_for(board.photo)
         end
-        json.sharedCoworkerIds board.shares.map {|share| share.user.id}
+        json.sharedCoworkers board.co_workers
     end
 end
 

@@ -235,14 +235,78 @@
 
 .display-menu {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: space-evenly;
   width: 100%;
   padding: 20px;
 
   #board-title-input {
     font-weight: 500;
     font-size: 18px;
+  }
+  .invite-container {
+    position: relative;
+
+    .invite {
+      background: #0079bf;
+      padding: 10px;
+      border-radius: 0.3rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      min-width: 65px;
+    }
+
+    .invite-form {
+      position: absolute;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      font-size: 16px;
+      border-radius: 0.3rem;
+      padding: 28px;
+      align-items: flex-start;
+      font-family: "Roboto";
+      top: 40px;
+      color: gray;
+      left: 0;
+      min-height: 300px;
+      min-width: 200px;
+
+      h3 {
+        font-size: 17px;
+        padding: 0 0 10px 0;
+      }
+      input {
+        width: 200px;
+      }
+      button {
+        margin: 10px 0 10px 0;
+      }
+
+      .user-result {
+        border: black 1px solid;
+        width: 100%;
+        border-radius: 0.3rem;
+        padding: 5px 0 5px 10px;
+      }
+      .selected {
+        border: blue 3px solid;
+      }
+    }
+  }
+  .co-workers {
+    display: flex;
+    justify-content: space-evenly;
+    width: 400px;
+
+    .whos-on-board {
+      background: aliceblue;
+      color: #0079bf;
+      padding: 5px 10px 5px 10px;
+      border-radius: 0.3rem;
+    }
   }
 }
 

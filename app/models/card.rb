@@ -73,7 +73,7 @@ class Card < ApplicationRecord
             original_follower.update(predecessor_id: original_predecessor_id)
         end
         #card1: as self has chagned place, the original following card (if exists) will follow self's original predecessor
-        debugger
+        # debugger
         if after_card_original_follower && after_card_original_follower != self
             after_card_original_follower.update(predecessor_id: self.id)
         end

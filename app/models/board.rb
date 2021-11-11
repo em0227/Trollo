@@ -21,5 +21,13 @@ class Board < ApplicationRecord
 
     has_many :shares, as: :shareable
 
+    def co_workers
+        co_workers = []
+        self.shares.each do |share|
+            co_worker = User.find_by(id: share.user_id)
+            co_workers << { id: co_worker.id, name: co_worker.name }
+        end
+        return co_workers
+    end
 
 end

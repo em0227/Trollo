@@ -25,6 +25,7 @@ class BoardIndex extends React.Component {
     // if (this.props.location.pathname === "/") {
     //   this.props.history.push(`/users/${this.props.user.id}/boards`);
     // }
+
     console.log("in index did update");
     // if (prevProps.boards !== this.props.boards) {
     //   this.props.fetchAllBoards(this.props.user.id);

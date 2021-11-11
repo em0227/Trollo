@@ -161,6 +161,7 @@ class CardIndexItem extends React.Component {
         onDragEnd={this.dragEnd}
         onDrop={this.drop.bind(this)}
         onDragOver={this.dragOver.bind(this)}
+        onClick={this.openCardDetail.bind(this)}
         id={card.id}
       >
         <div draggable="false">

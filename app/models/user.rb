@@ -64,4 +64,21 @@ class User < ApplicationRecord
         password_obj = BCrypt::Password.new(self.password_digest)
         password_obj.is_password?(password)
     end
+
+    def self.matched_users(filter)
+        matched = []
+        by_name = User.where("name LIKE ?", "%#{filter}%")
+        by_email = User.where("email LIKE ?", "%#{filter}%")
+
+        if by_email
+            matched.concat(by_email)
+        end
+
+        if by_name
+            matched.concat(by_name)
+        end
+
+        return matched
+
+    end
 end

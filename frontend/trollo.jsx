@@ -5,7 +5,7 @@ import configureStore from "./store/store";
 import { shareBoard, unshareBoard } from "./actions/share_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
-  // console.log("in trollo");
+  console.log("in trollo");
   // console.log("test");
   let store;
   if (window.currentUser) {

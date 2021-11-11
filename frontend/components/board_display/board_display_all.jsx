@@ -41,9 +41,10 @@ class BoardDisplayAll extends React.Component {
               </div>
             );
           })}
+          <div className="create-board" onClick={this.showModal.bind(this)}>
+            Create New Board
+          </div>
         </div>
-        <br />
-        <button onClick={this.showModal.bind(this)}>Create New Board</button>
       </div>
     );
   }

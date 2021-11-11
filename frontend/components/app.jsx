@@ -5,7 +5,7 @@ import LoginContainer from "./session_form/login_container";
 import SplashContentContainer from "./splash/splash_content_container";
 // import BoardContainer from "./board/board_container";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import Main from "./board/main";
+import MainContainer from "./board/main_container";
 
 const App = (props) => {
   return (
@@ -14,7 +14,7 @@ const App = (props) => {
         <AuthRoute exact path="/" component={SplashContentContainer} />
         <AuthRoute path="/signup" component={SignupContainer} />
         <AuthRoute path="/login" component={LoginContainer} />
-        <ProtectedRoute path="/" component={Main} />
+        <ProtectedRoute path="/" component={MainContainer} />
       </Switch>
     </div>
   );

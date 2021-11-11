@@ -33,9 +33,7 @@
   .links {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 300px;
-    padding-right: 60px;
+    width: 100px;
   }
 }
 
@@ -171,6 +169,7 @@
   display: flex;
   width: 100vw;
   transition: 0.5s ease-in-out;
+  margin-top: 50px;
 }
 
 .display-all {
@@ -183,20 +182,29 @@
   .board-list {
     display: flex;
     width: 100%;
-    // flex-direction: column;
-    justify-content: space-between;
     .single-board {
-      border: 1px black solid;
+      // border: 1px black solid;
       width: 140px;
       height: 70px;
       padding: 10px;
       border-radius: 0.3rem;
+      margin-right: 20px;
+      mix-blend-mode: difference;
+      font-weight: 700;
     }
   }
 
-  button {
-    width: 200px;
-    align-self: center;
+  .create-board {
+    align-self: flex-start;
+    background-color: rgb(177, 174, 174);
+    border-radius: 0.3rem;
+    width: 140px;
+    height: 70px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
   }
 }
 

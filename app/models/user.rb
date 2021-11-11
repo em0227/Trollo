@@ -83,7 +83,7 @@ class User < ApplicationRecord
         if by_name
             matched.concat(by_name)
         end
-
+        # byebug
         return matched
 
     end

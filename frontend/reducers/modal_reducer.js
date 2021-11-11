@@ -4,7 +4,7 @@ import {
   OPEN_CARD,
 } from "../actions/modal_actions";
 
-export default (state = { modal: null }, action) => {
+export default (state = {}, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
   switch (action.type) {

@@ -8,9 +8,8 @@ class Api::BoardsController < ApplicationController
     end
 
     def show
-
-        @board = current_user.boards.find_by(id: params[:id])
-        
+        @board = current_user.boards.find_by(id: params[:id]) 
+        # @board = Board.find_by(id: params[:id])
     end
 
     def create
@@ -41,6 +40,28 @@ class Api::BoardsController < ApplicationController
         @board.destroy
         render json: [@board.id]
     end
+
+    def share
+        # co_worker = User.find_by(id: params[:co_worker_id])
+        @board = Board.find_by(id: params[:id])
+        share = Share.create(user_id: params[:co_worker_id], shareable_id: params[:id], shareable_type: 'Board')
+        if share.save
+            render :show
+        else
+            render json: share.errors.full_messages, status: :unprocessable_entity
+        end
+    end
+
+    def unshare
+        @board = Board.find_by(id: params[:id])
+        share = @board.shares.find_by(user_id: params[:co_worker_id])
+        if share.destroy
+            render :show
+        else
+            render json: share.errors.full_messages, status: :unprocessable_entity
+        end
+    end
+
 
     private
 

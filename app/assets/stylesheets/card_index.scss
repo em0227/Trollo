@@ -48,6 +48,10 @@
   button {
     padding: 3px;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .add-card-nav,

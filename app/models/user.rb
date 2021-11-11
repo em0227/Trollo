@@ -20,6 +20,16 @@ class User < ApplicationRecord
         foreign_key: :author_id,
         class_name: :Card
 
+    has_many :shares
+    has_many :shared_boards,
+        through: :shares,
+        source: :shareable,
+        source_type: 'Board'
+    has_many :shared_cards,
+        through: :shares,
+        source: :shareable,
+        source_type: 'Card'
+
     attr_reader :password
 
     def self.find_by_crendentials(email, password)
@@ -53,5 +63,22 @@ class User < ApplicationRecord
     def is_password?(password)
         password_obj = BCrypt::Password.new(self.password_digest)
         password_obj.is_password?(password)
+    end
+
+    def self.matched_users(filter)
+        matched = []
+        by_name = User.where("name LIKE ?", "%#{filter}%")
+        by_email = User.where("email LIKE ?", "%#{filter}%")
+
+        if by_email
+            matched.concat(by_email)
+        end
+
+        if by_name
+            matched.concat(by_name)
+        end
+
+        return matched
+
     end
 end

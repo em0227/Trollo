@@ -44,18 +44,18 @@ class CardsIndex extends React.Component {
   }
 
   dragOver(e) {
-    e.preventDefault();
+    // e.preventDefault();
   }
 
   drop(e) {
     // debugger;
-    let dragged = document.querySelector(".dragging-card");
-    let container = e.currentTarget;
-    if (container.classList.value.includes("cards") && dragged) {
-      let movedCardId = parseInt(dragged.id);
-      this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
-      dragged.classList.remove("dragging-card");
-    }
+    // let dragged = document.querySelector(".dragging-card");
+    // let container = e.currentTarget;
+    // if (container.classList.value.includes("cards") && dragged) {
+    //   let movedCardId = parseInt(dragged.id);
+    //   this.props.updateCard({ id: movedCardId, list_id: this.props.list.id });
+    //   dragged.classList.remove("dragging-card");
+    // }
     //was using appendChild and removeChild and was causing DOM Exception issue.
   }
 
@@ -99,6 +99,8 @@ class CardsIndex extends React.Component {
               key={card.id}
               card={card}
               openCard={this.props.openCard}
+              updateCard={this.props.updateCard}
+              deleteCard={this.props.deleteCard}
             />
           ))}
         </div>

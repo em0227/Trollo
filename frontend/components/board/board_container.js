@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { openCreateBoard } from "../../actions/modal_actions";
 import { showLeftNav } from "../../actions/ui_actions";
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state, ownProps) => ({
   user: state.entities.users[state.session.id],
   boards: Object.values(state.entities.boards),
   leftNav: state.ui.showLeftNav,

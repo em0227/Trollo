@@ -4,7 +4,7 @@ class CommentIndexItem extends React.Component {
   constructor(props) {
     // console.log("in list item constructor");
     super(props);
-    const { id, body, card_id } = this.props.list;
+    const { id, body, card_id } = this.props.comment;
     this.state = {
       id,
       body,

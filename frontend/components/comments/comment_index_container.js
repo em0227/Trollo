@@ -4,9 +4,11 @@ import {
   updateComment,
   deleteComment,
 } from "../../actions/comment_actions";
+import { connect } from "react-redux";
+import CommentIndex from "./comment_index";
 
 const mapStateToProps = (state, ownProps) => ({
-  card: ownProps.board,
+  card: ownProps.card,
   comments: Object.values(state.entities.comments),
 });
 

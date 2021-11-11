@@ -1,4 +1,5 @@
 import React from "react";
+import CommentIndexContainer from '../comments/comment_index_container'
 
 class CardDetail extends React.Component {
   constructor(props) {
@@ -140,6 +141,7 @@ class CardDetail extends React.Component {
 
           <p>attachments</p>
           <div>{attachments}</div>
+          <CommentIndexContainer card={this.props.card}/>
         </div>
 
         <div className="card-detail-controls">

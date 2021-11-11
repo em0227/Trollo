@@ -27,8 +27,11 @@ Rails.application.routes.draw do
         post :share, to: 'cards#share', as: 'share'
         delete :unshare, to: 'cards#unshare', as: 'unshare'
       end
+      resources :comments, only: [:index]
     end
     
+    resources :comments, only: [:create, :update, :destroy]
+
   end
 
 end

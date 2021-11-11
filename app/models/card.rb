@@ -15,6 +15,8 @@ class Card < ApplicationRecord
 
     has_many :shares, as: :shareable
 
+    has_many :comments
+
     def ensure_predecessor_id
         self.predecessor_id ||= self.assign_order
     end

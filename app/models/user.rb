@@ -30,6 +30,12 @@ class User < ApplicationRecord
         source: :shareable,
         source_type: 'Card'
 
+    has_many :comments,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Comment
+
+
     attr_reader :password
 
     def self.find_by_crendentials(email, password)

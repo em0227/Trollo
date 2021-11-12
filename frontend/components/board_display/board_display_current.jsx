@@ -18,7 +18,7 @@ class BoardDisplayCurrent extends React.Component {
   }
 
   componentDidMount() {
-    console.log("in display did mount");
+    // console.log("in display did mount");
     // this.props.fetchAllLists(this.props.board.id);
     // if (true) {
     //   console.log("fetching board");

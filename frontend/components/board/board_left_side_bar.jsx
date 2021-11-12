@@ -46,6 +46,7 @@ class BoardLeftSideBar extends React.Component {
 
   render() {
     const { user, boards } = this.props;
+    if (!user.name) return null;
     const leftNavWidth = this.leftNavWidth();
     const collapsedNav = this.collapsedNav();
     return (
@@ -55,7 +56,7 @@ class BoardLeftSideBar extends React.Component {
           className="side-bar-collapsed"
           style={collapsedNav}
         >
-          <p>Emily</p>
+          <p>{user.name.charAt(0).toUpperCase()}</p>
           <i className="fas fa-chevron-circle-right"></i>
         </div>
         <div className="board-left-nav" style={{ width: leftNavWidth }}>

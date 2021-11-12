@@ -44,7 +44,7 @@ end
 
 Everytime a card switch position in the list, it will update its predecessor id. I also use sorting algorithem to order the cards based on their predecessor id so it will render the right order on page.
 
-![alt text](https://github.com/em0227/Trollo/blob/main/app/assets/images/drag-drop-demo.gif?raw=true))
+![alt text](https://github.com/em0227/Trollo/blob/main/app/assets/images/drop-drop-demo.gif?raw=true))
 
 ### Search users and invite them to be on board
 

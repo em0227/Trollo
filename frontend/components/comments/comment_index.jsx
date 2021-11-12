@@ -14,9 +14,9 @@ class CommentIndex extends React.Component {
   }
   componentDidMount() {
     this.props.fetchAllComments(this.props.card.id);
-    console.log("in comment did mout");
-    console.log(this.props.ownProps);
-    console.log(this.props);
+    // console.log("in comment did mout");
+    // console.log(this.props.ownProps);
+    // console.log(this.props);
   }
   componentDidUpdate(prevProps) {
     // console.log("in comment index did update");

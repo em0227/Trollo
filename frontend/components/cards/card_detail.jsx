@@ -24,18 +24,18 @@ class CardDetail extends React.Component {
   }
 
   componentDidMount() {
-    console.log("in card detail did mount");
-    console.log(this.state.due_date);
+    // console.log("in card detail did mount");
+    // console.log(this.state.due_date);
   }
 
   componentDidUpdate() {
-    console.log("in card detail did update");
-    console.log(this.state.due_date);
+    // console.log("in card detail did update");
+    // console.log(this.state.due_date);
   }
 
   handleInput(type) {
     return (e) => {
-      debugger;
+      // debugger;
       this.setState({ [type]: e.target.value });
     };
   }

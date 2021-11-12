@@ -36,7 +36,7 @@ class BoardDisplayCurrent extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log("in display did update");
+    // console.log("in display did update");
 
     if (prevProps.board !== this.props.board) {
       const { id, title } = this.props.board;

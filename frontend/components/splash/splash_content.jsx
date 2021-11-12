@@ -138,6 +138,40 @@ class SplashContent extends React.Component {
           </div>
           <img src={window.images.card} alt="card-showcase" />
         </div>
+        <div className="container fifth">
+          <div className="sign-up-box-at-bottom">
+            <p>
+              Sign up and get started with Trello today. A world of productive
+              teamwork awaits!
+            </p>
+            <div className="bottom-email-container">
+              <input
+                type="email"
+                placeholder="  Email"
+                className="email"
+                onChange={this.handleInput}
+                value={this.state.email}
+              />
+              <br />
+              <input
+                type="submit"
+                value="Sign up"
+                className="splash-sign-up3"
+                onClick={this.handleSubmit}
+              />
+            </div>
+          </div>
+        </div>
+        <footer>
+          <img src={window.images.purpleLogo} alt="trollo-logo" />
+          <p>A Trello Clone by Emily Wu</p>
+          <a target="_blank" href="https://github.com/em0227">
+            <i className="fa fa-github" aria-hidden="true"></i>
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/in/emilyawu/">
+            <i className="fa fa-linkedin-square" aria-hidden="true"></i>
+          </a>
+        </footer>
       </div>
     );
   }

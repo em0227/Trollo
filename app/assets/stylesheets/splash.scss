@@ -133,4 +133,69 @@
       }
     }
   }
+
+  .fifth {
+    display: flex;
+    align-self: center;
+    padding: 50px 0 100px 0;
+  }
+
+  .sign-up-box-at-bottom {
+    background-image: linear-gradient(rgb(33, 159, 209), #3a3ad6);
+    width: 1100px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0.3rem;
+
+    p {
+      color: white;
+      font-size: 22px;
+    }
+
+    .bottom-email-container {
+      display: flex;
+      padding: 20px;
+      width: 80%;
+      align-items: center;
+      justify-content: center;
+
+      input {
+        margin-right: 30px;
+      }
+      .splash-sign-up3 {
+        background-color: #5aac44;
+        padding: 20px 40px 20px 20px;
+        width: 50px;
+        border-radius: 0.3rem;
+        color: white;
+        &:hover {
+          background-color: #287912;
+        }
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #f3f0f0;
+    border-top: lightgray 1px solid;
+
+    img {
+      width: 200px;
+    }
+    i {
+      font-size: 50px;
+      padding: 20px;
+    }
+    p {
+      padding: 0 40px 0 40px;
+    }
+  }
 }

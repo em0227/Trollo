@@ -19,7 +19,7 @@ class BoardDisplayCurrent extends React.Component {
   componentDidMount() {
     // console.log("in display did mount");
     // this.props.fetchAllLists(this.props.board.id);
-    this.props.fetchBoard(this.props.match.params.boardId);
+    // this.props.fetchBoard(this.props.match.params.boardId);
     if (this.props.board) {
       const { id, title } = this.props.board;
       this.setState({
@@ -156,6 +156,15 @@ class BoardDisplayCurrent extends React.Component {
     const background = photo
       ? { backgroundImage: `url(${photo})` }
       : { backgroundColor: bg_color };
+
+    if (this.props.loading) {
+      return (
+        <div className="board" style={{ zIndex: "10" }}>
+          {" "}
+          <Loading />{" "}
+        </div>
+      );
+    }
 
     return (
       <div id="show-single-board" style={background}>

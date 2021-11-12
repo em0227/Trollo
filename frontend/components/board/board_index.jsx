@@ -5,6 +5,7 @@ import BoardDisplayCurrentContainer from "../board_display/board_display_current
 import BoardLeftSideBar from "./board_left_side_bar";
 import { ProtectedRoute } from "../../util/route_util";
 import CreateModalContainer from "../modals/create_modal_container";
+import Loading from "./loading_icon";
 
 class BoardIndex extends React.Component {
   constructor(props) {
@@ -35,6 +36,16 @@ class BoardIndex extends React.Component {
   render() {
     // console.log("in index render");
     // debugger;
+
+    if (this.props.loading) {
+      return (
+        <div className="board" style={{ zIndex: "10" }}>
+          {" "}
+          <Loading />{" "}
+        </div>
+      );
+    }
+
     const { user, boards, createBoard, openCreateBoard, leftNav } = this.props;
     let marginLeft = this.props.leftNav ? "200px" : "65px";
     return (

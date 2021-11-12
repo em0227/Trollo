@@ -7,6 +7,10 @@ class Main extends React.Component {
     super(props);
   }
   componentDidMount() {
+    // setTimeout(
+    //   () => this.props.fetchUserAndAllBoards(this.props.user.id),
+    //   5000
+    // );
     this.props.fetchUserAndAllBoards(this.props.user.id);
   }
 
@@ -14,7 +18,7 @@ class Main extends React.Component {
     const { user, boards } = this.props;
     return (
       <div className="main">
-        <TopNav user={user} logout={this.props.logout}/>
+        <TopNav user={user} logout={this.props.logout} />
         <BoardContainer user={user} boards={boards} />
       </div>
     );

@@ -6,6 +6,7 @@ export const RECEIVE_BOARDS = "RECEIVE_BOARDS";
 export const RECEIVE_BOARD = "RECEIVE_BOARD";
 export const REMOVE_BOARD = "REMOVE_BOARD";
 export const RECEIVE_BOARD_ERRORS = "RECEIVE_BOARD_ERRORS";
+export const LOADING_START = "LOADING_START";
 
 const receiveBoards = (boards) => ({
   type: RECEIVE_BOARDS,
@@ -27,26 +28,35 @@ export const receiveBoardErrors = (errors) => ({
   errors,
 });
 
+export const loadingStart = () => ({
+  type: LOADING_START,
+});
+
 export const fetchAllBoards = (userId) => (dispatch) =>
   APIUtil.fetchAllBoards(userId).then(
     (boards) => dispatch(receiveBoards(boards)),
     (err) => dispatch(receiveBoardErrors(err))
   );
 
-export const fetchUserAndAllBoards = (userId) => (dispatch) =>
+export const fetchUserAndAllBoards = (userId) => (dispatch) => {
+  dispatch(loadingStart());
   fetchUser(userId).then((user) => {
     dispatch(receiveCurrentUser(user));
+    dispatch(loadingStart());
     APIUtil.fetchAllBoards(userId).then(
       (boards) => dispatch(receiveBoards(boards)),
       (err) => dispatch(receiveBoardErrors(err))
     );
   });
+};
 
-export const fetchBoard = (boardId) => (dispatch) =>
+export const fetchBoard = (boardId) => (dispatch) => {
+  dispatch(loadingStart());
   APIUtil.fetchBoard(boardId).then(
     (board) => dispatch(receiveBoard(board)),
     (err) => dispatch(receiveBoardErrors(err))
   );
+};
 
 export const createBoard = (board) => (dispatch) =>
   APIUtil.createBoard(board).then(

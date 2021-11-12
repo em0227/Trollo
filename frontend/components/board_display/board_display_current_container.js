@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     history: ownProps.history,
     owner: state.entities.users[state.session.id].name,
     searchResults: Object.values(state.ui.search),
+    loading: state.ui.indexLoading,
   };
 };
 

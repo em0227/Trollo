@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: boards
+#
+#  id         :bigint           not null, primary key
+#  title      :string           not null
+#  author_id  :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  bg_color   :string           default("white")
+#
 class Board < ApplicationRecord
     BG_COLORS = ['white', 'lightskyblue', 'mediumorchid', 'lemonchiffon', 'orange', 'limegreen']
 

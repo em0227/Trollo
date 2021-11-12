@@ -84,7 +84,11 @@ class User < ApplicationRecord
             matched.concat(by_name)
         end
         # byebug
-        return matched
-
+        # if matched == []
+        #     return 
+        # else
+            return matched
+        # end
+    
     end
 end

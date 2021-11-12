@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import CardDetail from "./card_detail";
 import { closeModal, openCard } from "../../actions/modal_actions";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   let card = state.entities.cards[state.ui.cardOpened];
   let listTitle = state.entities.lists[card.list_id].title;
   return {

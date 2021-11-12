@@ -45,13 +45,31 @@ class SplashContent extends React.Component {
         <nav className="splash-nav" id="nav">
           <img src={window.images.purpleLogo} alt="trollo-logo" />
           <div className="links">
-            <Link to="/login" className="login">
-              Login
-            </Link>
-            <br />
-            <Link to="/signup" className="signup">
-              Sign up
-            </Link>
+            <div className="contact">
+              <a target="_blank" href="https://github.com/em0227">
+                <i
+                  className="fa fa-github"
+                  aria-hidden="true"
+                  style={{ fontSize: "30px" }}
+                ></i>
+              </a>
+              <a target="_blank" href="https://www.linkedin.com/in/emilyawu/">
+                <i
+                  className="fa fa-linkedin-square"
+                  aria-hidden="true"
+                  style={{ fontSize: "30px" }}
+                ></i>
+              </a>
+            </div>
+            <div className="auth">
+              <Link to="/login" className="login">
+                Login
+              </Link>
+              <br />
+              <Link to="/signup" className="signup">
+                Sign up
+              </Link>
+            </div>
           </div>
         </nav>
 

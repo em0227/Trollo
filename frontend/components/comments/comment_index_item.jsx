@@ -29,19 +29,29 @@ class CommentIndexItem extends React.Component {
   render() {
     // console.log("in list item render");
     // console.log(this.props.list);
-    const { id } = this.props.comment;
+    const { id, author_id } = this.props.comment;
+    // const author = this.props.coworkers[author_id];
     return (
       <div key={id} className="comment" id={id}>
-        <div className="comment-control">
+        <div className="comment-detail">
+          <div>
+            <p className="profile-image">
+              {author_id}
+              {/* {author.name.charAt(0).toUpperCase()} */}
+            </p>
+          </div>
           <input
             type="text"
             id="comment-body-input"
             value={this.state.body}
-            //   placeholder={this.state.title}
+            placeholder={this.state.body}
             onChange={this.updateCommentBody.bind(this)}
             onBlur={this.submitUpdate.bind(this)}
           />
-          <button onClick={this.handleDelete(id)}>delete</button>
+          <div className="comment-control">
+            <button>edit</button>
+            <button onClick={this.handleDelete(id)}>delete</button>
+          </div>
         </div>
       </div>
     );

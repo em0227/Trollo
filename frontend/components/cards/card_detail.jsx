@@ -1,12 +1,16 @@
 import React from "react";
-import CommentIndexContainer from '../comments/comment_index_container'
+import CommentIndexContainer from "../comments/comment_index_container";
 
 class CardDetail extends React.Component {
   constructor(props) {
     super(props);
-    let { list_id, id, title, description } = this.props.card;
+    let { list_id, id, title, description, due_date } = this.props.card;
     if (description === null) {
       description = "";
+    }
+    // debugger;
+    if (due_date === null) {
+      due_date = "";
     }
 
     this.state = {
@@ -14,12 +18,26 @@ class CardDetail extends React.Component {
       description,
       id,
       list_id,
+      due_date,
       images: [],
     };
   }
 
+  componentDidMount() {
+    console.log("in card detail did mount");
+    console.log(this.state.due_date);
+  }
+
+  componentDidUpdate() {
+    console.log("in card detail did update");
+    console.log(this.state.due_date);
+  }
+
   handleInput(type) {
-    return (e) => this.setState({ [type]: e.target.value });
+    return (e) => {
+      debugger;
+      this.setState({ [type]: e.target.value });
+    };
   }
 
   //   handleFile(e) {
@@ -40,18 +58,20 @@ class CardDetail extends React.Component {
   submitUpdate(e) {
     // debugger;
     e.preventDefault();
-    const { title, description, id, list_id, images } = this.state;
+    const { title, description, id, list_id, due_date, images } = this.state;
     const formData = new FormData();
 
     formData.append("card[title]", title);
     formData.append("card[description]", description);
     formData.append("card[list_id]", list_id);
+    formData.append("card[due_date]", due_date);
 
     for (let i = 0; i < images.length; i++) {
       formData.append("card[images][]", images[i]);
     }
     // debugger;
     this.props.updateCardWithForm(formData, id);
+    document.querySelector("#files").value = "";
     this.props.openCard(id);
   }
 
@@ -101,13 +121,15 @@ class CardDetail extends React.Component {
     // debugger;
     const attachments = this.props.card.image
       ? this.props.card.image.map((image, i) => (
-          <div className="modal-image">
+          <div className="modal-image" key={i}>
             <div className="modal-iamge-child">
-              <button onClick={this.deleteAttachment(image.imageId)}>
-                delete this
+              <button
+                onClick={this.deleteAttachment(image.imageId)}
+                style={{ marginLeft: "150px", fontSize: "14px", color: "gray" }}
+              >
+                - Delete
               </button>
               <img
-                key={i}
                 src={image.imageUrl}
                 alt="image"
                 onClick={this.expendImg.bind(this)}
@@ -120,15 +142,24 @@ class CardDetail extends React.Component {
     return (
       <div className="card-detail-container">
         <div className="card-detail-text">
-          <input
-            type="text"
-            placeholder={this.state.title}
-            value={this.state.title}
-            onChange={this.handleInput("title")}
-            onBlur={this.submitUpdate.bind(this)}
-          />
-          <p>in list {this.props.listTitle}</p>
-          <h4>Description</h4>
+          <div className="titles">
+            <i className="fas fa-chalkboard-teacher"></i>
+            <input
+              type="text"
+              placeholder={this.state.title}
+              value={this.state.title}
+              onChange={this.handleInput("title")}
+              onBlur={this.submitUpdate.bind(this)}
+              style={{ fontSize: "20px", fontWeight: "700", width: "450px" }}
+            />
+          </div>
+          <p style={{ color: "gray", marginLeft: "30px" }}>
+            in list '{this.props.listTitle}'
+          </p>
+          <div className="titles">
+            <i className="fas fa-list"></i>
+            <h4>Description</h4>
+          </div>
           <textarea
             cols="30"
             rows="10"
@@ -137,16 +168,13 @@ class CardDetail extends React.Component {
             onChange={this.handleInput("description")}
             onBlur={this.submitUpdate.bind(this)}
           ></textarea>
+
           {/* {this.checkboxs} */}
-
-          <p>attachments</p>
+          <div className="titles">
+            <i className="fas fa-paperclip"></i>
+            <p>Attachments</p>
+          </div>
           <div>{attachments}</div>
-          <CommentIndexContainer card={this.props.card}/>
-        </div>
-
-        <div className="card-detail-controls">
-          <button onClick={this.addCheckBox}>add checklist</button>
-
           <div>
             <label htmlFor="files">add image attachment</label>
             <input
@@ -159,10 +187,32 @@ class CardDetail extends React.Component {
               multiple
             />
           </div>
-          <button onClick={this.submitUpdate.bind(this)}>update card</button>
+          <button
+            className="update-card"
+            onClick={this.submitUpdate.bind(this)}
+          >
+            Add Attachment
+          </button>
+
+          <CommentIndexContainer card={this.props.card} />
+        </div>
+
+        <div className="card-detail-controls">
+          {/* <button onClick={this.addCheckBox}>add checklist</button> */}
 
           <label htmlFor="due-date">Due Date:</label>
-          <input type="date" id="due-date" />
+          <input
+            type="date"
+            id="due-date"
+            value={this.state.due_date}
+            onChange={this.handleInput("due_date")}
+          />
+          <button
+            className="update-card"
+            onClick={this.submitUpdate.bind(this)}
+          >
+            Update Date
+          </button>
         </div>
       </div>
     );

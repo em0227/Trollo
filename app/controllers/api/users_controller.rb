@@ -5,8 +5,10 @@ class Api::UsersController < ApplicationController
         if filter
             # byebug
             @users = User.matched_users(filter)
+            
         else
             @users = User.all
+            render :index
         end
     end
 

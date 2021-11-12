@@ -35,7 +35,13 @@ class TopNav extends React.Component {
       <nav className="board-nav">
         <img src={window.images.whiteLogo} alt="trollo-logo" />
         <div className="links">
-          <i className="far fa-bell"></i>
+          <a target="_blank" href="https://github.com/em0227">
+            <i className="fa fa-github" aria-hidden="true"></i>
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/in/emilyawu/">
+            <i className="fa fa-linkedin-square" aria-hidden="true"></i>
+          </a>
+          {/* <i className="far fa-bell"></i> */}
           <div
             className="user-setting"
             onClick={this.toggleForm.bind(this)}

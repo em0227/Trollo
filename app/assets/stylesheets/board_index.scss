@@ -33,7 +33,11 @@
   .links {
     display: flex;
     align-items: center;
-    width: 100px;
+    width: 300px;
+    justify-content: space-evenly;
+    i {
+      font-size: 30px;
+    }
   }
 }
 
@@ -81,6 +85,8 @@
 }
 .show-right-menu {
   display: flex;
+  position: absolute;
+  right: 50px;
 }
 
 .board-right-nav {
@@ -214,7 +220,7 @@
   align-items: flex-start;
   height: 100vh;
   width: 100%;
-  padding: 50px 50px 0 50px;
+  padding: 20px 50px 0 50px;
   // position: relative;
   // top: 50px;
 
@@ -244,9 +250,9 @@
 .display-menu {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
   width: 100%;
-  padding: 20px;
+  padding: 7px;
+  box-shadow: 5px 2px 5px lightgray;
 
   #board-title-input {
     font-weight: 500;
@@ -290,7 +296,11 @@
         width: 200px;
       }
       button {
-        margin: 10px 0 10px 0;
+        margin: 20px 0 10px 5px;
+        background-color: #f1eeee;
+        color: gray;
+        padding: 10px;
+        border-radius: 0.3rem;
       }
 
       .user-result {
@@ -298,6 +308,7 @@
         width: 100%;
         border-radius: 0.3rem;
         padding: 5px 0 5px 10px;
+        margin-top: 10px;
       }
       .selected {
         border: blue 3px solid;

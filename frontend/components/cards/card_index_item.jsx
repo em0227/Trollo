@@ -9,14 +9,16 @@ class CardIndexItem extends React.Component {
     // this.cardRef = React.createRef();
   }
 
-  toggleDetail() {
+  toggleDetail(e) {
+    e.stopPropagation();
     this.setState({
       showCardDetail: !this.state.showCardDetail,
     });
   }
 
-  openCardDetail() {
+  openCardDetail(e) {
     // debugger;
+    e.stopPropagation();
     let cardId = this.props.card.id;
     this.props.openCard(cardId);
   }
@@ -165,7 +167,8 @@ class CardIndexItem extends React.Component {
       >
         <div draggable="false">
           <div className="card-title-info">
-            <p>{card.title}</p>
+            <p className="card-title">{card.title}</p>
+            <p className="card-due-date">{card.due_date}</p>
             <i
               className="fas fa-ellipsis-h"
               onClick={this.toggleDetail.bind(this)}

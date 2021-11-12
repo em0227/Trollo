@@ -14,6 +14,9 @@ class CommentIndex extends React.Component {
   }
   componentDidMount() {
     this.props.fetchAllComments(this.props.card.id);
+    console.log("in comment did mout");
+    console.log(this.props.ownProps);
+    console.log(this.props);
   }
   componentDidUpdate(prevProps) {
     // console.log("in comment index did update");
@@ -31,6 +34,12 @@ class CommentIndex extends React.Component {
 
   createComment(e) {
     this.props.createComment(this.state.comment);
+    this.setState({
+      comment: {
+        body: "",
+        card_id: this.props.card.id,
+      },
+    });
   }
 
   handleInput() {
@@ -50,40 +59,32 @@ class CommentIndex extends React.Component {
 
   render() {
     // console.log("in comment index render");
-    let commentNav = this.state.showForm ? (
-      <div className="add-comment-nav">
-        <input
-          type="text"
-          onChange={this.handleInput()}
-          value={this.state.comment.body}
-          placeholder="write a comment"
-        />
-        <div className="controls">
-          <button onClick={this.createComment.bind(this)}>Add Comment</button>
-        </div>
-      </div>
-    ) : (
-      <div
-        className="add-comment-nav-collapsed"
-        onClick={this.toggleForm.bind(this)}
-      >
-        <p>Add New Comment</p>
-      </div>
-    );
-
     const { updateComment, deleteComment } = this.props;
-
     return (
       <div className="comments">
-        {commentNav}
-        {this.props.comments.map((comment) => (
-          <CommentIndexItem
-            key={comment.id}
-            comment={comment}
-            updateComment={updateComment}
-            deleteComment={deleteComment}
+        <div className="titles">
+          <i className="fas fa-comment-dots"></i>
+          <input
+            type="text"
+            onChange={this.handleInput()}
+            value={this.state.comment.body}
+            placeholder="write a comment"
           />
-        ))}
+        </div>
+        <div className="controls">
+          <button onClick={this.createComment.bind(this)}>Save</button>
+        </div>
+        <div className="comments">
+          {this.props.comments.map((comment) => (
+            <CommentIndexItem
+              key={comment.id}
+              comment={comment}
+              updateComment={updateComment}
+              deleteComment={deleteComment}
+              // coworkers={coworkers}
+            />
+          ))}
+        </div>
       </div>
     );
   }

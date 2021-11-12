@@ -70,6 +70,6 @@ class Api::CardsController < ApplicationController
     private
 
     def card_params
-        params.require(:card).permit(:title, :description, :list_id, :predecessor_id, images: [])
+        params.require(:card).permit(:title, :description, :list_id, :predecessor_id, :due_date, images: [])
     end
 end

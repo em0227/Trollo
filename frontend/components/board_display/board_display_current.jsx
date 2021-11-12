@@ -64,9 +64,37 @@ class BoardDisplayCurrent extends React.Component {
   }
 
   inviteForm() {
+    const result =
+      this.props.searchResults.length === 0 ? (
+        <div className="user-result">
+          <p>No Results</p>
+        </div>
+      ) : (
+        this.props.searchResults.map((result) => {
+          return (
+            <div
+              className="user-result"
+              onClick={this.selectUser.bind(this)}
+              key={result.id}
+              id={result.id}
+            >
+              <p>{result.name}</p>
+              <p>{result.email}</p>
+            </div>
+          );
+        })
+      );
+
     if (this.state.showInviteForm) {
       return (
         <div className="invite-form">
+          <a
+            className="closebtn"
+            onClick={this.invite.bind(this)}
+            style={{ alignSelf: "flex-end" }}
+          >
+            &times;
+          </a>
           <h3>Invite to board</h3>
           <input
             type="search"
@@ -74,35 +102,18 @@ class BoardDisplayCurrent extends React.Component {
             onChange={this.handleSearch.bind(this)}
             value={this.state.search}
           />
-
-          {this.props.searchResults.map((result) => {
-            return (
-              <div
-                className="user-result"
-                onClick={this.selectUser.bind(this)}
-                key={result.id}
-                id={result.id}
-              >
-                <p>{result.name}</p>
-                <p>{result.email}</p>
-              </div>
-            );
-          })}
-
+          {result}
           <button onClick={this.sendInvite.bind(this)}>Send Invitation</button>
-          <a className="closebtn" onClick={(e) => this.invite.bind(this)}>
-            &times;
-          </a>
         </div>
       );
     }
   }
 
   handleSearch(e) {
-    this.debounce();
     this.setState({
       search: e.target.value,
     });
+    this.debounce();
   }
 
   debounce() {
@@ -115,12 +126,24 @@ class BoardDisplayCurrent extends React.Component {
   }
 
   selectUser(e) {
-    if (document.querySelector(".selected")) {
-      document.querySelector(".selected").classList.remove("selected");
-    }
     // debugger;
-    e.currentTarget.classList.add("selected");
-    this.setState({ selected: e.currentTarget.id });
+    if (this.state.selected === e.currentTarget.id) {
+      this.setState({ selected: "" });
+    } else {
+      this.setState({ selected: e.currentTarget.id });
+    }
+
+    if (e.currentTarget.classList.value.includes("selected")) {
+      e.currentTarget.classList.remove("selected");
+      return null;
+    } else {
+      if (document.querySelector(".selected")) {
+        document.querySelector(".selected").classList.remove("selected");
+      }
+      e.currentTarget.classList.add("selected");
+    }
+
+    // debugger;
   }
 
   sendInvite(e) {

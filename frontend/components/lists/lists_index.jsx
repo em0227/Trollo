@@ -31,6 +31,12 @@ class ListIndex extends React.Component {
 
   createList(e) {
     this.props.createList(this.state.list);
+    this.setState({
+      list: {
+        title: "",
+        board_id: this.props.board.id,
+      },
+    });
   }
 
   handleInput() {
@@ -76,7 +82,7 @@ class ListIndex extends React.Component {
       </div>
     );
 
-    const { updateList, deleteList } = this.props;
+    const { updateList, deleteList, board } = this.props;
 
     return (
       <div className="lists">

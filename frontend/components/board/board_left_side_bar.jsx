@@ -21,7 +21,7 @@ class BoardLeftSideBar extends React.Component {
     } else {
       return {
         width: "40px",
-        padding: "15px 15px 0 10px",
+        padding: "20px 15px 0 10px",
       };
     }
   }

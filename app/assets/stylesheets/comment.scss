@@ -1,0 +1,22 @@
+.comments {
+  margin-top: 30px;
+  font-size: 16px;
+  button {
+    background-color: lightgray;
+    color: gray;
+    border-radius: 0.3rem;
+    padding: 0 5px 0 5px;
+    height: 25px;
+  }
+}
+
+.comment-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-control {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+}

@@ -43,9 +43,10 @@
 @import "./card_index.scss";
 @import "./modal.scss";
 @import "./top_nav.scss";
+@import "./comment.scss";
 
 body {
-  overflow-y: hidden;
+  // overflow-y: hidden;
 }
 
 #root {

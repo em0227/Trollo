@@ -51,8 +51,8 @@ export const fetchUserAndAllBoards = (userId) => (dispatch) => {
 };
 
 export const fetchBoard = (boardId) => (dispatch) => {
-  dispatch(loadingStart());
-  APIUtil.fetchBoard(boardId).then(
+  // dispatch(loadingStart());
+  return APIUtil.fetchBoard(boardId).then(
     (board) => dispatch(receiveBoard(board)),
     (err) => dispatch(receiveBoardErrors(err))
   );

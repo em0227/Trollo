@@ -1,6 +1,7 @@
 import React from "react";
 import BoardRightSideBar from "./board_right_side_bar";
 import ListIndexContainer from "../lists/lists_index_container";
+import Coworker from "./coworker_item";
 
 class BoardDisplayCurrent extends React.Component {
   constructor(props) {
@@ -17,9 +18,14 @@ class BoardDisplayCurrent extends React.Component {
   }
 
   componentDidMount() {
-    // console.log("in display did mount");
+    console.log("in display did mount");
     // this.props.fetchAllLists(this.props.board.id);
-    // this.props.fetchBoard(this.props.match.params.boardId);
+    // if (true) {
+    //   console.log("fetching board");
+    //   console.log(this.props.loading);
+    this.props.fetchBoard(this.props.match.params.boardId);
+    // }
+    //
     if (this.props.board) {
       const { id, title } = this.props.board;
       this.setState({
@@ -30,7 +36,7 @@ class BoardDisplayCurrent extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // console.log("in display did update");
+    console.log("in display did update");
 
     if (prevProps.board !== this.props.board) {
       const { id, title } = this.props.board;
@@ -183,9 +189,9 @@ class BoardDisplayCurrent extends React.Component {
 
           <div className="co-workers">
             <div className="whos-on-board">{this.props.owner}</div>
-            {this.props.board.sharedCoworkers.map((coWorker) => (
-              <div key={coWorker.id} className="whos-on-board">
-                {coWorker.name}
+            {this.props.board.sharedCoworkers.map((coworker) => (
+              <div className="whos-on-board" key={coworker.id}>
+                <p>{coworker.name}</p>
               </div>
             ))}
           </div>

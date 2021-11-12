@@ -45,6 +45,7 @@ class BoardDisplayAll extends React.Component {
             Create New Board
           </div>
         </div>
+        <div className="shared-boards">Shared Boards</div>
       </div>
     );
   }

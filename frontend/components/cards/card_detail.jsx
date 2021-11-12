@@ -176,7 +176,7 @@ class CardDetail extends React.Component {
           </div>
           <div>{attachments}</div>
           <div>
-            <label htmlFor="files">add image attachment</label>
+            {/* <label htmlFor="files">add image attachment</label> */}
             <input
               id="files"
               name="files"

@@ -4,11 +4,11 @@
 
 ---
 
-Welcome to the Trollo! Manage your tasks and collaborate with your team with cute little trolls. Reach new productivity peaks with cheerful and colorful trolls who will keep track of your work! Inspried by both Trello and the movie Trolls (I encourage you to checkout both if you don't know about them!)
+Welcome to the Trollo! Manage your tasks and collaborate with your team with cute little trolls. Reach new productivity peaks with cheerful and colorful trolls who will keep track of your work! Inspired by both Trello and the movie Trolls (I encourage you to checkout both if you don't know about them!)
 
 live site [HERE](https://trollo-manage-team-with-trolls.herokuapp.com/#/)!
 
-Similar to Trello, user can create boards for their projects, invite team to be on board, and add lists of todos and other tasks. Uner the list, you may add card and assign works to whoever is on board, and add due dates and comments on the card.
+Similar to Trello, user can create boards for their projects, invite team to be on board, and add lists of todos and other tasks. Under the list, you may add card and assign work to whoever is on board, and add due dates and comments on the card.
 
 ## Technologies
 
@@ -27,7 +27,7 @@ Similar to Trello, user can create boards for their projects, invite team to be 
 
 ---
 
-drag and drop is a common feature you see on all kinds of sites, but I didn't realize it's actually not easy to implement it. The frontend challenges are to precisely know which card/list is dragged and dropped to where, and send the updated order to backend os the state presist even after users refresh the page. In order to keep track of the movements, I made each card index in a list strcture like a node tree, each card contains a predecessor id, so it knows who to go after.
+drag and drop is a common feature you see on all kinds of sites, but I didn't realize it's actually not easy to implement it. The frontend challenges are to precisely know which card/list is dragged and dropped to where, and send the updated order to backend so the state persist even after users refresh the page. In order to keep track of the movements, I made each card index in a list structure like a node tree, each card contains a predecessor id, so it knows who to go after.
 
 ```ruby
 def assign_order
@@ -42,7 +42,7 @@ def assign_order
 end
 ```
 
-Everytime a card switch position in the list, it will update its predecessor id. I also use sorting algorithem to order the cards based on their predecessor id so it will render the right order on page.
+Everytime a card switches position in the list, it will update its predecessor id. I also use sorting algorithm to order the cards based on their predecessor id so it will render the right order on page.
 
 ![alt text](https://github.com/em0227/Trollo/blob/main/app/assets/images/drop-drop-demo.gif?raw=true))
 
@@ -66,7 +66,8 @@ handleSearch(e) {
 
     clearTimeout(timerId);
     timerId = setTimeout(() => matchedUsers(search), 200);
-    this.se
+    this.setState({ timerId });
+  }
 
 ```
 

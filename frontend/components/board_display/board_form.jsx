@@ -1,4 +1,5 @@
 import React from "react";
+import { Background } from "./bg_selection";
 
 class BoardForm extends React.Component {
   constructor(props) {
@@ -57,15 +58,15 @@ class BoardForm extends React.Component {
       <form className="board-form">
         {this.renderErrors()}
         <label>Board Name:</label>
-        <br />
+
         <input
           type="text"
           onChange={this.handleInput("title")}
           value={this.state.title}
         />
-        <br />
-        <label>Choose Board Color:</label>
-        <br />
+
+        <label>Choose a Color as Board Background:</label>
+
         <div className="color-buttons">
           <button
             style={{ backgroundColor: "orange" }}
@@ -98,8 +99,14 @@ class BoardForm extends React.Component {
             className="color-button"
           ></button>
         </div>
+        <Background />
         <br />
-        <input type="submit" value="Create!" onClick={this.handleCreate} />
+        <input
+          type="submit"
+          value="Create!"
+          onClick={this.handleCreate}
+          style={{ textAlign: "center" }}
+        />
       </form>
     );
   }

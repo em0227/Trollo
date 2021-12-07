@@ -1,0 +1,15 @@
+.feed {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: scroll;
+  .pics {
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    .li {
+      width: 250px;
+      margin: 0 5px 5px 5px;
+    }
+  }
+}

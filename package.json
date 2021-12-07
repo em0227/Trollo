@@ -7,6 +7,11 @@
     "lib": "lib",
     "test": "test"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --mode=development",
+    "postinstall": "webpack"
+  },
   "dependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
@@ -162,6 +167,7 @@
     "unicode-match-property-ecmascript": "^2.0.0",
     "unicode-match-property-value-ecmascript": "^2.0.0",
     "unicode-property-aliases-ecmascript": "^2.0.0",
+    "unsplash-js": "^7.0.15",
     "uri-js": "^4.4.1",
     "value-equal": "^1.0.1",
     "watchpack": "^2.2.0",
@@ -172,11 +178,6 @@
     "which": "^2.0.2",
     "wildcard": "^2.0.0",
     "yocto-queue": "^0.1.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --mode=development",
-    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",

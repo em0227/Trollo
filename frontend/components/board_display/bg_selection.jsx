@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { createApi } from "unsplash-js";
+import { chooseBackground } from "../../actions/ui_actions";
 
 const api = createApi({
   accessKey: "q-ViPk5Y2JYyBK7nT7oHg7BDZ9FoS-Gj098OEq6oRcM",
@@ -7,10 +9,17 @@ const api = createApi({
 
 const PhotoComp = ({ photo }) => {
   const { user, urls } = photo;
+  const dispatch = useDispatch();
 
   return (
     <Fragment>
-      <img className="img" src={urls.regular} />
+      <img
+        className="img"
+        src={urls.regular}
+        onClick={(e) => {
+          dispatch(chooseBackground(photo.urls.regular));
+        }}
+      />
       <a
         className="credit"
         target="_blank"
@@ -24,7 +33,7 @@ const PhotoComp = ({ photo }) => {
 
 export const Background = () => {
   const [data, setPhotosResponse] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("mountain"); //
+  const [searchQuery, setSearchQuery] = useState("mountain");
 
   useEffect(() => {
     api.search

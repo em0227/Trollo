@@ -1,9 +1,9 @@
 if @board.photo.attached?
-    json.extract! @board, :id, :title, :author_id, :bg_color 
+    json.extract! @board, :id, :title, :author_id, :bg_color , :bg_photo
     json.photo url_for(@board.photo)
     json.sharedCoworkers @board.co_workers
 else
-    json.extract! @board, :id, :title, :author_id, :bg_color 
+    json.extract! @board, :id, :title, :author_id, :bg_color, :bg_photo
     json.sharedCoworkers @board.co_workers
 end
 

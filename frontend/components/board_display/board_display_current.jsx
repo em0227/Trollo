@@ -10,6 +10,7 @@ class BoardDisplayCurrent extends React.Component {
       board: {
         id: "",
         title: "",
+        bg_photo: this.props.background,
       },
       showInviteForm: false,
       search: "",
@@ -182,10 +183,19 @@ class BoardDisplayCurrent extends React.Component {
 
   render() {
     if (!this.props.board) return null;
-    const { bg_color, photo } = this.props.board;
-    const background = photo
-      ? { backgroundImage: `url(${photo})` }
-      : { backgroundColor: bg_color };
+    const { bg_color, photo, bg_photo } = this.props.board;
+    let background;
+    if (photo) {
+      background = { backgroundImage: `url(${photo})` };
+    } else if (bg_photo) {
+      background = {
+        backgroundImage: `url(${bg_photo}`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      };
+    } else {
+      background = { backgroundColor: bg_color };
+    }
 
     if (this.props.loading) {
       return (

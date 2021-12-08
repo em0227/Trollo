@@ -16,7 +16,11 @@ import {
   OPEN_CREATE_BOARD,
   OPEN_CARD,
 } from "../actions/modal_actions";
-import { ADD_EMAIL_FROM_SPLASH, SHOW_LEFT_NAV } from "../actions/ui_actions";
+import {
+  ADD_EMAIL_FROM_SPLASH,
+  SHOW_LEFT_NAV,
+  CHOOSE_BACKGROUND,
+} from "../actions/ui_actions";
 import { SEARCHED_USERS } from "../actions/filter_actions";
 import {
   LOADING_START,
@@ -30,6 +34,7 @@ const _deafult_state = {
   modal: null,
   search: [],
   indexLoading: false,
+  background: "",
 };
 
 export default (state = _deafult_state, action) => {
@@ -64,6 +69,9 @@ export default (state = _deafult_state, action) => {
       return Object.assign({}, state, { indexLoading: false });
     case RECEIVE_BOARD:
       return Object.assign({}, state, { indexLoading: false });
+    case CHOOSE_BACKGROUND:
+      newState.background = action.background;
+      return newState;
     default:
       return state;
   }

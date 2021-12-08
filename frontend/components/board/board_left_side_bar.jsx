@@ -49,6 +49,7 @@ class BoardLeftSideBar extends React.Component {
     if (!user.name) return null;
     const leftNavWidth = this.leftNavWidth();
     const collapsedNav = this.collapsedNav();
+
     return (
       <div className="board-main-2">
         <div
@@ -74,22 +75,27 @@ class BoardLeftSideBar extends React.Component {
               <i className="fas fa-plus"></i>
             </button>
           </div>
-          {boards.map((board) => (
-            <div
-              key={board.id}
-              id={`/boards/${board.id}`}
-              className="single-board-in-nav"
-            >
+          {boards.map((board) => {
+            const icon =
+              board.bg_photo !== ""
+                ? {
+                    backgroundImage: `url(${board.bg_photo})`,
+                    backgroundSize: "cover",
+                  }
+                : {
+                    backgroundColor: `${board.bg_color}`,
+                  };
+            return (
               <div
-                style={{
-                  backgroundColor: board.bg_color,
-                  width: "20px",
-                  height: "20px",
-                }}
-              ></div>
-              <NavLink to={`/boards/${board.id}`}>{board.title}</NavLink>
-            </div>
-          ))}
+                key={board.id}
+                id={`/boards/${board.id}`}
+                className="single-board-in-nav"
+              >
+                <div className="board-icon" style={icon}></div>
+                <NavLink to={`/boards/${board.id}`}>{board.title}</NavLink>
+              </div>
+            );
+          })}
         </div>
       </div>
     );

@@ -7,6 +7,7 @@ class BoardForm extends React.Component {
     this.state = {
       title: "",
       bg_color: "",
+      bg_photo: "",
       display: false,
     };
 
@@ -25,11 +26,13 @@ class BoardForm extends React.Component {
     let board = {
       title: this.state.title,
       bg_color: this.state.bg_color,
+      bg_photo: this.props.background
     };
     this.props.createBoard(board);
     this.setState({
       title: "",
       bg_color: "",
+      bg_photo: ""
     });
     this.props.closeModal();
   }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_210602) do
+ActiveRecord::Schema.define(version: 2021_12_08_220013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_11_11_210602) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "bg_color", default: "white"
+    t.string "bg_photo", default: ""
     t.index ["author_id"], name: "index_boards_on_author_id"
     t.index ["title"], name: "index_boards_on_title"
   end

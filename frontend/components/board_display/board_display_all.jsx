@@ -22,14 +22,15 @@ class BoardDisplayAll extends React.Component {
         <br />
         <div className="board-list">
           {boards.map((board) => {
-            const background = board.photo
-              ? {
-                  backgroundImage: `url(${board.photo})`,
-                  backgroundSize: "contain",
-                }
-              : {
-                  backgroundColor: `${board.bg_color}`,
-                };
+            const background =
+              board.bg_photo !== ""
+                ? {
+                    backgroundImage: `url(${board.bg_photo})`,
+                    backgroundSize: "cover",
+                  }
+                : {
+                    backgroundColor: `${board.bg_color}`,
+                  };
             return (
               <div key={board.id} style={background} className="single-board">
                 <Link

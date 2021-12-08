@@ -4,7 +4,13 @@ import { connect } from "react-redux";
 import BoardForm from "../board_display/board_form";
 import CardDetailContainer from "../cards/card_detail_container";
 
-const CreateModal = ({ modal, closeModal, createBoard, errors }) => {
+const CreateModal = ({
+  modal,
+  closeModal,
+  createBoard,
+  errors,
+  background,
+}) => {
   if (!modal) {
     return null;
   }
@@ -17,6 +23,7 @@ const CreateModal = ({ modal, closeModal, createBoard, errors }) => {
           createBoard={createBoard}
           errors={errors}
           closeModal={closeModal}
+          background={background}
         />
       );
       break;
@@ -48,6 +55,7 @@ const mapStateToProps = (state, ownProps) => {
     modal: state.ui.modal,
     createBoard: ownProps.createBoard,
     errors: state.errors.board,
+    background: state.ui.background,
   };
 };
 

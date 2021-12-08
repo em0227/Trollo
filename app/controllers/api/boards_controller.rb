@@ -66,6 +66,6 @@ class Api::BoardsController < ApplicationController
     private
 
     def board_params
-        params.require(:board).permit(:title, :bg_color, photo: [])
+        params.require(:board).permit(:title, :bg_color, :bg_photo, photo: [])
     end
 end

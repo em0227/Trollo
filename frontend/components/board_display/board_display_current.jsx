@@ -14,6 +14,8 @@ class BoardDisplayCurrent extends React.Component {
       showInviteForm: false,
       search: "",
       selected: null,
+      searchResults: this.props.searchResults,
+      timerId: "",
     };
   }
 
@@ -47,6 +49,12 @@ class BoardDisplayCurrent extends React.Component {
         },
       });
     }
+
+    if (prevProps.searchResults !== this.props.searchResults) {
+      this.setState({
+        searchResults: this.props.searchResults,
+      });
+    }
   }
 
   submitUpdate(e) {
@@ -66,17 +74,23 @@ class BoardDisplayCurrent extends React.Component {
   }
 
   invite() {
-    this.setState({ showInviteForm: !this.state.showInviteForm });
+    this.setState({
+      showInviteForm: !this.state.showInviteForm,
+      search: "",
+      selected: null,
+      searchResults: [],
+    });
+    // debugger;
   }
 
   inviteForm() {
     const result =
-      this.props.searchResults.length === 0 ? (
-        <div className="user-result">
+      this.state.searchResults.length === 0 ? (
+        <div style={{ width: "100%", marginTop: "10px" }}>
           <p>No Results</p>
         </div>
       ) : (
-        this.props.searchResults.map((result) => {
+        this.state.searchResults.map((result) => {
           return (
             <div
               className="user-result"
@@ -94,14 +108,13 @@ class BoardDisplayCurrent extends React.Component {
     if (this.state.showInviteForm) {
       return (
         <div className="invite-form">
-          <a
-            className="closebtn"
-            onClick={this.invite.bind(this)}
-            style={{ alignSelf: "flex-end" }}
-          >
-            &times;
-          </a>
-          <h3>Invite to board</h3>
+          <div className="invite-form-top">
+            <h3>Invite to board</h3>
+            <a className="closebtn" onClick={this.invite.bind(this)}>
+              &times;
+            </a>
+          </div>
+
           <input
             type="search"
             placeholder="Email address or name"
@@ -116,19 +129,30 @@ class BoardDisplayCurrent extends React.Component {
   }
 
   handleSearch(e) {
-    this.setState({
-      search: e.target.value,
-    });
-    this.debounce();
+    this.setState(
+      {
+        search: e.target.value,
+        searchResults: this.props.searchResults,
+      },
+      () => this.debounce()
+    );
+    // this.debounce();
   }
 
   debounce() {
     let { timerId, search } = this.state;
-    const { matchedUsers } = this.props;
+    if (search === "") {
+      clearTimeout(timerId);
+      this.setState({
+        searchResults: [],
+      });
+    } else {
+      const { matchedUsers } = this.props;
 
-    clearTimeout(timerId);
-    timerId = setTimeout(() => matchedUsers(search), 200);
-    this.setState({ timerId });
+      clearTimeout(timerId);
+      timerId = setTimeout(() => matchedUsers(search), 200);
+      this.setState({ timerId });
+    }
   }
 
   selectUser(e) {

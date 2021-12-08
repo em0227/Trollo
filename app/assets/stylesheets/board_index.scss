@@ -88,8 +88,8 @@
 }
 .show-right-menu {
   display: flex;
-  position: absolute;
-  right: 50px;
+  position: relative;
+  right: -40%;
 }
 
 .board-right-nav {
@@ -279,27 +279,43 @@
 
     .invite-form {
       position: absolute;
-      z-index: 4;
+      z-index: 5;
       display: flex;
       flex-direction: column;
       background-color: white;
       font-size: 16px;
       border-radius: 0.3rem;
-      padding: 28px;
-      align-items: flex-start;
+      padding: 5px 20px 10px 25px;
+      align-items: center;
       font-family: "Roboto";
       top: 40px;
       color: gray;
-      left: 0;
-      min-height: 300px;
-      min-width: 200px;
+      left: -90%;
+      min-height: max-content;
+      min-width: 250px;
+
+      .invite-form-top {
+        display: flex;
+        width: 100%;
+
+        .closebtn {
+          font-size: 25px;
+          border-bottom: 2px solid rgb(240, 234, 234);
+        }
+      }
 
       h3 {
         font-size: 17px;
-        padding: 0 0 10px 0;
+        padding: 10px 0 10px 0;
+        border-bottom: 2px solid rgb(240, 234, 234);
+        width: 100%;
+        text-align: center;
       }
       input {
-        width: 200px;
+        margin-top: 20px;
+        width: 100%;
+        border: 2px solid #0079bf;
+        background-color: white;
       }
       button {
         margin: 20px 0 10px 5px;
@@ -310,21 +326,22 @@
       }
 
       .user-result {
-        border: black 1px solid;
+        // border: black 1px solid;
         width: 100%;
         border-radius: 0.3rem;
         padding: 5px 0 5px 10px;
         margin-top: 10px;
+        box-shadow: 5px 2px 5px lightgray;
       }
       .selected {
-        border: blue 3px solid;
+        background-color: lightblue;
       }
     }
   }
   .co-workers {
     display: flex;
     justify-content: space-evenly;
-    width: 400px;
+    width: 20%;
 
     .whos-on-board {
       background: aliceblue;

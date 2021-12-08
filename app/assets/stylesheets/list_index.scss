@@ -16,7 +16,7 @@
   width: 250px;
   height: min-content;
   // background-color: pink;
-  background-color: #ece7e7;
+  background-color: #ebecf0;
   padding: 15px;
   margin: 10px;
   scroll-behavior: auto;
@@ -30,18 +30,21 @@
   display: flex;
   min-width: 250px;
   height: 30px;
-  background-color: #ece7e7;
+  background-color: #ebecf0;
   // border: black 1px solid;
   border-radius: 0.3rem;
   margin: 15px;
   padding: 10px;
   align-items: center;
   transition: 0.1s ease-in-out;
+  color: gray;
   i {
     padding: 0 10px 0 5px;
   }
   &:hover {
     cursor: pointer;
+    background-color: #d6d6da;
+    color: rgb(143, 142, 142);
   }
 }
 
@@ -50,30 +53,53 @@
   flex-direction: column;
   min-width: 250px;
   height: 100px;
-  background-color: #ece7e7;
+  background-color: #ebecf0;
   // border: black 1px solid;
   border-radius: 0.3rem;
   margin: 15px;
   padding: 20px 0 0 15px;
   align-items: flex-start;
   justify-content: center;
-  transition: 0.1s ease-in-out;
+  // transition: 0.1s ease-in-out;
 
   .controls {
     display: flex;
-    padding-top: 15px;
-  }
-  a,
-  button {
-    border: black 1px solid;
-    border-radius: 0.3rem;
-    padding: 7px 10px 7px 10px;
-    margin: 0 10px 20px 0;
+    padding-top: 10px;
   }
 
-  input::placeholder {
-    color: rgb(184, 177, 177);
-    font-style: italic;
+  button {
+    background-color: #1e70ef;
+    border-radius: 0.3rem;
+    padding: 10px 15px 10px 15px;
+    margin: 0 10px 20px 0;
+    color: white;
+  }
+
+  ::placeholder {
+    color: rgb(139, 134, 134);
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgb(139, 134, 134);
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: rgb(139, 134, 134);
+  }
+
+  input {
+    border: 2px solid #1e70ef;
+    line-height: 25px;
+    width: 88%;
+    background-color: white;
+  }
+
+  .closebtn {
+    font-size: 30px;
+    font-weight: 200;
+    padding-left: 5px;
   }
 }
 

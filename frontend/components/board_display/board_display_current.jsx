@@ -173,7 +173,7 @@ class BoardDisplayCurrent extends React.Component {
     }
 
     return (
-      <div id="show-single-board" style={background}>
+      <div className="show-single-board" style={background}>
         <div className="display-menu">
           <p>
             On{" "}

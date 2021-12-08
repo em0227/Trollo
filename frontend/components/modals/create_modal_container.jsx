@@ -12,7 +12,13 @@ const CreateModal = ({ modal, closeModal, createBoard, errors }) => {
   let special;
   switch (modal) {
     case "create_board":
-      component = <BoardForm createBoard={createBoard} errors={errors} />;
+      component = (
+        <BoardForm
+          createBoard={createBoard}
+          errors={errors}
+          closeModal={closeModal}
+        />
+      );
       break;
     case "open_card":
       special = "card-detail";

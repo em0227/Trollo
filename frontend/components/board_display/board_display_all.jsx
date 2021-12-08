@@ -25,9 +25,11 @@ class BoardDisplayAll extends React.Component {
             const background = board.photo
               ? {
                   backgroundImage: `url(${board.photo})`,
-                  backgroundSize: "150px 100px",
+                  backgroundSize: "contain",
                 }
-              : { backgroundColor: `${board.bg_color}` };
+              : {
+                  backgroundColor: `${board.bg_color}`,
+                };
             return (
               <div key={board.id} style={background} className="single-board">
                 <Link

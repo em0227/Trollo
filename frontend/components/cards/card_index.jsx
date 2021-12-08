@@ -67,7 +67,7 @@ class CardsIndex extends React.Component {
           type="text"
           onChange={this.handleInput()}
           value={this.state.card.title}
-          placeholder="card title"
+          placeholder="Enter a title for this card..."
         />
         <div className="controls">
           <button onClick={this.createCard.bind(this)}>Add Card</button>

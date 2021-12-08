@@ -62,7 +62,7 @@ class ListIndex extends React.Component {
           type="text"
           onChange={this.handleInput()}
           value={this.state.list.title}
-          placeholder="list title"
+          placeholder="Enter list title..."
         />
         <div className="controls">
           <button onClick={this.createList.bind(this)}>Add List</button>

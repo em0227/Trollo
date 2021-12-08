@@ -74,34 +74,42 @@
   flex-direction: column;
   width: 240px;
   height: 100px;
-  background-color: white;
+  background-color: #ebecf0;
   // border: black 1px solid;
   border-radius: 0.3rem;
-  margin-top: 15px;
   align-items: flex-start;
   justify-content: center;
   transition: 0.1s ease-in-out;
-  font-size: 14px;
-  color: gray;
-  padding: 5px 0 0 10px;
+  font-size: 16px;
 
   .controls {
     display: flex;
     padding-top: 15px;
   }
 
-  a,
   button {
-    border: gray 1px solid;
+    background-color: #1e70ef;
+    color: white;
     border-radius: 0.3rem;
-    padding: 7px 7px 7px 7px;
+    padding: 10px 15px 10px 15px;
     margin: 0 10px 20px 0;
   }
 
   input::placeholder {
-    color: rgb(184, 177, 177);
-    font-style: italic;
-    width: 200px;
+    color: rgb(139, 134, 134);
+    font-size: 16px;
+  }
+
+  input {
+    background-color: white;
+    width: 100%;
+    line-height: 30px;
+    box-shadow: 2px 2px 2px lightgray;
+  }
+
+  .closebtn {
+    font-size: 30px;
+    padding-left: 5px;
   }
 }
 
@@ -109,7 +117,6 @@
   display: flex;
   width: 250px;
   height: 30px;
-  background-color: #ece7e7;
   // border: black 1px solid;
   border-radius: 0.3rem;
   align-items: center;
@@ -122,6 +129,8 @@
   }
   &:hover {
     cursor: pointer;
+    background-color: #091e4214;
+    color: rgb(143, 142, 142);
   }
 }
 

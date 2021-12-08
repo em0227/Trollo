@@ -10,12 +10,7 @@ class BoardForm extends React.Component {
       display: false,
     };
 
-    this.toggleForm = this.toggleForm.bind(this);
     this.handleCreate = this.handleCreate.bind(this);
-  }
-
-  toggleForm() {
-    this.setState({ display: !this.state.display });
   }
 
   handleInput(type) {
@@ -35,8 +30,8 @@ class BoardForm extends React.Component {
     this.setState({
       title: "",
       bg_color: "",
-      display: false,
     });
+    this.props.closeModal();
   }
 
   renderErrors() {
@@ -103,7 +98,7 @@ class BoardForm extends React.Component {
         <br />
         <input
           type="submit"
-          value="Create!"
+          value="Create board"
           onClick={this.handleCreate}
           style={{ textAlign: "center" }}
         />

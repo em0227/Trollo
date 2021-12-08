@@ -24,7 +24,7 @@ const PhotoComp = ({ photo }) => {
 
 export const Background = () => {
   const [data, setPhotosResponse] = useState(null);
-  const [searchQuery, setSearchQuery] = useState(""); //
+  const [searchQuery, setSearchQuery] = useState("mountain"); //
 
   useEffect(() => {
     api.search

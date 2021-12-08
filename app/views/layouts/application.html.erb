@@ -13,6 +13,7 @@
           window.currentUser = {
           "id": <%= current_user.id %>
           }
+          window.unsplashKey = <%= Rails.application.credentials.unsplash[:api_key] %>
       </script >
     <% end %>
     <script type="text/javascript">

@@ -13,28 +13,36 @@ class BoardDisplayAll extends React.Component {
   }
 
   render() {
-    const { boards } = this.props;
+    const { user, boards } = this.props;
     // weirdly, only onClick works for input submit and not onSubmit
+    const yourBoards = boards.filter((board) => board.author_id === user.id);
+    const sharedBoards = boards.filter((board) => board.author_id !== user.id);
+
+    const backgroundStyle = (board) =>
+      board.bg_photo !== ""
+        ? {
+            backgroundImage: `url(${board.bg_photo})`,
+            backgroundSize: "cover",
+          }
+        : {
+            backgroundColor: `${board.bg_color}`,
+          };
 
     return (
       <div className="display-all">
         <h3>Your Boards</h3>
         <br />
         <div className="board-list">
-          {boards.map((board) => {
-            const background =
-              board.bg_photo !== ""
-                ? {
-                    backgroundImage: `url(${board.bg_photo})`,
-                    backgroundSize: "cover",
-                  }
-                : {
-                    backgroundColor: `${board.bg_color}`,
-                  };
+          {yourBoards.map((board) => {
             return (
-              <div key={board.id} style={background} className="single-board">
+              <div
+                key={board.id}
+                style={backgroundStyle(board)}
+                className="single-board"
+              >
                 <Link
                   to={`/boards/${board.id}`}
+                  style={{ filter: "invert(1)" }}
                   // onClick={this.openNav.bind(this)}
                 >
                   {board.title}
@@ -44,11 +52,36 @@ class BoardDisplayAll extends React.Component {
               </div>
             );
           })}
-          <div className="create-board" onClick={this.showModal.bind(this)}>
-            Create New Board
+        </div>
+        <div className="create-board" onClick={this.showModal.bind(this)}>
+          Create New Board
+        </div>
+
+        <div className="shared-boards">
+          <h3>Shared Boards</h3>
+          <br />
+          <div className="board-list">
+            {sharedBoards.map((board) => {
+              return (
+                <div
+                  key={board.id}
+                  style={backgroundStyle(board)}
+                  className="single-board"
+                >
+                  <Link
+                    to={`/boards/${board.id}`}
+                    style={{ filter: "invert(1)" }}
+                    // onClick={this.openNav.bind(this)}
+                  >
+                    {board.title}
+                  </Link>
+
+                  <br />
+                </div>
+              );
+            })}
           </div>
         </div>
-        <div className="shared-boards">Shared Boards</div>
       </div>
     );
   }

@@ -105,7 +105,7 @@ class SplashContent extends React.Component {
           <h1>It’s more than work. It’s a way of working together.</h1>
           <br />
           <p>
-            Start with a Trello board, lists, and cards. Customize and expand
+            Start with a Trollo board, lists, and cards. Customize and expand
             with more features as your teamwork grows. Manage projects, organize
             tasks, and build team spirit—all in one place.
           </p>
@@ -119,7 +119,7 @@ class SplashContent extends React.Component {
             <br />
             <p>
               Lists and cards are the building blocks of organizing work on a
-              Trello board. Grow from there with task assignments, timelines,
+              Trollo board. Grow from there with task assignments, timelines,
               productivity metrics, calendars, and more.
             </p>
           </div>
@@ -141,7 +141,7 @@ class SplashContent extends React.Component {
         <div className="container fifth">
           <div className="sign-up-box-at-bottom">
             <p>
-              Sign up and get started with Trello today. A world of productive
+              Sign up and get started with Trollo today. A world of productive
               teamwork awaits!
             </p>
             <div className="bottom-email-container">

@@ -36,7 +36,7 @@ class Board < ApplicationRecord
         co_workers = []
         self.shares.each do |share|
             co_worker = User.find_by(id: share.user_id)
-            co_workers << { id: co_worker.id, name: co_worker.name }
+            co_workers << { id: co_worker.id, name: co_worker.name, email: co_worker.email }
         end
         return co_workers
     end

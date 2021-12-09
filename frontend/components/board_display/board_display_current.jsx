@@ -41,6 +41,10 @@ class BoardDisplayCurrent extends React.Component {
   componentDidUpdate(prevProps) {
     // console.log("in display did update");
 
+    if (prevProps.match.params.boardId !== this.props.match.params.boardId) {
+      this.props.fetchBoard(this.props.match.params.boardId);
+    }
+
     if (prevProps.board !== this.props.board) {
       const { id, title } = this.props.board;
       this.setState({
@@ -183,6 +187,7 @@ class BoardDisplayCurrent extends React.Component {
 
   render() {
     if (!this.props.board) return null;
+    if (!this.props.board.owner) return null;
     const { bg_color, photo, bg_photo } = this.props.board;
     let background;
     if (photo) {
@@ -214,6 +219,7 @@ class BoardDisplayCurrent extends React.Component {
             <input
               type="text"
               id="board-title-input"
+              className="font-changing"
               value={this.state.board.title}
               placeholder={this.state.board.title}
               onChange={this.updateBoardTitle.bind(this)}
@@ -222,7 +228,7 @@ class BoardDisplayCurrent extends React.Component {
           </p>
 
           <div className="co-workers">
-            <div className="whos-on-board">{this.props.owner}</div>
+            <div className="whos-on-board">{this.props.board.owner.name}</div>
             {this.props.board.sharedCoworkers.map((coworker) => (
               <div className="whos-on-board" key={coworker.id}>
                 <p>{coworker.name}</p>

@@ -3,12 +3,13 @@ class Api::BoardsController < ApplicationController
 
     def index
         @user = User.find_by(id: params[:user_id])
-        # debugger
-        @boards = @user.boards
+
+        @boards = @user.boards + @user.shared_boards
+      
     end
 
     def show
-        @board = current_user.boards.find_by(id: params[:id]) 
+        @board = Board.find_by(id: params[:id]) 
         # @board = Board.find_by(id: params[:id])
     end
 

@@ -13,7 +13,7 @@
           window.currentUser = {
           "id": <%= current_user.id %>
           }
-          window.unsplashKey = <%= Rails.application.credentials.unsplash[:api_key] %>
+          
       </script >
     <% end %>
     <script type="text/javascript">
@@ -26,7 +26,9 @@
         board: "<%= image_url("board.svg") %>",
         troll: "<%= image_url("troll.png") %>",
         trollHair: "<%= image_url("troll-hair.png") %>"
+
       }
+       
     </script>
 
      <meta property="og:title" content="Trollo" />

@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //test
   window.store = store;
+
+  console.log(window.unsplashAPIKey);
   // window.unshareBoard = unshareBoard;
   // window.shareBoard = shareBoard;
 

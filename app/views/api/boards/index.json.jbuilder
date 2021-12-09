@@ -6,6 +6,7 @@
             json.photo url_for(board.photo)
         end
         json.sharedCoworkers board.co_workers
+        # json.owner board.author, :name, :email
     end
 end
 

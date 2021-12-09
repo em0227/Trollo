@@ -7,6 +7,7 @@ import { shareBoard, unshareBoard } from "./actions/share_actions";
 document.addEventListener("DOMContentLoaded", () => {
   // console.log("in trollo");
   // console.log("test");
+
   let store;
   if (window.currentUser) {
     const { currentUser } = window;
@@ -26,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
   //test
   window.store = store;
 
-  console.log(window.unsplashAPIKey);
   // window.unshareBoard = unshareBoard;
   // window.shareBoard = shareBoard;
 

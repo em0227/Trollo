@@ -4,7 +4,7 @@ import { createApi } from "unsplash-js";
 import { chooseBackground } from "../../actions/ui_actions";
 
 const api = createApi({
-  accessKey: "q-ViPk5Y2JYyBK7nT7oHg7BDZ9FoS-Gj098OEq6oRcM",
+  accessKey: process.env.REACT_APP_UNSPLASH_API_KEY,
 });
 
 const PhotoComp = ({ photo }) => {

@@ -228,7 +228,9 @@ class BoardDisplayCurrent extends React.Component {
           </p>
 
           <div className="co-workers">
-            <div className="whos-on-board">{this.props.board.owner.name}</div>
+            <div className="whos-on-board">
+              <p>{this.props.board.owner.name}</p>
+            </div>
             {this.props.board.sharedCoworkers.map((coworker) => (
               <div className="whos-on-board" key={coworker.id}>
                 <p>{coworker.name}</p>

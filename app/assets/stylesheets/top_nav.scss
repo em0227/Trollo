@@ -7,25 +7,61 @@
     z-index: 4;
     display: flex;
     flex-direction: column;
-    min-width: 200px;
+    min-width: 150px;
     min-height: 150px;
     background-color: white;
     font-size: 14px;
     border-radius: 0.3rem;
-    padding: 0 10px 0 10px;
+    padding: 5px 10px 10px 15px;
     align-items: flex-start;
     font-family: "Roboto";
-    color: blue;
+    color: black;
     right: 10px;
-    top: 40px;
+    top: 43px;
     box-shadow: 2px 2px 2px lightgrey;
     display: flex;
-    align-items: center;
     justify-content: space-evenly;
+    overflow-x: scroll;
 
-    h3 {
-      font-size: 16px;
-      font-weight: 700;
+    .menu-head {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      p:first-child {
+        align-self: center;
+        color: rgb(141, 141, 141);
+        font-size: 16px;
+        padding: 5px 0 5px 0;
+      }
+
+      a {
+        position: relative;
+        left: 130%;
+        font-size: 16px;
+      }
+    }
+
+    .current-user {
+      display: flex;
+      border-top: 1px solid lightgrey;
+      padding: 10px 0 10px 0;
+      .current-user-info {
+        display: flex;
+        flex-direction: column;
+        padding-left: 5px;
+        h3 {
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    button {
+      border-top: 1px solid lightgrey;
+      width: 100%;
+      padding: 10px 0 10px 0;
+      text-align: left;
     }
   }
 

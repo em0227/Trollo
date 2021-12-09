@@ -15,8 +15,21 @@ class TopNav extends React.Component {
     if (this.state.showForm) {
       return (
         <div className="user-menu">
-          <h3>{user.name}</h3>
-          <p>{user.email}</p>
+          <div className="menu-head">
+            <p>Account</p>
+            <a className="closebtn" onClick={this.toggleForm.bind(this)}>
+              &times;
+            </a>
+          </div>
+          <div className="current-user">
+            <div className="profile-image">
+              {user.name.charAt(0).toUpperCase()}
+            </div>
+            <div className="current-user-info">
+              <h3>{user.name}</h3>
+              <p>{user.email}</p>
+            </div>
+          </div>
           <button>Settings</button>
           <button onClick={this.props.logout}>Log Out</button>
         </div>

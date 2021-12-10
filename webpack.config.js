@@ -25,5 +25,5 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", "*"],
   },
-  plugins: [new Dotenv()],
+  plugins: [new Dotenv({ systemvars: true })],
 };

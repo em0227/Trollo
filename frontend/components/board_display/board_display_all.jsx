@@ -35,21 +35,19 @@ class BoardDisplayAll extends React.Component {
         <div className="board-list">
           {yourBoards.map((board) => {
             return (
-              <div
-                key={board.id}
-                style={backgroundStyle(board)}
-                className="single-board"
-              >
-                <Link
-                  to={`/boards/${board.id}`}
-                  style={{ filter: "invert(1)" }}
-                  // onClick={this.openNav.bind(this)}
-                >
-                  {board.title}
-                </Link>
+              <Link
+                to={`/boards/${board.id}`}
 
-                <br />
-              </div>
+                // onClick={this.openNav.bind(this)}
+              >
+                <div
+                  key={board.id}
+                  style={backgroundStyle(board)}
+                  className="single-board"
+                >
+                  <p style={{ filter: "invert(1)" }}>{board.title}</p>
+                </div>
+              </Link>
             );
           })}
         </div>
@@ -63,21 +61,19 @@ class BoardDisplayAll extends React.Component {
           <div className="board-list">
             {sharedBoards.map((board) => {
               return (
-                <div
-                  key={board.id}
-                  style={backgroundStyle(board)}
-                  className="single-board"
-                >
-                  <Link
-                    to={`/boards/${board.id}`}
-                    style={{ filter: "invert(1)" }}
-                    // onClick={this.openNav.bind(this)}
-                  >
-                    {board.title}
-                  </Link>
+                <Link
+                  to={`/boards/${board.id}`}
 
-                  <br />
-                </div>
+                  // onClick={this.openNav.bind(this)}
+                >
+                  <div
+                    key={board.id}
+                    style={backgroundStyle(board)}
+                    className="single-board"
+                  >
+                    <p style={{ filter: "invert(1)" }}>{board.title}</p>
+                  </div>
+                </Link>
               );
             })}
           </div>

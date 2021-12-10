@@ -67,7 +67,7 @@ class BoardIndex extends React.Component {
               component={BoardDisplayCurrentContainer}
             />
             <ProtectedRoute
-              path="/users/:userId/boards"
+              path="/users/currentUser/boards"
               component={BoardDisplayAllContainer}
             />
           </Switch>

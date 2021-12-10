@@ -7,11 +7,10 @@ export const shareBoard = (boardId, coWorderId) => (dispatch) =>
     (err) => dispatch(receiveBoardErrors(err))
   );
 
-export const unshareBoard = (boardId, coWorderId, history) => (dispatch) =>
+export const unshareBoard = (boardId, coWorderId) => (dispatch) =>
   APIUtil.unshareBoard(boardId, coWorderId).then(
     (board) => {
       dispatch(receiveBoard(board));
-      history && history.push("/");
     },
     (err) => dispatch(receiveBoardErrors(err))
   );

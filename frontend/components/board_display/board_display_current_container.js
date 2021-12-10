@@ -23,13 +23,13 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   updateBoard: (board) => dispatch(updateBoard(board)),
-  deleteBoard: (boardId, history) => dispatch(deleteBoard(boardId, history)),
+  deleteBoard: (boardId) => dispatch(deleteBoard(boardId)),
   fetchBoard: (boardId) => dispatch(fetchBoard(boardId)),
   matchedUsers: (filter) => dispatch(matchedUsers(filter)),
   shareBoard: (boardId, coworkerId) =>
     dispatch(shareBoard(boardId, coworkerId)),
-  unshareBoard: (boardId, coworkerId, history) =>
-    dispatch(unshareBoard(boardId, coworkerId, history)),
+  unshareBoard: (boardId, coworkerId) =>
+    dispatch(unshareBoard(boardId, coworkerId)),
 });
 
 export default connect(

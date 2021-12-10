@@ -45,16 +45,15 @@ class MemberInfo extends React.Component {
     e.preventDefault();
     this.props.deleteBoard(this.props.board.id, this.props.history);
     // console.log(this.props);
-    this.props.history.push("/");
+    this.props.history.push("/users/currentUser/boards");
   }
 
   submitLeave(e) {
     e.preventDefault();
-    this.props.unshareBoard(
-      this.props.board.id,
-      this.props.coworker.id,
-      this.props.history
-    );
+    this.props.unshareBoard(this.props.board.id, this.props.coworker.id);
+    if (this.props.currentUser === this.props.coworker.id) {
+      this.props.history.push("/users/currentUser/boards");
+    }
   }
 
   render() {

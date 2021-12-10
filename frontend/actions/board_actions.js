@@ -70,11 +70,10 @@ export const updateBoard = (board) => (dispatch) =>
     (err) => dispatch(receiveBoardErrors(err))
   );
 
-export const deleteBoard = (boardId, history) => (dispatch) =>
+export const deleteBoard = (boardId) => (dispatch) =>
   APIUtil.deleteBoard(boardId).then(
     (boardId) => {
       dispatch(removeBoard(boardId));
-      history && history.push("/");
     },
     (err) => dispatch(receiveBoardErrors(err))
   );

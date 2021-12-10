@@ -68,7 +68,7 @@ class BoardLeftSideBar extends React.Component {
           <br />
 
           <div id={`/users/${user.id}/boards`} className="all-boards">
-            <NavLink to={`/users/${user.id}/boards`} className="leftnavlinks">
+            <NavLink to={`/users/currentUser/boards`} className="leftnavlinks">
               All Boards
             </NavLink>
             <button onClick={this.showModal.bind(this)}>

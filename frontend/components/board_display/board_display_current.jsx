@@ -189,7 +189,8 @@ class BoardDisplayCurrent extends React.Component {
     if (!this.props.board) return null;
     if (!this.props.board.owner) return null;
     const { bg_color, photo, bg_photo } = this.props.board;
-    const { deleteBoard, history, board, unshareBoard } = this.props;
+    const { deleteBoard, history, board, unshareBoard, currentUser } =
+      this.props;
     let background;
     if (photo) {
       background = { backgroundImage: `url(${photo})` };
@@ -242,6 +243,7 @@ class BoardDisplayCurrent extends React.Component {
                 unshareBoard={unshareBoard}
                 history={history}
                 board={board}
+                currentUser={currentUser}
               />
             ))}
           </div>

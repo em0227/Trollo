@@ -10,6 +10,7 @@ class Api::UsersController < ApplicationController
             @users = User.all
             render :index
         end
+ 
     end
 
     def show

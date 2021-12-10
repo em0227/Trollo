@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Background } from "./bg_selection";
 class BoardRightSideBar extends React.Component {
   constructor(props) {
     super(props);
@@ -66,9 +66,8 @@ class BoardRightSideBar extends React.Component {
 
   submitDelete(e) {
     e.preventDefault();
-    this.props.deleteBoard(this.props.board.id);
+    this.props.deleteBoard(this.props.board.id, this.props.history);
     // console.log(this.props);
-    this.props.history.push("/");
   }
 
   render() {
@@ -114,12 +113,17 @@ class BoardRightSideBar extends React.Component {
             ></button>
           </div>
           <br />
+          {/* <Background /> */}
           <button onClick={this.submitChange.bind(this)}>
             Change Background
           </button>
           <br />
           <br />
-          <button onClick={this.submitDelete.bind(this)}>Delete Board</button>
+          {this.props.currentUser === this.props.board.author_id ? (
+            <button onClick={this.submitDelete.bind(this)}>Delete Board</button>
+          ) : (
+            ""
+          )}
         </div>
         <br />
         <div

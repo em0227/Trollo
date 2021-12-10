@@ -1,7 +1,7 @@
 import React from "react";
 import BoardRightSideBar from "./board_right_side_bar";
 import ListIndexContainer from "../lists/lists_index_container";
-import Coworker from "./coworker_item";
+import MemberInfo from "./member_item";
 
 class BoardDisplayCurrent extends React.Component {
   constructor(props) {
@@ -189,6 +189,7 @@ class BoardDisplayCurrent extends React.Component {
     if (!this.props.board) return null;
     if (!this.props.board.owner) return null;
     const { bg_color, photo, bg_photo } = this.props.board;
+    const { deleteBoard, history, board, unshareBoard } = this.props;
     let background;
     if (photo) {
       background = { backgroundImage: `url(${photo})` };
@@ -228,13 +229,21 @@ class BoardDisplayCurrent extends React.Component {
           </p>
 
           <div className="co-workers">
-            <div className="whos-on-board">
-              <p>{this.props.board.owner.name}</p>
-            </div>
+            <MemberInfo
+              owner={this.props.board.owner}
+              deleteBoard={deleteBoard}
+              history={history}
+              board={board}
+            />
+
             {this.props.board.sharedCoworkers.map((coworker) => (
-              <div className="whos-on-board" key={coworker.id}>
-                <p>{coworker.name}</p>
-              </div>
+              <MemberInfo
+                coworker={coworker}
+                key={coworker.id}
+                unshareBoard={unshareBoard}
+                history={history}
+                board={board}
+              />
             ))}
           </div>
 
@@ -252,6 +261,7 @@ class BoardDisplayCurrent extends React.Component {
             updateBoard={this.props.updateBoard}
             deleteBoard={this.props.deleteBoard}
             history={this.props.history}
+            currentUser={this.props.currentUser}
           />
         </div>
 

@@ -40,7 +40,10 @@ class CardsIndex extends React.Component {
   }
 
   toggleForm() {
-    this.setState({ showCardForm: !this.state.showCardForm });
+    this.setState({
+      showCardForm: !this.state.showCardForm,
+      card: { title: "" },
+    });
   }
 
   dragOver(e) {

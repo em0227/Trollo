@@ -13,6 +13,7 @@
     border: lightgray 1px solid;
     width: 90%;
     line-height: 30px;
+    border-radius: 0.3rem;
   }
   input[type="submit"] {
     background-color: rgb(0, 101, 255);
@@ -28,7 +29,8 @@
   width: 30px;
   height: 30px;
   &:focus {
-    border: rgb(242, 66, 66) 2px solid;
+    border: #b3f5b3 2px solid;
+    border-radius: 0.3rem;
   }
 }
 

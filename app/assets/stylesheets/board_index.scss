@@ -239,10 +239,13 @@
   // top: 50px;
 
   input {
-    background-color: lightgray;
+    // background-color: #f5f1f1;
+    backdrop-filter: saturate(0.5);
+    color: white;
     // opacity: 70%;
     border-radius: 0.3rem;
     padding: 6px 0 6px 10px;
+    text-align: center;
   }
 
   ::placeholder {
@@ -325,6 +328,8 @@
         width: 100%;
         border: 2px solid #0079bf;
         background-color: white;
+        color: black;
+        text-align: left;
       }
       button {
         margin: 20px 0 10px 5px;

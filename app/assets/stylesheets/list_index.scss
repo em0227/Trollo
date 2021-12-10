@@ -94,6 +94,8 @@
     line-height: 25px;
     width: 88%;
     background-color: white;
+    color: black;
+    text-align: left;
   }
 
   .closebtn {
@@ -119,7 +121,7 @@
     opacity: 1; /* Firefox */
   }
 
-  :-ms-input-placeholder {
+  ::-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: black;
   }
@@ -134,5 +136,6 @@
     background-color: transparent;
     color: #1e70ef;
     padding: 0;
+    text-align: left;
   }
 }

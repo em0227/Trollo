@@ -17,6 +17,7 @@ const PhotoComp = ({ photo }) => {
         className="img"
         src={urls.regular}
         onClick={(e) => {
+          e.preventDefault();
           dispatch(chooseBackground(photo.urls.regular));
         }}
       />
@@ -33,11 +34,13 @@ const PhotoComp = ({ photo }) => {
 
 export const Background = () => {
   const [data, setPhotosResponse] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("mountain");
+  const [searchQuery, setSearchQuery] = useState("");
+  const defaultSearch = "mountain";
 
   useEffect(() => {
+    const query = searchQuery === "" ? defaultSearch : searchQuery;
     api.search
-      .getPhotos({ query: searchQuery, orientation: "landscape" })
+      .getPhotos({ query: query, orientation: "landscape" })
       .then((result) => {
         setPhotosResponse(result);
       })
@@ -58,7 +61,7 @@ export const Background = () => {
   } else {
     return (
       <div className="feed">
-        <label>Choose A Board Picture as Background</label>
+        <label>Or Choose A Picture as Board Background</label>
         <input
           type="search"
           placeholder="Find A Theme"
@@ -66,13 +69,13 @@ export const Background = () => {
           value={searchQuery}
         />
         <br />
-        <ul className="pics">
+        <div className="pics">
           {data.response.results.map((photo) => (
-            <li key={photo.id} className="li">
+            <button key={photo.id} className="photo-list">
               <PhotoComp photo={photo} />
-            </li>
+            </button>
           ))}
-        </ul>
+        </div>
       </div>
     );
   }

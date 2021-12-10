@@ -51,7 +51,7 @@ class ListIndex extends React.Component {
   }
 
   toggleForm() {
-    this.setState({ showForm: !this.state.showForm });
+    this.setState({ showForm: !this.state.showForm, list: { title: "" } });
   }
 
   render() {

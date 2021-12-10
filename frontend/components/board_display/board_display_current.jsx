@@ -216,7 +216,6 @@ class BoardDisplayCurrent extends React.Component {
       <div className="show-single-board" style={background}>
         <div className="display-menu">
           <p>
-            On{" "}
             <input
               type="text"
               id="board-title-input"

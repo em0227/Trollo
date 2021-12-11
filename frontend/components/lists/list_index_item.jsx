@@ -41,29 +41,45 @@ class ListIndexItem extends React.Component {
     // console.log("in list item render");
     // console.log(this.props.list);
     const { id } = this.props.list;
+
     return (
       <div
-        key={id}
-        className="list"
-        draggable="true"
-        onDragStart={this.dragStart}
-        onDragEnd={this.dragEnd}
-        id={id}
+        style={{ position: "relative", paddingRight: "45px", width: "300px" }}
       >
-        <div className="list-control">
-          <input
-            type="text"
-            id="list-title-input"
-            value={this.state.title}
-            //   placeholder={this.state.title}
-            onChange={this.updateListTitle.bind(this)}
-            onBlur={this.submitUpdate.bind(this)}
+        <div
+          key={id}
+          className="list"
+          draggable="true"
+          onDragStart={this.dragStart}
+          onDragEnd={this.dragEnd}
+          id={id}
+          style={{ backgroundColor: this.props.listBColor }}
+        >
+          <div className="list-control">
+            <input
+              type="text"
+              id="list-title-input"
+              value={this.state.title}
+              //   placeholder={this.state.title}
+              onChange={this.updateListTitle.bind(this)}
+              onBlur={this.submitUpdate.bind(this)}
+            />
+            <button onClick={this.handleDelete(id)}>delete</button>
+          </div>
+          <CardsIndexContainer
+            list={this.props.list}
+            boardId={this.props.list.board_id}
           />
-          <button onClick={this.handleDelete(id)}>delete</button>
         </div>
-        <CardsIndexContainer
-          list={this.props.list}
-          boardId={this.props.list.board_id}
+        <img
+          src={this.props.troll}
+          alt="troll"
+          style={{
+            width: "150%",
+            position: "relative",
+            left: "-25%",
+            top: "-1.3%",
+          }}
         />
       </div>
     );

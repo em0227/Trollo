@@ -145,7 +145,7 @@ class CardIndexItem extends React.Component {
     if (image.length > 0) {
       return (
         <div draggable="false">
-          <img src={image[0].imageUrl} alt="card-cover" />
+          <img src={image[0].imageUrl} alt="card-cover" draggable="false" />
         </div>
       );
     }

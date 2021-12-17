@@ -68,7 +68,7 @@ export default (state = _deafult_state, action) => {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, state, { indexLoading: false });
     case RECEIVE_BOARD:
-      return Object.assign({}, state, { indexLoading: false });
+      return Object.assign({}, state, { indexLoading: false, background: "" });
     case CHOOSE_BACKGROUND:
       newState.background = action.background;
       return newState;

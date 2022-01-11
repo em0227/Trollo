@@ -72,8 +72,6 @@ export const updateBoard = (board) => (dispatch) =>
 
 export const deleteBoard = (boardId) => (dispatch) =>
   APIUtil.deleteBoard(boardId).then(
-    (boardId) => {
-      dispatch(removeBoard(boardId));
-    },
+    (boardId) => dispatch(removeBoard(boardId)),
     (err) => dispatch(receiveBoardErrors(err))
   );

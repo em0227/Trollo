@@ -26,15 +26,14 @@ class BoardForm extends React.Component {
     let board = {
       title: this.state.title,
       bg_color: this.state.bg_color,
-      bg_photo: this.props.background
+      bg_photo: this.props.background,
     };
-    this.props.createBoard(board);
+    this.props.createBoard(board).then(() => this.props.closeModal());
     this.setState({
       title: "",
       bg_color: "",
-      bg_photo: ""
+      bg_photo: "",
     });
-    this.props.closeModal();
   }
 
   renderErrors() {

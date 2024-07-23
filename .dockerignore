@@ -1,3 +1,7 @@
 /node_modules
+/log/*
+/tmp/*
 .git
 .dockerignore
+
+.byebug_history

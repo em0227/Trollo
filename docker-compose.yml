@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:14.1-alpine
+    restart: always
+    user: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+  api:
+    container_name: my-rails-app
+    build:
+      context: .
+    working_dir: /usr/src/app
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    links:
+      - db
+    command:
+      - /bin/bash
+      - -c
+      - |
+        bundle exec rails db:reset
+        bundle exec rails server
+volumes:
+  db:
+    driver: local

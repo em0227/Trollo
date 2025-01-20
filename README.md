@@ -6,7 +6,7 @@
 
 Welcome to the Trollo! Manage your tasks and collaborate with your team with cute little trolls. Reach new productivity peaks with cheerful and colorful trolls who will keep track of your work! Inspired by both Trello and the movie Trolls (I encourage you to checkout both if you don't know about them!)
 
-live site [HERE](https://peacock.trollo.c66.me./#/)!
+Note: live site is currently down until I can find a cheaper alternative to host it. I was hosting it with Cloud66 + AWS before, and I welcome any recommendations or suggestions!
 
 Similar to Trello, user can create boards for their projects, invite team to be on board, and add lists of todos and other tasks. Under the list, you may add card and assign work to whoever is on board, and add due dates and comments on the card.
 
